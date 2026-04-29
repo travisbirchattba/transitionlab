@@ -153,9 +153,7 @@
       bottom: 60px;
       z-index: 1;
       background:
-        linear-gradient(145deg, rgba(16, 27, 34, 0.15), rgba(16, 27, 34, 0.62)),
-        url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80') center/cover;
-    }
+linear-gradient(145deg, rgba(16,27,34,0.08), rgba(16,27,34,0.45)),url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1400&q=80')    }
 
     .photo-small {
       left: 0;
@@ -166,7 +164,7 @@
       background:
         linear-gradient(145deg, rgba(16, 27, 34, 0.08), rgba(16, 27, 34, 0.58)),
         url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80') center/cover;
-    }
+    }background-position: center 35%;
 
     .visual-card {
       position: absolute;
@@ -384,20 +382,28 @@
       font-family: Georgia, 'Times New Roman', serif;
     }
 
-    .vertical-arrow-down,
-    .vertical-arrow-up {
-      position: absolute;
-      top: 50%;
-      color: var(--accent);
-      font-size: 2.2rem;
-      font-family: Georgia, 'Times New Roman', serif;
-      z-index: 2;
-      transform: translateY(-50%);
-      line-height: 1;
-    }
+.vertical-arrow-down,
+.vertical-arrow-up {
+  position: absolute;
+  font-size: 2.2rem;
+  color: var(--accent);
+  z-index: 3;
+  transform: translateY(-50%);
+}
 
-    .vertical-arrow-down { right: calc(50% - 34px); }
-    .vertical-arrow-up { left: calc(50% - 34px); }
+/* RIGHT SIDE (Reframing + Integration center) */
+.vertical-arrow-down {
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+
+/* LEFT SIDE (Awareness + Experimentation center) */
+.vertical-arrow-up {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
     .cycle-card {
       background: var(--card);
