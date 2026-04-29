@@ -1,111 +1,1056 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Leadership Continuity Lab</title>
-<script src="https://unpkg.com/lucide@latest"></script>
-<style>
-:root {
-  --bg:#f4f1ea;
-  --ink:#162127;
-  --muted:#607077;
-  --accent:#b46f43;
-}
-body{font-family:Arial;background:var(--bg);margin:0;color:var(--ink)}
-.section{max-width:1100px;margin:80px auto;padding:0 20px}
-.card{background:white;border-radius:24px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,0.05)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;position:relative}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leadership Continuity Lab | Burnout Prevention & Organizational Redesign</title>
+  <meta name="description" content="Leadership Continuity Lab helps organizations protect leadership continuity by addressing system-level drivers of burnout and redesigning the conditions that shape how work gets done." />
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-/* arrows */
-.vertical-arrow-left,
-.vertical-arrow-right,
-.horizontal-arrow {
-  position:absolute;
-  font-size:28px;
-  color:var(--accent);
-  line-height:1;
-  z-index:3;
-}
+  <style>
+    :root {
+      --bg: #f4f1ea;
+      --ink: #162127;
+      --muted: #607077;
+      --card: #fffdf8;
+      --line: #d9d2c7;
+      --accent: #b46f43;
+      --accent-dark: #79452c;
+      --deep: #101b22;
+      --deep-2: #1d2e35;
+      --sage: #8fa99b;
+      --clay: #c79a73;
+      --cream: #f8efe1;
+      --shadow: rgba(16, 27, 34, 0.16);
+    }
 
-/* Top arrow: Awareness → Reframing */
-.horizontal-arrow.top{
-  top:25%;
-  left:50%;
-  transform:translate(-50%, -50%);
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-/* Bottom arrow: Integration → Experimentation */
-.horizontal-arrow.bottom{
-  top:75%;
-  left:50%;
-  transform:translate(-50%, -50%);
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* Left vertical arrow: Experimentation → Awareness */
-.vertical-arrow-left{
-  top:50%;
-  left:25%;
-  transform:translate(-50%, -50%);
-}
+    body {
+      background:
+        radial-gradient(circle at 12% 8%, rgba(143, 169, 155, 0.20), transparent 28%),
+        radial-gradient(circle at 88% 4%, rgba(180, 111, 67, 0.14), transparent 30%),
+        var(--bg);
+      color: var(--ink);
+      font-family: Arial, sans-serif;
+      line-height: 1.65;
+    }
 
-/* Right vertical arrow: Reframing → Integration */
-.vertical-arrow-right{
-  top:50%;
-  left:75%;
-  transform:translate(-50%, -50%);
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-h2{font-family:Georgia;font-size:32px;margin-bottom:10px}
-p{color:var(--muted)}
+    .site {
+      overflow: hidden;
+    }
 
-</style>
+    .nav {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 28px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.45rem;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent);
+      color: #fff;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-weight: 750;
+      line-height: 1;
+      transition: 0.2s ease;
+      box-shadow: 0 16px 35px rgba(121, 69, 44, 0.20);
+    }
+
+    .button:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--accent-dark);
+      box-shadow: none;
+      padding-left: 0;
+    }
+
+    .hero {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 72px 24px 110px;
+      display: grid;
+      grid-template-columns: 1.03fr 0.97fr;
+      gap: 56px;
+      align-items: center;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      color: var(--accent-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.17em;
+      font-size: 0.75rem;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: 500;
+      letter-spacing: -0.035em;
+      color: var(--ink);
+    }
+
+    h1 {
+      font-size: clamp(3rem, 6.5vw, 6.2rem);
+      line-height: 1.04;
+      max-width: 880px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: clamp(2.15rem, 4.4vw, 4.35rem);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 1.45rem;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 730px;
+    }
+
+    .hero p {
+      font-size: 1.22rem;
+      max-width: 700px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .trust-line {
+      border-left: 3px solid var(--accent);
+      padding-left: 16px;
+      color: var(--muted);
+      font-size: 0.98rem;
+      max-width: 660px;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 590px;
+      z-index: 1;
+    }
+
+    .photo-card {
+      position: absolute;
+      border-radius: 34px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.55);
+      box-shadow: 0 34px 90px var(--shadow);
+      background: var(--deep);
+    }
+
+    .photo-main {
+      top: 0;
+      left: 70px;
+      right: 0;
+      height: 430px;
+      z-index: 1;
+      background:
+        linear-gradient(145deg, rgba(16, 27, 34, 0.08), rgba(16, 27, 34, 0.42)),
+        url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80') center 42%/cover;
+    }
+
+    .photo-small {
+      left: 0;
+      bottom: 0;
+      width: 44%;
+      height: 240px;
+      z-index: 3;
+      background:
+        linear-gradient(145deg, rgba(16, 27, 34, 0.08), rgba(16, 27, 34, 0.46)),
+        url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80') center/cover;
+    }
+
+    .visual-card {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 52%;
+      z-index: 4;
+      background: rgba(255,253,248,0.92);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(217, 210, 199, 0.8);
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow: 0 24px 70px rgba(16, 27, 34, 0.14);
+    }
+
+    .visual-card strong {
+      display: block;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.45rem;
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+
+    .visual-card span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .orbit {
+      position: absolute;
+      top: 0;
+      right: 28px;
+      width: 170px;
+      height: 170px;
+      border: 1px solid rgba(16, 27, 34, 0.16);
+      border-radius: 50%;
+      background: rgba(248, 239, 225, 0.72);
+      display: grid;
+      place-items: center;
+      box-shadow: inset 0 0 0 28px rgba(143,169,155,0.12);
+      z-index: 2;
+    }
+
+    .orbit::before,
+    .orbit::after {
+      content: '';
+      position: absolute;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .orbit::before {
+      width: 84px;
+      height: 2px;
+      transform: rotate(36deg);
+    }
+
+    .orbit::after {
+      width: 2px;
+      height: 84px;
+      transform: rotate(36deg);
+    }
+
+    .section {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 94px 24px;
+    }
+
+    .section-header {
+      max-width: 875px;
+      margin-bottom: 46px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255,253,248,0.78);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 31px;
+      min-height: 230px;
+      box-shadow: 0 20px 50px rgba(16, 27, 34, 0.07);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      right: -42px;
+      top: -42px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: rgba(143, 169, 155, 0.16);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .icon-wrap {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(143,169,155,0.16);
+      color: var(--accent-dark);
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+
+    .icon-wrap i {
+      width: 20px;
+      height: 20px;
+      stroke-width: 1.8;
+    }
+
+    .card p,
+    .card ul,
+    .card h3 {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card ul,
+    .dark-card ul,
+    .outcomes-block ul {
+      padding-left: 19px;
+      margin-top: 12px;
+    }
+
+    li {
+      color: var(--muted);
+      margin-bottom: 9px;
+      font-size: 1rem;
+    }
+
+    .dark-band {
+      background:
+        linear-gradient(135deg, rgba(16,27,34,0.96), rgba(29,46,53,0.96)),
+        url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: #fff;
+      margin: 54px 0;
+      position: relative;
+    }
+
+    .dark-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 78% 22%, rgba(199,154,115,0.22), transparent 32%);
+    }
+
+    .dark-inner {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 98px 24px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 48px;
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .dark-band h2,
+    .dark-band h3 {
+      color: #fff;
+    }
+
+    .dark-band .eyebrow {
+      color: var(--clay);
+    }
+
+    .dark-band p,
+    .dark-band li {
+      color: rgba(255,255,255,0.76);
+    }
+
+    .dark-band p + p {
+      margin-top: 18px;
+    }
+
+    .dark-card {
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      border-radius: 30px;
+      padding: 34px;
+      backdrop-filter: blur(12px);
+    }
+
+    .program-visual {
+      min-height: 340px;
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(145deg, rgba(16,27,34,0.15), rgba(16,27,34,0.62)),
+        url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80') center/cover;
+      box-shadow: 0 24px 60px rgba(16, 27, 34, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .program-visual::after {
+      content: 'structured support in real conditions';
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      right: 24px;
+      color: #fff;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 2.25rem;
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      max-width: 430px;
+    }
+
+    .cycle-wrap {
+      background: rgba(255,253,248,0.72);
+      border: 1px solid var(--line);
+      border-radius: 36px;
+      padding: 52px 34px 34px;
+      box-shadow: 0 24px 70px rgba(16, 27, 34, 0.09);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cycle-wrap::before {
+      content: 'Continuous Learning Cycles';
+      position: absolute;
+      right: 28px;
+      top: 26px;
+      color: var(--accent-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.7rem;
+      font-weight: 800;
+      opacity: 0.78;
+    }
+
+    .cycle-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 58px 68px;
+      position: relative;
+    }
+
+    .cycle-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 26px;
+      min-height: 220px;
+      position: relative;
+      box-shadow: 0 16px 42px rgba(16, 27, 34, 0.06);
+    }
+
+    .cycle-card h3 {
+      margin-top: 16px;
+    }
+
+    .cycle-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--deep-2);
+      color: #fff;
+      display: grid;
+      place-items: center;
+    }
+
+    .cycle-icon i {
+      width: 20px;
+      height: 20px;
+      stroke-width: 1.8;
+    }
+
+    .cycle-arrow {
+      position: absolute;
+      font-size: 2.2rem;
+      color: var(--accent);
+      line-height: 1;
+      z-index: 3;
+      font-family: Georgia, 'Times New Roman', serif;
+      opacity: 0.95;
+      pointer-events: none;
+    }
+
+    .arrow-top {
+      top: 25%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .arrow-right {
+      top: 50%;
+      left: 75%;
+      transform: translate(-50%, -50%);
+    }
+
+    .arrow-bottom {
+      top: 75%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .arrow-left {
+      top: 50%;
+      left: 25%;
+      transform: translate(-50%, -50%);
+    }
+
+    .pricing {
+      background:
+        linear-gradient(135deg, rgba(255,253,248,0.94), rgba(248,239,225,0.9));
+      border: 1px solid var(--line);
+      border-radius: 38px;
+      padding: 46px;
+      display: grid;
+      grid-template-columns: 0.98fr 1.02fr;
+      gap: 42px;
+      align-items: start;
+      box-shadow: 0 28px 80px rgba(16, 27, 34, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing::before {
+      content: '';
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -92px;
+      top: -100px;
+      border-radius: 50%;
+      border: 1px solid rgba(180,111,67,0.26);
+      box-shadow: inset 0 0 0 38px rgba(143,169,155,0.10);
+    }
+
+    .pricing > div {
+      position: relative;
+      z-index: 1;
+    }
+
+    .price {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(2.4rem, 5vw, 4.7rem);
+      letter-spacing: -0.06em;
+      line-height: 1;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+
+    .outcomes-block {
+      margin: 28px 0 28px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .outcomes-block h3 {
+      margin-bottom: 10px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 42px;
+      align-items: start;
+    }
+
+    .portrait-placeholder {
+      background:
+        linear-gradient(145deg, rgba(16,27,34,0.08), rgba(16,27,34,0.52)),
+        url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1000&q=80') center/cover;
+      border: 1px solid var(--line);
+      border-radius: 36px;
+      min-height: 400px;
+      display: flex;
+      align-items: flex-end;
+      color: #fff;
+      padding: 34px;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.6rem;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      box-shadow: 0 26px 70px rgba(16,27,34,0.14);
+    }
+
+    .about p + p {
+      margin-top: 18px;
+    }
+
+    .final-cta {
+      text-align: center;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 106px 24px 120px;
+    }
+
+    .final-cta p {
+      margin: 0 auto 28px;
+      font-size: 1.16rem;
+    }
+
+    .burnout-signals {
+      margin: 30px auto 36px;
+      max-width: 760px;
+      background: rgba(255,253,248,0.68);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 28px 32px;
+      text-align: left;
+      box-shadow: 0 18px 48px rgba(16,27,34,0.07);
+    }
+
+    .burnout-signals p {
+      margin-bottom: 10px;
+      font-size: 1rem;
+      color: var(--ink);
+    }
+
+    .burnout-signals ul {
+      padding-left: 19px;
+    }
+
+    .burnout-signals li {
+      font-size: 0.98rem;
+      margin-bottom: 8px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 32px 24px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      max-width: 1220px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero,
+      .dark-inner,
+      .pricing,
+      .about,
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .hero-visual {
+        min-height: 520px;
+      }
+
+      .photo-main {
+        left: 0;
+        right: 0;
+        height: 340px;
+      }
+
+      .photo-small {
+        width: 54%;
+      }
+
+      .visual-card {
+        width: 62%;
+      }
+
+      .section {
+        padding: 72px 24px;
+      }
+
+      .card,
+      .pricing,
+      .cycle-wrap {
+        border-radius: 26px;
+        padding: 27px;
+      }
+
+      .cycle-wrap::before {
+        position: static;
+        display: block;
+        margin-bottom: 18px;
+      }
+
+      .cycle-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .cycle-arrow {
+        display: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero-visual {
+        min-height: 460px;
+      }
+
+      .photo-main {
+        left: 0;
+        right: 0;
+        height: 330px;
+      }
+
+      .photo-small {
+        display: none;
+      }
+
+      .visual-card {
+        width: auto;
+        left: 18px;
+        right: 18px;
+        bottom: 0;
+      }
+
+      .orbit {
+        display: none;
+      }
+
+      h1 {
+        font-size: 3.05rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="site">
+    <header class="nav">
+      <a class="brand" href="#">Leadership Continuity Lab</a>
+      <nav class="nav-links">
+        <a href="#fit">Who it’s for</a>
+        <a href="#program">Program</a>
+        <a href="#method">Method</a>
+        <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Book a conversation</a>
+      </nav>
+    </header>
 
-<section class="section">
-  <h2 style="text-align:right; font-size:12px; letter-spacing:2px; color:var(--accent)">
-    CONTINUOUS LEARNING CYCLES
-  </h2>
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">Leadership continuity + organizational redesign</div>
+          <h1>Support mid-level leaders<br>before burnout becomes resignation.</h1>
+          <p>A facilitated cohort that helps leaders identify and redesign the conditions driving burnout — so organizations maintain leadership continuity, stabilize teams, and sustain performance.</p>
+          <div class="hero-actions">
+            <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Book a 30-minute conversation</a>
+            <a class="button secondary" href="#program">Explore the pilot cohort →</a>
+          </div>
+          <div class="trust-line">This is not about making leaders more resilient. It is about changing how work actually happens.</div>
+        </div>
 
-  <div class="grid">
+        <aside class="hero-visual" aria-label="Leaders in structured conversation">
+          <div class="orbit"></div>
+          <div class="photo-card photo-main"></div>
+          <div class="photo-card photo-small"></div>
+          <div class="visual-card">
+            <strong>Calm, structured support when leadership pressure gets real.</strong>
+            <span>For organizations that want to protect continuity by addressing root causes, not just symptoms.</span>
+          </div>
+        </aside>
+      </section>
 
-    <!-- Top Left -->
-    <div class="card">
-      <h2>Awareness</h2>
-      <p>Map burnout signals, role pressures, leadership patterns, and the real cost of continuing unchanged.</p>
-    </div>
+      <section class="section" id="fit">
+        <div class="section-header">
+          <div class="eyebrow">What this is</div>
+          <h2>A structured reset for the squeezed middle of organizations.</h2>
+          <p>Leadership Continuity Lab is a structured cohort process for managers, senior managers, and directors working under sustained pressure. Rather than focusing only on individual coping strategies, the lab surfaces and redesigns the management systems, expectations, and patterns that are putting leadership continuity at risk.</p>
+        </div>
 
-    <!-- Top Right -->
-    <div class="card">
-      <h2>Reframing</h2>
-      <p>Clarify what is misaligned, what can be redesigned, and where the leader still has agency.</p>
-    </div>
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-header">
+              <span class="icon-wrap"><i data-lucide="users"></i></span>
+              <h3>Managers</h3>
+            </div>
+            <p>People leaders trying to keep teams healthy and productive while carrying day-to-day pressure.</p>
+          </div>
 
-    <!-- Bottom Left -->
-    <div class="card">
-      <h2>Experimentation</h2>
-      <p>Test practical changes in communication, boundaries, delegation, decision-making, and team rhythms.</p>
-    </div>
+          <div class="card">
+            <div class="card-header">
+              <span class="icon-wrap"><i data-lucide="git-branch"></i></span>
+              <h3>Directors</h3>
+            </div>
+            <p>Senior leaders translating strategy into reality while managing fatigue, ambiguity, and competing demands.</p>
+          </div>
 
-    <!-- Bottom Right -->
-    <div class="card">
-      <h2>Integration</h2>
-      <p>Turn learning into changes that can be embedded in team rhythms, role expectations, decision flows, and leadership practice.</p>
-    </div>
+          <div class="card">
+            <div class="card-header">
+              <span class="icon-wrap"><i data-lucide="shield-check"></i></span>
+              <h3>HR + Executives</h3>
+            </div>
+            <p>Organizational sponsors looking to retain strong leaders before burnout becomes resignation.</p>
+          </div>
+        </div>
+      </section>
 
-    <!-- arrows -->
-    <div class="horizontal-arrow">→</div>
-    <div class="horizontal-arrow bottom">←</div>
-    <div class="vertical-arrow-left">↑</div>
-    <div class="vertical-arrow-right">↓</div>
+      <section class="dark-band">
+        <div class="dark-inner">
+          <div>
+            <div class="eyebrow">Why organizations invest</div>
+            <h2>Burnout is not a resilience problem.<br>It is a system design problem.</h2>
+            <p>When mid-level leaders burn out, it is rarely an individual failure. It is a signal that the way work is structured, distributed, and managed is no longer sustainable.</p>
+            <p>Leadership Continuity Lab works at this level — helping leaders surface and reshape the systems they are operating within, not just cope with them.</p>
+          </div>
 
+          <div class="dark-card">
+            <h3>Leadership Continuity Lab helps organizations:</h3>
+            <ul>
+              <li>Surface system-level drivers of burnout across teams and roles</li>
+              <li>Redesign management expectations, decision flows, and workload distribution</li>
+              <li>Support leaders to test new ways of working in real conditions</li>
+              <li>Stabilize teams by addressing root causes — not just symptoms</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="program">
+        <div class="section-header">
+          <div class="eyebrow">The program</div>
+          <h2>Leadership Continuity Lab</h2>
+          <p>A facilitated cohort process that helps leaders step back from pressure, diagnose the system around them, test new ways of working, and translate learning into healthier management practices.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="program-visual"></div>
+          <div class="card">
+            <h3>Program structure</h3>
+            <ul>
+              <li>6–8 leaders per cohort</li>
+              <li>8 facilitated sessions</li>
+              <li>Real-time workplace application</li>
+              <li>Practical redesign experiments between sessions</li>
+              <li>Reflection, peer support, and integration</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div class="eyebrow">Outcomes</div>
+          <h2>Designed for leadership continuity, healthier management systems, and stronger organizational performance.</h2>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-header">
+              <span class="icon-wrap"><i data-lucide="user-check"></i></span>
+              <h3>For leaders</h3>
+            </div>
+            <ul>
+              <li>See the system pressures shaping their leadership behaviour</li>
+              <li>Reduce burnout, reactivity, and decision fatigue</li>
+              <li>Test healthier ways of managing work, communication, and expectations</li>
+              <li>Clarify what needs to change in their role, team, or operating environment</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <span class="icon-wrap"><i data-lucide="building-2"></i></span>
+              <h3>For organizations</h3>
+            </div>
+            <ul>
+              <li>Protect continuity in key leadership roles</li>
+              <li>Identify where management systems are creating preventable strain</li>
+              <li>Improve stability, engagement, and follow-through across teams</li>
+              <li>Address leadership pressure before it becomes disengagement or exit</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="method">
+        <div class="section-header">
+          <div class="eyebrow">The method</div>
+          <h2>A learning cycle for redesigning work in real conditions.</h2>
+          <p>The process repeats through each cohort: leaders study what is happening, reframe the system around them, test changes in practice, and integrate what they learn back into the organization.</p>
+        </div>
+
+        <div class="cycle-wrap">
+          <div class="cycle-grid">
+            <div class="cycle-card">
+              <div class="cycle-icon"><i data-lucide="scan-search"></i></div>
+              <h3>Awareness</h3>
+              <p>Map burnout signals, role pressures, leadership patterns, and the real cost of continuing unchanged.</p>
+            </div>
+
+            <div class="cycle-card">
+              <div class="cycle-icon"><i data-lucide="refresh-cw"></i></div>
+              <h3>Reframing</h3>
+              <p>Clarify what is misaligned, what can be redesigned, and where the leader still has agency.</p>
+            </div>
+
+            <div class="cycle-card">
+              <div class="cycle-icon"><i data-lucide="flask-conical"></i></div>
+              <h3>Experimentation</h3>
+              <p>Test practical changes in communication, boundaries, delegation, decision-making, and team rhythms.</p>
+            </div>
+
+            <div class="cycle-card">
+              <div class="cycle-icon"><i data-lucide="layers"></i></div>
+              <h3>Integration</h3>
+              <p>Turn learning into changes that can be embedded in team rhythms, role expectations, decision flows, and leadership practice.</p>
+            </div>
+
+            <div class="cycle-arrow arrow-top">→</div>
+            <div class="cycle-arrow arrow-right">↓</div>
+            <div class="cycle-arrow arrow-bottom">←</div>
+            <div class="cycle-arrow arrow-left">↑</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="pricing">
+          <div>
+            <div class="eyebrow">Pilot opportunity</div>
+            <h2>Early partners help shape the methodology.</h2>
+            <p>Leadership Continuity Lab is currently being piloted with a small number of organizations. Early partners receive a focused intervention, high-touch facilitation, and direct involvement in refining the method for their leadership context.</p>
+          </div>
+
+          <div>
+            <div class="price">$6k–$10k</div>
+            <p>Pilot cohort pricing, depending on scope and organization size.</p>
+
+            <div class="outcomes-block">
+              <h3>What to expect</h3>
+              <ul>
+                <li>A clear diagnosis of system-level drivers of burnout across participating teams</li>
+                <li>Practical redesign options for management expectations, workflows, and decision patterns</li>
+                <li>Leaders testing concrete changes in live work conditions, not simulated training scenarios</li>
+                <li>Improved clarity, stability, and shared language among participating leaders</li>
+                <li>A grounded recommendation on whether to scale, adapt, or refine the approach across the organization</li>
+              </ul>
+            </div>
+
+            <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Ask about a pilot cohort</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div class="eyebrow">Who this is not for</div>
+          <h2>This is not general leadership training.</h2>
+          <p>Leadership Continuity Lab is designed for organizations where pressure is already affecting leader sustainability, management effectiveness, retention, and team stability. It is best suited for leaders facing real operating tension — not simply looking for another professional development session.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="about">
+          <div class="portrait-placeholder">Transition work for leaders carrying real responsibility.</div>
+          <div>
+            <div class="eyebrow">About the facilitator</div>
+            <h2>Led by Travis Birch.</h2>
+            <p>Travis Birch is a leadership and management facilitator with over 18 years of experience helping organizations address the conditions that drive burnout and disengagement. His work focuses on creating healthier work environments that translate into stronger employee engagement, customer satisfaction, productivity, and performance.</p>
+            <p>He works at the level of how work is structured and managed — supporting leaders to see and reshape the systems they are operating within.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta">
+        <div class="eyebrow">Next step</div>
+        <h2>Support key leaders before burnout becomes resignation.</h2>
+        <p>If you are seeing signs of burnout, disengagement, or role fatigue in your leadership team, this is the moment to act.</p>
+
+        <div class="burnout-signals">
+          <p><strong>You may be seeing signs like:</strong></p>
+          <ul>
+            <li>Declining employee engagement or satisfaction scores</li>
+            <li>Increased concerns about workload or work–life balance</li>
+            <li>Rising absenteeism or unplanned time off</li>
+            <li>Leaders showing signs of fatigue, withdrawal, or reduced clarity</li>
+            <li>Slower decision-making or bottlenecks at key points in the organization</li>
+            <li>High performers becoming disengaged or considering exit</li>
+          </ul>
+        </div>
+
+        <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Book a 30-minute conversation</a>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>© 2026 Leadership Continuity Lab</div>
+        <div>Leadership continuity • Organizational redesign • Burnout prevention</div>
+      </div>
+    </footer>
   </div>
-</section>
 
-<script>
-lucide.createIcons();
-</script>
-
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
