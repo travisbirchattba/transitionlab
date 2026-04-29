@@ -146,28 +146,33 @@
       background: var(--deep);
     }
 
-    .photo-main {
-      inset: 24px 12px 74px 74px;
+ .photo-main {
+  top: 0;
+  left: 40px;
+  right: 0;
+  bottom: 60px;
+  z-index: 1;
       background:
         linear-gradient(145deg, rgba(16, 27, 34, 0.15), rgba(16, 27, 34, 0.62)),
         url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80') center/cover;
     }
 
-    .photo-small {
-      left: 0;
-      bottom: 0;
-      width: 46%;
-      height: 270px;
+   .photo-small {
+  left: 0;
+  bottom: 0;
+  width: 44%;
+  height: 240px;
+  z-index: 2;
       background:
         linear-gradient(145deg, rgba(16, 27, 34, 0.08), rgba(16, 27, 34, 0.58)),
         url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80') center/cover;
     }
 
-    .visual-card {
-      position: absolute;
-      right: 0;
-      bottom: 28px;
-      width: 54%;
+.visual-card {
+  right: 0;
+  bottom: 20px;
+  width: 52%;
+  z-index: 3;
       background: rgba(255,253,248,0.92);
       backdrop-filter: blur(14px);
       border: 1px solid rgba(217, 210, 199, 0.8);
@@ -378,21 +383,30 @@
       font-family: Georgia, 'Times New Roman', serif;
     }
 
-    .vertical-arrow-down,
-    .vertical-arrow-up {
-      position: absolute;
-      top: 50%;
-      color: var(--accent);
-      font-size: 2.2rem;
-      font-family: Georgia, 'Times New Roman', serif;
-      z-index: 2;
-      transform: translateY(-50%);
-      line-height: 1;
-    }
+ .vertical-arrow-down,
+.vertical-arrow-up {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.2rem;
+  color: var(--accent);
+  z-index: 3;
+}
 
-    .vertical-arrow-down { right: 28px; }
-    .vertical-arrow-up { left: 28px; }
+/* RIGHT arrow */
+.vertical-arrow-down {
+  right: calc(50% - 34px);
+}
 
+/* LEFT arrow */
+.vertical-arrow-up {
+  left: calc(50% - 34px);
+}
+.vertical-arrow-down,
+.vertical-arrow-up {
+  opacity: 0.7;
+  filter: blur(0.2px);
+}
     .cycle-card {
       background: var(--card);
       border: 1px solid var(--line);
