@@ -1,567 +1,2501 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Transition Lab | Leadership Transition & Burnout Support</title>
-  <meta name="description" content="Transition Lab helps organizations retain and reset mid-level leaders at risk of burnout or exit through a structured, practice-based cohort process." />
-  <style>
-    :root {
-      --bg: #f7f3ec;
-      --ink: #1f2933;
-      --muted: #64707d;
-      --accent: #8a5a44;
-      --accent-dark: #5f3d2e;
-      --card: #ffffff;
-      --line: #e3d8ca;
-      --soft: #eee6dc;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Georgia, 'Times New Roman', serif;
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      overflow: hidden;
-    }
-
-    header {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 28px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-    }
-
-    .brand {
-      font-size: 1.25rem;
-      letter-spacing: 0.04em;
-      font-weight: 600;
-    }
-
-    nav {
-      display: flex;
-      gap: 24px;
-      align-items: center;
-      font-family: Arial, sans-serif;
-      font-size: 0.92rem;
-      color: var(--muted);
-    }
-
-    .nav-cta,
-    .button {
-      background: var(--accent);
-      color: #fff;
-      padding: 12px 18px;
-      border-radius: 999px;
-      font-family: Arial, sans-serif;
-      font-weight: 600;
-      display: inline-block;
-      transition: 0.2s ease;
-    }
-
-    .nav-cta:hover,
-    .button:hover {
-      background: var(--accent-dark);
-      transform: translateY(-1px);
-    }
-
-    .hero {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 72px 24px 96px;
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 56px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      font-family: Arial, sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      font-size: clamp(3rem, 7vw, 6.8rem);
-      line-height: 0.95;
-      letter-spacing: -0.06em;
-      margin-bottom: 28px;
-      max-width: 850px;
-    }
-
-    .hero p {
-      font-family: Arial, sans-serif;
-      font-size: 1.18rem;
-      color: var(--muted);
-      max-width: 640px;
-      margin-bottom: 34px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .secondary-link {
-      font-family: Arial, sans-serif;
-      color: var(--accent-dark);
-      font-weight: 700;
-      padding: 12px 0;
-    }
-
-    .cycle-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 34px;
-      padding: 34px;
-      box-shadow: 0 24px 70px rgba(71, 50, 36, 0.1);
-      min-height: 420px;
-      display: grid;
-      place-items: center;
-      position: relative;
-    }
-
-    .cycle {
-      width: min(100%, 360px);
-      aspect-ratio: 1;
-      border: 1.5px solid var(--line);
-      border-radius: 50%;
-      position: relative;
-    }
-
-    .cycle-step {
-      position: absolute;
-      background: var(--soft);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 11px 15px;
-      font-family: Arial, sans-serif;
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--accent-dark);
-      white-space: nowrap;
-    }
-
-    .step-1 { top: -18px; left: 50%; transform: translateX(-50%); }
-    .step-2 { right: -38px; top: 50%; transform: translateY(-50%); }
-    .step-3 { bottom: -18px; left: 50%; transform: translateX(-50%); }
-    .step-4 { left: -38px; top: 50%; transform: translateY(-50%); }
-
-    .cycle-center {
-      position: absolute;
-      inset: 72px;
-      border-radius: 50%;
-      background: var(--bg);
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 24px;
-      font-family: Arial, sans-serif;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .section {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 86px 24px;
-    }
-
-    .section-title {
-      max-width: 760px;
-      margin-bottom: 42px;
-    }
-
-    h2 {
-      font-size: clamp(2.1rem, 4vw, 4rem);
-      line-height: 1.05;
-      letter-spacing: -0.045em;
-      margin-bottom: 18px;
-    }
-
-    .section-title p,
-    .large-copy {
-      font-family: Arial, sans-serif;
-      color: var(--muted);
-      font-size: 1.08rem;
-      max-width: 720px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 26px;
-      padding: 28px;
-      min-height: 220px;
-    }
-
-    .card h3 {
-      font-size: 1.35rem;
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
-    }
-
-    .card p,
-    .card li {
-      font-family: Arial, sans-serif;
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 48px;
-      align-items: start;
-    }
-
-    .program-box {
-      background: var(--ink);
-      color: #fff;
-      border-radius: 34px;
-      padding: 40px;
-    }
-
-    .program-box p,
-    .program-box li {
-      color: rgba(255,255,255,0.75);
-      font-family: Arial, sans-serif;
-    }
-
-    .program-box h3 {
-      font-size: 2rem;
-      margin-bottom: 18px;
-    }
-
-    .steps {
-      display: grid;
-      gap: 14px;
-    }
-
-    .step-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 22px 24px;
-      display: grid;
-      grid-template-columns: 44px 1fr;
-      gap: 14px;
-      align-items: start;
-    }
-
-    .number {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: var(--soft);
-      display: grid;
-      place-items: center;
-      font-family: Arial, sans-serif;
-      font-weight: 700;
-      color: var(--accent-dark);
-    }
-
-    .step-card h3 {
-      margin-bottom: 4px;
-      font-size: 1.1rem;
-    }
-
-    .step-card p {
-      font-family: Arial, sans-serif;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .quote-section {
-      background: var(--soft);
-      margin: 40px 0;
-    }
-
-    .quote-inner {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 88px 24px;
-      text-align: center;
-    }
-
-    .quote-inner p {
-      font-size: clamp(2rem, 5vw, 4.5rem);
-      line-height: 1.05;
-      letter-spacing: -0.05em;
-    }
-
-    .final-cta {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 96px 24px 112px;
-      text-align: center;
-    }
-
-    .final-cta h2 {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .final-cta p {
-      font-family: Arial, sans-serif;
-      color: var(--muted);
-      font-size: 1.1rem;
-      max-width: 660px;
-      margin: 0 auto 30px;
-    }
-
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 30px 24px;
-      font-family: Arial, sans-serif;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .footer-inner {
-      max-width: 1180px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 850px) {
-      nav {
-        display: none;
-      }
-
-      .hero,
-      .split,
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 44px;
-      }
-
-      .cycle-card {
-        min-height: 360px;
-      }
-
-      .step-2 { right: -18px; }
-      .step-4 { left: -18px; }
-    }
-  </style>
-</head>
-<body>
-  <div class="page">
-    <header>
-      <a class="brand" href="#">Transition Lab</a>
-      <nav>
-        <a href="#problem">The Problem</a>
-        <a href="#program">Program</a>
-        <a href="#approach">Approach</a>
-        <a class="nav-cta" href="mailto:travis.birch@tbagroup.io">Book a Conversation</a>
-      </nav>
-    </header>
-
-    <main>
-      <section class="hero">
-        <div>
-          <div class="eyebrow">Leadership transition + burnout prevention</div>
-          <h1>Leadership is breaking in the middle.</h1>
-          <p>Transition Lab helps organizations retain and reset mid-level leaders at risk of burnout or exit through a structured, practice-based cohort process.</p>
-          <div class="hero-actions">
-            <a class="button" href="mailto:travis.birch@tbagroup.io">Book a conversation</a>
-            <a class="secondary-link" href="#program">Explore the cohort →</a>
-          </div>
-        </div>
-
-        <div class="cycle-card" aria-label="Transition Lab method cycle">
-          <div class="cycle">
-            <div class="cycle-step step-1">Awareness</div>
-            <div class="cycle-step step-2">Reframing</div>
-            <div class="cycle-step step-3">Experimentation</div>
-            <div class="cycle-step step-4">Integration</div>
-            <div class="cycle-center">A facilitated cycle for sustainable leadership change.</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="problem">
-        <div class="section-title">
-          <div class="eyebrow">The problem</div>
-          <h2>Your strongest leaders may already be halfway out.</h2>
-          <p>Not always physically. Often psychologically. They are carrying pressure from above and below, absorbing culture problems, and questioning whether the role still fits who they are becoming.</p>
-        </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <h3>Burnout risk</h3>
-            <p>Leaders are exhausted, reactive, and operating without enough recovery, reflection, or support.</p>
-          </div>
-          <div class="card">
-            <h3>Role pressure</h3>
-            <p>Mid-level managers are asked to translate strategy, hold teams together, and manage constant change.</p>
-          </div>
-          <div class="card">
-            <h3>Quiet transition</h3>
-            <p>Many are privately asking: Can I keep doing this? Do I need to change how I lead? Do I want to stay?</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="quote-section">
-        <div class="quote-inner">
-          <p>This is not just a wellness problem. It is a leadership transition problem.</p>
-        </div>
-      </section>
-
-      <section class="section" id="program">
-        <div class="split">
-          <div class="program-box">
-            <div class="eyebrow">Flagship offer</div>
-            <h3>Leadership Transition Lab</h3>
-            <p>A facilitated cohort experience for mid-level leaders navigating burnout, role pressure, and transition decisions.</p>
-            <br />
-            <ul>
-              <li>6–8 leaders per cohort</li>
-              <li>8 facilitated sessions</li>
-              <li>Real-time workplace application</li>
-              <li>Reflection, peer support, and practical experiments</li>
-            </ul>
-          </div>
-
-          <div>
-            <div class="section-title">
-              <h2>Designed for real change, not another workshop.</h2>
-              <p>The lab gives leaders a structured space to map pressure points, reframe their role, test new behaviours, and make intentional decisions about what comes next.</p>
-            </div>
-            <div class="grid-3">
-              <div class="card">
-                <h3>For leaders</h3>
-                <p>Clarity, renewed agency, healthier boundaries, and a more sustainable way to lead.</p>
-              </div>
-              <div class="card">
-                <h3>For teams</h3>
-                <p>More grounded management, clearer communication, and healthier team dynamics.</p>
-              </div>
-              <div class="card">
-                <h3>For organizations</h3>
-                <p>Stronger retention of key leaders and reduced risk of burnout-driven exit.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="approach">
-        <div class="section-title">
-          <div class="eyebrow">The method</div>
-          <h2>A practice-based cycle for leadership sustainability.</h2>
-          <p>Leaders do not change through insight alone. The process moves from awareness to applied experiments to integration in the real conditions of work.</p>
-        </div>
-
-        <div class="steps">
-          <div class="step-card">
-            <div class="number">1</div>
-            <div>
-              <h3>Awareness</h3>
-              <p>Map burnout signals, role pressures, leadership patterns, and the real cost of continuing unchanged.</p>
-            </div>
-          </div>
-          <div class="step-card">
-            <div class="number">2</div>
-            <div>
-              <h3>Reframing</h3>
-              <p>Clarify what is misaligned, what can be redesigned, and where the leader still has agency.</p>
-            </div>
-          </div>
-          <div class="step-card">
-            <div class="number">3</div>
-            <div>
-              <h3>Experimentation</h3>
-              <p>Test small, practical changes in communication, boundaries, delegation, decision-making, and team rhythms.</p>
-            </div>
-          </div>
-          <div class="step-card">
-            <div class="number">4</div>
-            <div>
-              <h3>Integration</h3>
-              <p>Turn learning into a sustainable leadership plan: stay and evolve, redesign the role, or prepare for transition.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-title">
-          <div class="eyebrow">Who it is for</div>
-          <h2>Built for the squeezed middle of organizations.</h2>
-          <p>Transition Lab works best with organizations that rely on experienced managers, senior managers, and directors who are carrying significant people, culture, and delivery responsibilities.</p>
-        </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <h3>Managers</h3>
-            <p>People leaders absorbing day-to-day pressure while trying to keep teams healthy and productive.</p>
-          </div>
-          <div class="card">
-            <h3>Directors</h3>
-            <p>Senior leaders translating strategy into reality while managing fatigue, ambiguity, and competing demands.</p>
-          </div>
-          <div class="card">
-            <h3>HR + Executives</h3>
-            <p>Organizational sponsors looking to retain strong leaders before burnout becomes resignation.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="final-cta">
-        <div class="eyebrow">Pilot cohort inquiries</div>
-        <h2>Support key leaders before they burn out or walk away.</h2>
-        <p>We are currently opening conversations with organizations interested in piloting a Leadership Transition Lab cohort.</p>
-        <a class="button" href="mailto:travis.birch@tbagroup.io">Book a conversation</a>
-      </section>
-    </main>
-
-    <footer>
-      <div class="footer-inner">
-        <div>© 2026 Transition Lab</div>
-        <div>Leadership transition • Burnout prevention • Healthy workplaces</div>
-      </div>
-    </footer>
-  </div>
+help me build a similar business model for supporting leaders and managers with facilitating healthy workplaces, preventing and dealing with burnout, mid-career transition support for leaders and managers 
+
+You’re essentially describing the leadership equivalent of what you’ve already been building with The Stage Beyond—but instead of dancer transition, it’s leader sustainability, workplace health, and identity transition. That’s a strong, fundable, and highly marketable niche if you structure it well.
+
+Let’s build this in a way that is both coherent as a business and sellable to organizations immediately.
+
+1. Core Positioning (Don’t skip this)
+
+Most offerings in this space are:
+
+generic “leadership coaching”
+compliance-based wellness programs
+reactive burnout recovery
+
+That’s not compelling.
+
+Your edge should be:
+
+Practice-based leadership sustainability + transition methodology
+
+👉 Not advice
+👉 Not theory
+👉 Not one-off coaching
+
+A structured, facilitated process leaders go through
+
+Suggested Working Name
+
+You can mirror your arts project:
+
+The Leadership Beyond
+Sustainable Leadership Lab
+The Leader Transition Lab
+Workplace Vitality Lab
+2. Core Problem You’re Solving
+
+Frame it sharply:
+
+For organizations:
+Burnout → turnover → cost
+Weak middle management capacity
+Poor workplace culture → performance drag
+For leaders:
+Chronic stress / burnout
+Identity fatigue (“this role isn’t me anymore”)
+Lack of support navigating transitions
+Isolation at the top
+3. Your Core Offer (This is the engine)
+
+Mirror your Stage Beyond structure:
+
+Cohort-Based Leadership Lab (Flagship Program)
+Format:
+6–8 leaders per cohort
+3–6 months
+Facilitated sessions + applied cycles
+Structure (adapt your 4-phase cycle):
+Awareness
+burnout signals
+leadership patterns
+workplace dynamics
+Reframing
+identity as a leader
+redefining success/scope
+values alignment
+Experimentation
+real-world workplace interventions
+communication changes
+boundary setting
+Integration
+embed new practices
+organizational ripple effects
+transition decisions (stay, shift, redesign role)
+
+👉 This is your signature methodology
+
+4. Product Ladder (How you make money)
+
+You need multiple entry points:
+
+Tier 1: Organizational Programs (Primary Revenue)
+Cohort programs (your flagship)
+Leadership team intensives
+Culture reset engagements
+
+💰 Pricing:
+
+$8K–$25K per cohort (depending on org size)
+$15K–$60K for org-wide engagements
+Tier 2: Individual Leader Support
+1:1 coaching (premium)
+Transition navigation programs
+
+💰 Pricing:
+
+$200–$500/hr
+or $3K–$10K packages
+Tier 3: Scalable Offerings
+Workshops
+Digital tools
+Self-guided programs
+
+💰 Pricing:
+
+$500–$3K per workshop
+digital products later
+5. Ideal Clients (Be Specific)
+
+Don’t say “everyone.”
+
+Best initial targets:
+Mid-size organizations (50–500 employees)
+Non-profits & arts orgs (aligned with your network)
+Professional services firms
+Tech startups scaling too fast
+Buyer:
+HR Director
+Executive Director
+COO
+6. Your Differentiator (Critical)
+
+You win if you position this clearly:
+
+You are NOT:
+a therapist
+a generic coach
+a corporate trainer
+You ARE:
+
+A facilitator of structured leadership transformation processes
+
+7. Signature Language (Steal this—it matters)
+
+Use language like:
+
+“practice-based methodology”
+“facilitated cohort process”
+“applied leadership cycles”
+“real-time workplace integration”
+“leader sustainability”
+
+This makes you sound:
+✔ credible
+✔ different
+✔ fundable
+
+8. Example Offer (Ready to Sell)
+
+Here’s something you can literally pitch:
+
+Leadership Sustainability Lab
+
+A facilitated cohort experience for managers and leaders navigating burnout, role pressure, and transition.
+
+Outcomes:
+
+Reduced burnout risk
+Increased leadership clarity
+Healthier team dynamics
+Retention of key leaders
+
+Includes:
+
+8 facilitated sessions
+structured reflection + action cycles
+peer cohort support
+real-time workplace application
+9. How This Connects to Your Existing Work
+
+This is important strategically.
+
+You now have two parallel verticals:
+
+1. Creative Sector
+The Stage Beyond (artists/dancers)
+2. Leadership / Workplace Sector
+Leadership Sustainability Lab
+
+👉 Same underlying methodology
+👉 Different audiences
+
+This is extremely powerful long-term.
+
+10. Fastest Way to Get Your First Client
+
+Don’t overbuild. Do this:
+
+Step 1:
+
+Reach out to 10 people in your network:
+
+“I’m piloting a leadership sustainability cohort for managers dealing with burnout and transition.”
+Step 2:
+
+Offer a pilot cohort
+
+discounted rate
+high-touch delivery
+gather testimonials
+Step 3:
+
+Turn that into:
+
+case study
+sales PDF
+website section
+11. If I Push You a Bit…
+
+The biggest risk here is:
+👉 You make this too broad
+
+You need to choose a sharp entry point like:
+
+“burnout recovery for mid-level leaders”
+“supporting newly promoted managers”
+“leader transition (stay vs leave vs redesign role)”
+
+You can expand later.
+
+12. If You Want Next Steps
+
+I can help you:
+
+Turn this into a 1-page sales PDF
+Write your exact website copy
+Design your cohort curriculum session-by-session
+Create outreach messages that land clients fast
+
+Just tell me what you want to build next.
+
+which entry point is the best in terms of the market and my background?
+
+Short answer: “Burnout + transition for mid-level leaders (managers/directors)” is your strongest entry point right now.
+
+But let me show you why, because this is where most people make the wrong call.
+
+The 3 Entry Points You’re Considering
+1. Burnout Recovery for Leaders
+
+Market: 🔥 Very high demand
+Problem: crowded + commoditized
+
+Everyone is selling “burnout solutions”
+Often framed as wellness (yoga, resilience training, etc.)
+Buyers are skeptical (“we’ve tried this already”)
+
+👉 You risk blending in unless you radically differentiate
+
+2. Newly Promoted Managers
+
+Market: ✅ consistent demand
+Problem: lower urgency + lower budget
+
+Seen as “training,” not transformation
+Often handled internally or cheaply
+Less emotional urgency = slower sales
+
+👉 Good later, not ideal as your first wedge
+
+3. Leader Transition (Stay / Shift / Redesign Role)
+
+Market: ⚡ emerging, under-served, high value
+
+Leaders are quietly asking:
+“Can I keep doing this?”
+“Do I want to stay?”
+“How do I reshape my role without quitting?”
+Organizations are worried about:
+retention of experienced leaders
+silent disengagement
+costly turnover
+
+👉 This is where the real tension is—and where budgets unlock
+
+The Overlap Is the Opportunity
+
+Here’s the key insight:
+
+👉 Burnout is the trigger
+👉 Transition is the real problem
+
+So the strongest positioning is:
+
+“Supporting mid-level leaders navigating burnout and role transition”
+
+That gives you:
+
+urgency (burnout)
+depth (identity + transition)
+differentiation (not generic wellness)
+Why This Fits You Specifically
+
+Based on what I know about your background:
+
+1. You already think in identity + transition
+
+From your work:
+
+artists
+creative identity
+deferred self / unrealized version
+
+👉 This maps perfectly onto leaders:
+
+“I’ve become someone I don’t want to be”
+“This role isn’t aligned anymore”
+2. You’re not a typical “corporate trainer”
+
+That’s an advantage.
+
+If you try to compete on:
+
+management frameworks
+performance systems
+
+👉 you lose
+
+If you lead with:
+
+reflective practice
+facilitated process
+real human change
+
+👉 you win
+
+3. You’ve lived the tension
+
+From what you shared earlier:
+
+stable income vs creative life
+identity cost
+long-term regret risk
+
+👉 That is exactly what leaders are experiencing
+
+This gives you:
+
+authenticity
+language that resonates
+depth most consultants don’t have
+Market Reality (Important)
+
+Organizations will NOT buy:
+
+“identity exploration for leaders”
+
+They WILL buy:
+
+“retaining and stabilizing high-value managers at risk of burnout”
+
+So you position like this:
+
+External Language (what you sell)
+
+“Preventing burnout and retaining key leaders”
+
+Internal Reality (what you actually do)
+
+“Facilitating identity + role transition”
+
+Your Sharp Entry Point (Use This)
+Mid-Level Leader Transition Under Burnout Pressure
+
+Specifically:
+
+managers
+senior managers
+directors
+
+Why them?
+
+most squeezed layer in organizations
+highest burnout rates
+least support
+biggest impact on culture
+Your First Offer (Refined)
+Leadership Transition Lab
+
+A facilitated cohort for mid-level leaders navigating burnout, role pressure, and career transition decisions.
+
+Core promise:
+
+regain clarity
+reduce burnout
+redesign how they lead (or decide what’s next)
+What Makes This Sell
+
+This combination hits all three:
+
+1. Urgency
+
+“I’m burning out”
+
+2. Risk
+
+“We might lose this person”
+
+3. Complexity
+
+“We don’t know how to fix this internally”
+
+If I Push You One Step Further
+
+Don’t say:
+
+“I help leaders with burnout”
+
+Say:
+
+“I help organizations retain and reset mid-level leaders who are at risk of burnout or exit.”
+
+That’s a budget unlock sentence.
+
+The Real Strategic Insight
+
+You’re not building a “wellness” business.
+
+You’re building a:
+
+Human Transition Infrastructure for Organizations
+
+That’s rare—and valuable.
+
+If You Want, Next Step
+
+I can:
+
+turn this into a tight positioning statement + homepage copy
+design your exact cohort curriculum
+or write outreach messages to land your first pilot client
+
+What do you want to build next?
+
+all of the above
+
+Great—let’s build this as something you can actually sell within 1–2 weeks, not just something that sounds good.
+
+I’ll give you three concrete assets:
+
+Positioning + homepage copy
+Cohort curriculum (ready to run)
+High-converting outreach messages
+1. POSITIONING + HOMEPAGE COPY
+🔹 One-Line Positioning (Use Everywhere)
+
+We help organizations retain and reset mid-level leaders at risk of burnout or exit through a structured, practice-based cohort process.
+
+🔹 Homepage Structure (You can paste this into your site)
+HERO
+
+Headline:
+Leadership is breaking in the middle.
+
+Subhead:
+We help organizations retain and reset mid-level leaders navigating burnout, role pressure, and transition.
+
+CTA:
+→ Book a conversation
+→ Pilot cohort inquiry
+
+THE PROBLEM
+
+Mid-level leaders are:
+
+carrying the highest load
+absorbing pressure from above and below
+quietly burning out or disengaging
+
+Most organizations respond with:
+
+generic training
+wellness initiatives
+reactive coaching
+
+None of which address the real issue:
+leaders no longer feel aligned with how they’re working—or who they’ve become in the role
+
+THE SHIFT
+
+This isn’t just burnout.
+
+It’s a leadership transition problem.
+
+Leaders are asking:
+
+Can I keep doing this?
+Do I need to change how I lead?
+Do I even want to stay?
+
+Without support, organizations lose them—physically or psychologically.
+
+YOUR OFFER
+Leadership Transition Lab
+
+A facilitated cohort experience for mid-level leaders navigating burnout and role transition.
+
+What makes this different:
+
+practice-based (not just discussion)
+cohort-based (not isolating)
+applied in real time (not theoretical)
+OUTCOMES
+
+For leaders:
+
+clarity on their role and direction
+reduced burnout risk
+renewed sense of agency
+
+For organizations:
+
+increased retention of key leaders
+healthier team dynamics
+stronger management capacity
+HOW IT WORKS
+
+A structured cycle:
+
+Awareness
+Reframing
+Experimentation
+Integration
+
+Repeated through facilitated sessions and real-world application.
+
+CTA
+
+→ Book a 30-min conversation
+→ Ask about pilot cohort
+
+2. COHORT CURRICULUM (READY TO RUN)
+🔹 Format
+6–8 leaders
+8 sessions
+90 minutes each
+bi-weekly (recommended)
+🔹 Session-by-Session
+Session 1: Orientation + Reality Check
+establish trust
+surface burnout + pressure points
+define personal “why now”
+
+Output: personal baseline + intention
+
+Session 2: Burnout Mapping
+identify sources (role, org, self)
+distinguish fatigue vs misalignment
+
+Output: burnout map
+
+Session 3: Leadership Identity
+who have you become in this role?
+what’s no longer sustainable?
+
+Output: identity gaps
+
+Session 4: Reframing the Role
+what can be changed vs what can’t
+reclaiming agency
+
+Output: role redesign targets
+
+Session 5: Experiment Design
+small, real-world changes:
+boundaries
+communication shifts
+delegation
+
+Output: 2–3 live experiments
+
+Session 6: Integration Checkpoint
+what worked / didn’t
+resistance (internal + external)
+
+Output: refined approach
+
+Session 7: Transition Decisions
+stay and evolve
+redesign role
+prepare for exit
+
+Output: direction clarity
+
+Session 8: Integration + Forward Plan
+lock in changes
+define ongoing practices
+
+Output: sustainability plan
+
+🔹 Your Role in Sessions
+
+You are:
+
+facilitator (not lecturer)
+pattern recognizer
+guide through discomfort
+3. OUTREACH MESSAGES (HIGH-CONVERTING)
+🔹 Goal
+
+Not to sell.
+
+👉 To start conversations with the right tension
+
+🔹 Message 1: Warm Network (BEST FIRST MOVE)
+
+Subject: Quick question
+
+Hello [Name],
+
+I’m developing a cohort-based program focused on supporting mid-level leaders who are navigating burnout and questioning their role.
+
+From what I’m seeing, this is where a lot of organizations are quietly struggling—retaining strong managers who are under sustained pressure.
+
+I’m speaking with a small number of leaders and HR partners to test and refine the approach.
+
+Would you be open to a 20-minute conversation to share what you’re seeing on your side?
+
+🔹 Message 2: HR / Org Buyer
+
+Hello [Name],
+
+I’m currently piloting a facilitated cohort program designed to support mid-level leaders who are at risk of burnout or disengagement.
+
+It’s focused on helping leaders reset how they’re working and make intentional decisions about their role—before organizations lose them.
+
+Curious if this is something you’re seeing internally right now?
+
+Happy to share more if useful.
+
+🔹 Message 3: Direct Leader Outreach
+
+Hello [Name],
+
+I’m putting together a small cohort of leaders who are navigating burnout, role pressure, or questions about what’s next in their work.
+
+It’s a facilitated space focused on real-time changes—not just discussion.
+
+If that’s even loosely relevant to where you’re at, I’d be glad to share more.
+
+🔹 Message 4: Pilot Offer (After Conversations)
+
+Hello [Name],
+
+Based on our conversation, I’m opening a small pilot cohort for mid-level leaders in the coming [month].
+
+It will be:
+
+6–8 participants
+8 facilitated sessions
+focused on burnout, role clarity, and leadership reset
+
+As a pilot, I’m offering it at a reduced rate in exchange for feedback and a case study.
+
+Would you like details?
+
+4. PRICING (FOR YOUR FIRST SALE)
+
+Don’t overthink this.
+
+Pilot Cohort:
+$6K–$10K total (organization pays)
+OR
+$1K–$2K per participant
+5. WHAT TO DO THIS WEEK
+
+If you want traction fast:
+
+Day 1–2:
+finalize name + one-liner
+set up simple landing page (even Notion)
+Day 3–5:
+send 15–25 outreach messages
+Week 2:
+book 5–10 conversations
+close 1 pilot
+Final Push (Important)
+
+Your instinct will be to:
+
+refine more
+perfect language
+build assets
+
+Don’t.
+
+👉 This will only sharpen in conversation with real buyers
+
+If you want next, I can:
+
+turn this into a designed 1-page sales PDF
+help you script your sales call
+or refine your exact niche based on who responds
+
+What do you want to tighten next?
+
+whats a good domain name
+
+Good—this matters more than people think. A weak domain subtly undermines everything you just built.
+
+You want something that is:
+
+clear enough to trust
+distinct enough to remember
+flexible enough to grow
+First: A quick reality check
+
+Avoid:
+
+generic corporate phrases (leadershipsolutionsgroup.com)
+trendy fluff (mindfulleadershiphub.io)
+anything too narrow (burnoutfixers.com)
+
+You’re building something method-driven and expandable, not a one-off service.
+
+Best Strategy for YOU
+
+You actually have two strong directions:
+
+Option A: Branded Ecosystem (Recommended)
+
+This mirrors The Stage Beyond
+
+👉 You create a “container” brand that can hold multiple verticals
+
+Option B: Direct / Descriptive
+
+More immediately clear, slightly less distinctive long-term
+
+🔹 Top Domain Directions (Curated for your positioning)
+1. “Beyond” Family (Strongest alignment with your existing work)
+theleadershipbeyond.com
+beyondleadershiplab.com
+leadershipbeyondlab.com
+beyondtheleader.com
+
+👉 Why this works:
+
+connects to The Stage Beyond
+signals transition + evolution
+not corporate / not generic
+2. “Lab” Positioning (Modern + credible)
+leadershiplab.co
+leadershiptransitionlab.com
+workplacelab.co
+leaderlab.ca
+
+👉 Why this works:
+
+implies process, experimentation
+fits your cohort model perfectly
+feels current and serious
+3. “Transition” (Sharp + differentiated)
+leadertransition.com
+leadershiptransition.co
+transitionlab.ca
+thetransitionlab.co
+
+👉 Why this works:
+
+directly names the real problem
+less crowded than “leadership” terms
+strong for enterprise buyers
+4. “Sustainability / Vitality” (More corporate-friendly)
+leadersustainability.com
+workplacevitality.co
+sustainableleader.co
+
+👉 Why this works:
+
+easier sell to HR
+slightly less distinctive
+5. Hybrid (Probably your sweet spot)
+
+These balance brand + clarity:
+
+leadershipbeyond.co
+thetransitionlab.co
+beyondworklab.com
+leaderreset.com
+resetleadership.co
+My Strong Recommendation (Don’t overthink)
+
+If available, go with:
+
+leadershipbeyond.co
+
+or
+
+thetransitionlab.co
+
+Why:
+
+clean
+scalable
+aligned with your methodology
+not boxed into burnout only
+One Strategic Move You Should Consider
+
+If you’re serious about building this long-term:
+
+👉 Secure BOTH:
+
+a brand domain (e.g. leadershipbeyond.co)
+AND your personal name (e.g. travisbirch.com)
+
+Then:
+
+brand = business
+name = thought leadership / credibility
+Quick Availability Trick
+
+Before you fall in love:
+
+check .com and .co
+prioritize .com if available
+.co is totally acceptable in your space
+If You Want Me to Push This Further
+
+I can:
+
+check availability and narrow to 3 live options
+design your logo + visual direction
+or align your domain with your existing Stage Beyond ecosystem
+
+Just say the word.
+
+leadershipbeyond.ca
+
+Here’s the straight answer:
+
+❗ Status of leadershipbeyond.ca
+
+Based on current domain search results, it appears to be unavailable / already registered
+
+That doesn’t mean it’s in active use—but someone owns it (possibly parked or unused).
+
+What this means strategically (important)
+
+You now have 3 options:
+
+1. Try to acquire it (if you really want it)
+You can contact the owner via WHOIS/CIRA message relay
+Sometimes domains are just sitting unused
+Cost could range from:
+$100 → $5,000+ (or more if someone sees value)
+
+👉 Only worth it if you’re committed to that exact brand
+
+2. Slight variation (FASTEST + smartest move)
+
+Don’t get stuck here—you want momentum.
+
+Strong alternatives that keep your positioning intact:
+
+Top Tier (very close)
+leadershipbeyondlab.ca
+leadershipbeyond.co
+theleadershipbeyond.ca
+leadershipbeyondgroup.ca
+Even better (cleaner brand IMO)
+thetransitionlab.ca
+leadertransition.ca
+leadershiptransitionlab.ca
+
+👉 These are actually sharper for what you’re selling
+
+3. Use .com or .co instead
+
+If available:
+
+leadershipbeyond.com
+leadershipbeyond.co
+
+This is often:
+✔ cleaner
+✔ more scalable internationally
+
+My honest recommendation (not what you expect)
+
+Don’t chase leadershipbeyond.ca too hard.
+
+It’s good—but not perfect.
+
+👉 It’s slightly abstract
+👉 It doesn’t signal “transition” or “burnout” clearly
+👉 It leans brand over clarity
+
+What I would choose if I were you
+🥇 thetransitionlab.ca
+
+or
+
+🥇 leadershiptransitionlab.ca
+
+Why:
+
+immediately clear problem space
+still feels premium
+matches your methodology (“lab” + “process”)
+One more important move (most people miss this)
+
+Whatever you pick:
+
+👉 buy 2–3 domains
+
+your main one
+close variations
+maybe the .com version
+
+This protects your brand long-term
+
+Bottom line
+❌ leadershipbeyond.ca → likely taken
+✅ you have equally strong (arguably better) options
+⚡ speed matters more than perfection right now
+
+If you want, I can:
+
+check live availability for 10–15 top options
+or align the domain with your existing Stage Beyond ecosystem so it feels like a unified brand system
+
+What direction do you want to lean—“Beyond” or “Transition/Lab”?
+
+build website
+
+I’ll turn the business model into a simple, polished landing page you can adapt for your GitHub site. I’ll use the “Leadership Beyond” direction for now and keep the copy focused on retaining/resetting mid-level leaders.
+
+Thought for a couple of seconds
+
+Built a first landing page draft in canvas.
+
+Two things to change before publishing:
+
+Replace hello@leadershipbeyond.ca with your real email.
+Confirm the final domain/brand name if not Leadership Beyond.
+1 = travis.birch@tbagroup.io
+2 = Transition Lab
+
+Done.
+
+Next move I’d strongly recommend (before you publish):
+
+👉 Decide your domain + update the CTA links to a calendar (Calendly or similar) instead of email — it will increase conversions significantly.
+
+If you want, I can:
+
+wire this into a live GitHub Pages deploy
+or upgrade this into a higher-end visual design (more “Stage Beyond” feel)
+wire this into a live GitHub Pages deploy
+
+I’ll give you the exact GitHub Pages path, assuming this is a simple static site like your Stage Beyond site. We’ll replace or add an index.html, commit it, then enable Pages from the right branch/folder.
+
+Thought for a couple of seconds
+
+Yes. Do this:
+
+1. Open your GitHub repository
+
+Go to the repo where you want Transition Lab to live.
+
+2. Click Add file
+
+Choose either:
+
+Create new file
+or
+Upload files
+
+3. Create/replace this file
+
+Name it exactly:
+
+index.html
+
+Paste the website code from the canvas into that file.
+
+4. Commit the file
+
+Scroll down and click:
+
+Commit changes
+
+Use a message like:
+
+Add Transition Lab landing page
+5. Turn on GitHub Pages
+
+In your repo:
+
+Settings → Pages
+
+Under Build and deployment:
+
+Source: Deploy from a branch
+Branch: main
+Folder: /root
+
+Then click:
+
+Save
+6. Your site will appear at
+
+Usually:
+
+https://YOUR-GITHUB-USERNAME.github.io/YOUR-REPO-NAME/
+
+GitHub may take a minute or two to publish it.
+
+Important
+
+Since your CTA currently uses:
+
+mailto:travis.birch@tbagroup.io
+
+it will open an email draft when clicked.
+
+After it’s live, send me a screenshot of the repo or Pages settings screen and I’ll tell you exactly what to click next.
+
+can't find Settings → Pages
+
+This trips people up a lot—GitHub moved things around a bit. Let’s get you there quickly.
+
+🔍 Where to find Pages in GitHub (current UI)
+Step-by-step:
+Open your repository (the page with your files)
+Look at the top menu bar (near Code / Issues / Pull requests)
+
+👉 On the far right, click:
+
+Settings
+
+If you DON’T see “Settings”
+
+That means one of these is happening:
+
+❗ You’re not the owner of the repo
+
+You need admin access to see Settings.
+
+Fix:
+
+Make sure you're logged into the correct account
+Or confirm you created the repo
+❗ Window is too narrow
+
+GitHub hides tabs when the screen is small
+
+👉 Look for a “…” (three dots) menu
+Settings may be inside there
+
+✅ Once you’re in Settings
+
+In the left sidebar, scroll down and click:
+
+Pages
+
+⚙️ Then configure:
+
+Under Build and deployment:
+
+Source → Deploy from a branch
+Branch → main
+Folder → /root
+
+Click Save
+
+🚀 What happens next
+
+GitHub will show:
+
+“Your site is live at…”
+
+Takes about:
+⏱ 30–90 seconds
+
+🧭 If you STILL don’t see it
+
+Tell me which of these you're seeing:
+
+No Settings tab at all
+Settings exists but no “Pages” option
+You’re inside an organization repo
+
+…and I’ll pinpoint it exactly.
+
+If you want, I can also help you:
+👉 connect a custom domain (like thetransitionlab.ca)
+👉 or upgrade this into a more premium-looking site once it’s live
+
+Perfect—you’re very close. I can see exactly what’s happening from your screenshot.
+
+👉 You’re in the right repo
+👉 Your index.html is already there (good)
+👉 You just need to enable Pages—but the tab is hidden
+
+🔍 Where “Pages” is in YOUR screen
+
+In your screenshot, look at the top menu:
+
+Code | Issues | Pull requests | Agents | Actions | Projects | Wiki | More ▼
+
+👉 Click “More ▼”
+
+Then:
+
+You should see something like:
+
+Insights
+Settings
+
+👉 Click Settings
+
+If you STILL don’t see Settings
+
+That means one of two things:
+
+1. You’re not seeing full menu (most likely)
+
+GitHub is hiding it due to width
+
+👉 Try:
+
+Make your browser window wider
+OR
+Zoom out (Cmd -)
+2. Edge case: permissions issue
+
+But since:
+
+you created the repo
+you committed code
+
+👉 you almost certainly DO have access
+
+Once inside Settings
+
+Left sidebar → scroll down → click:
+
+👉 Pages
+
+Then set:
+Source: Deploy from a branch
+Branch: main
+Folder: /root
+
+Click Save
+
+🚀 What happens next
+
+GitHub will show something like:
+
+Your site is live at:
+https://travisbirchattba.github.io/transitionlab/
+If you want fastest path
+
+You can also just:
+
+👉 manually go to:
+
+https://github.com/YOUR-USERNAME/transitionlab/settings/pages
+
+(Replace YOUR-USERNAME with your GitHub name)
+
+Once it’s live
+
+Send me the URL and I’ll:
+
+review it like a buyer (not a designer)
+tighten conversion (this is where we make it actually sell)
+
+You're literally one click away now.
+
+i don't understand what to do next
+
+Got it—let’s make this dead simple and remove all guesswork.
+
+You’ve already done the hard part. Your site is basically ready. We just need to flip the “publish” switch.
+
+✅ Do THIS (exact clicks)
+👉 Step 1: Open this link (click it)
+
+Paste this into your browser:
+
+https://github.com/travisbirchattba/transitionlab/settings/pages
+👉 What you should see
+
+A page titled:
+
+“GitHub Pages”
+
+👉 Step 2: Set these 3 things
+
+You’ll see a section called Build and deployment
+
+Set it exactly like this:
+
+Source → Deploy from a branch
+Branch → main
+Folder → / (root)
+👉 Step 3: Click Save
+⏱ Wait ~30–60 seconds
+
+Then your site will be live at:
+
+https://travisbirchattba.github.io/transitionlab/
+🚨 If that link doesn’t work
+
+Tell me what you see:
+
+Do you see the Pages screen?
+Or does the link not open?
+
+I’ll adjust instantly.
+
+🧠 Important reassurance
+
+You did NOT do anything wrong.
+
+GitHub just:
+
+hides the Settings tab
+buries Pages
+makes this confusing for everyone
+🎯 Once it’s live
+
+Send me the link.
+
+I’ll:
+
+tighten your messaging
+improve conversion (so it actually gets clients)
+help you connect a real domain (like thetransitionlab.ca)
+
+You’re one click away.
+
+Perfect—this screenshot tells us exactly what’s happening.
+
+👉 Good news: your site is live
+👉 Issue: it’s showing a blank page (usually a simple fix)
+
+🎯 Why it’s blank (most likely)
+
+One of these is happening:
+
+1. The file didn’t save properly
+
+OR
+
+2. There’s a small HTML issue
+
+OR
+
+3. GitHub Pages hasn’t finished building
+✅ Step 1: Quick refresh (do this first)
+
+Press:
+
+Cmd + Shift + R  (Mac)
+Ctrl + Shift + R (Windows)
+
+👉 This forces a full reload
+
+If it’s STILL blank → do this:
+✅ Step 2: Check your file
+
+Go back to your repo and click:
+
+👉 index.html
+
+You should see:
+
+A LOT of code (hundreds of lines)
+
+❗ If you see:
+
+only a few lines
+or it looks cut off
+
+👉 That’s the problem
+
+✅ Step 3: Fix (most common issue)
+
+Click:
+
+👉 the ✏️ Edit button
+
+Then:
+
+👉 Delete everything
+👉 Paste the full code again (from the canvas here)
+
+Then scroll down:
+
+👉 Click Commit changes
+
+✅ Step 4: Wait 30 seconds + refresh again
+🔥 If that still doesn’t work
+
+We’ll debug fast.
+
+Tell me:
+
+👉 When you open index.html, do you see:
+
+full HTML code?
+or something short / broken?
+
+OR
+
+👉 paste a screenshot of the file contents
+
+🧠 Reality check
+
+You are NOT far off.
+
+This is usually:
+
+one paste issue
+or one missing piece
+
+We’ll get it live in the next step.
+
+I haven't loaded the code yet
+
+That explains the blank page.
+
+Do this next:
+
+Go back to GitHub repo:
+travisbirchattba / transitionlab
+Click index.html
+Click the pencil icon ✏️ near the top right
+Delete anything currently inside
+Paste the full website code from the canvas
+Scroll down and click Commit changes
+Wait 30–60 seconds
+Refresh:
+https://travisbirchattba.github.io/transitionlab/
+
+The blank page should become the website.
+
+now link to domain
+
+Nice—this is the final step that makes it feel real.
+
+I’ll walk you through it cleanly.
+
+🎯 What we’re doing
+
+You want:
+
+👉 thetransitionlab.ca (or whatever domain you bought)
+to show your GitHub site
+
+Instead of:
+
+travisbirchattba.github.io/transitionlab
+⚠️ Before we start
+
+Do you already own the domain?
+
+If YES → continue
+If NO → tell me where you’re buying (GoDaddy, Namecheap, etc.) and I’ll guide you
+
+✅ STEP 1 — Add your domain in GitHub
+
+Go to:
+
+https://github.com/travisbirchattba/transitionlab/settings/pages
+In “Custom domain” field:
+
+Enter:
+
+thetransitionlab.ca
+
+Click:
+👉 Save
+
+✅ STEP 2 — Configure DNS (this is the key part)
+
+Go to your domain provider (where you bought the domain)
+
+Find:
+👉 DNS settings
+or
+👉 Manage DNS
+
+Add these records:
+A Records (for root domain)
+
+Add 4 A records:
+
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+
+Host:
+
+@
+CNAME (for www)
+
+Add:
+
+Host: www
+Value: travisbirchattba.github.io
+✅ STEP 3 — Wait
+
+DNS takes:
+⏱ 10 minutes → 1 hour (sometimes up to 24h)
+
+✅ STEP 4 — Enable HTTPS
+
+Back in GitHub Pages settings:
+
+👉 Check:
+
+Enforce HTTPS
+
+(Only appears after DNS is working)
+
+🔥 Result
+
+Your site will now load at:
+
+https://thetransitionlab.ca
+🧠 Common mistakes (avoid these)
+
+❌ Only adding 1 A record (you need all 4)
+❌ Typo in GitHub username
+❌ Forgetting to click Save in GitHub
+❌ Not waiting long enough
+
+If you want this done perfectly
+
+Tell me:
+👉 where you bought the domain (GoDaddy, Namecheap, etc.)
+
+I’ll give you exact clicks for that platform so you don’t have to guess.
+
+Once it’s connected, we’ll:
+👉 tighten the site so it actually converts into clients
+👉 add a booking flow (this is where leads come from)
+
+You’re very close now.
+
+Perfect—this screenshot shows exactly what’s wrong.
+
+👉 Those IP addresses (185.230.63.xxx) are NOT GitHub
+They’re from Wix
+
+So right now your domain is pointing to Wix, not your GitHub site.
+
+🔥 What you need to do
+
+You must replace those A records with GitHub’s
+
+✅ Step-by-step fix (do this exactly)
+1. DELETE these records:
+
+All of these:
+
+185.230.63.171  
+185.230.63.186  
+185.230.63.107  
+
+(Delete every A record that uses 185.230.*)
+
+2. ADD these 4 new A records:
+
+Create 4 separate entries:
+
+Host: @
+Value: 185.199.108.153
+
+Host: @
+Value: 185.199.109.153
+
+Host: @
+Value: 185.199.110.153
+
+Host: @
+Value: 185.199.111.153
+
+TTL:
+→ leave as 1 hour (fine)
+
+3. ADD CNAME (for www)
+Host: www
+Value: travisbirchattba.github.io
+✅ Step 4 — Back to GitHub
+
+Go here:
+
+https://github.com/travisbirchattba/transitionlab/settings/pages
+
+In Custom domain, make sure it says:
+
+transitionlab.ca
+
+Click Save
+
+⏱ Then wait
+10–30 minutes (sometimes up to 1 hour)
+🚀 Result
+
+Your site will load at:
+
+https://transitionlab.ca
+⚠️ Common mistake (watch this)
+
+If you leave even ONE Wix record:
+
+👉 it can break the connection
+
+So make sure:
+✔ only the 4 GitHub IPs exist
+✔ no 185.230.* left
+
+If you want me to verify
+
+After you update:
+
+👉 send me a screenshot again
+
+I’ll confirm it’s 100% correct before you wait.
+
+You’re very close now—this is the last technical step.
+
+Good catch—this error is actually helpful.
+
+👉 Your DNS provider does NOT accept “@” as a host name.
+
+That’s normal for some providers.
+
+✅ What to do instead
+
+Where I said:
+
+Host: @
+
+👉 Replace it with:
+
+transitionlab.ca
+✅ So your A records should look like:
+
+Create 4 entries like this:
+
+Host: transitionlab.ca
+Value: 185.199.108.153
+
+Host: transitionlab.ca
+Value: 185.199.109.153
+
+Host: transitionlab.ca
+Value: 185.199.110.153
+
+Host: transitionlab.ca
+Value: 185.199.111.153
+✅ Then add CNAME (unchanged)
+Host: www
+Value: travisbirchattba.github.io
+⚠️ Important
+
+Before adding these:
+
+👉 Make sure you deleted ALL Wix records (185.230.*)
+
+🧠 Why this happened
+
+Different DNS providers use:
+
+@ → shorthand for root (common)
+full domain (transitionlab.ca) → same thing, just explicit
+
+Yours uses the second format.
+
+🚀 After you save
+Go back to GitHub Pages settings
+Confirm custom domain = transitionlab.ca
+Wait ~20–60 minutes
+Refresh your site
+If you want to be 100% sure
+
+Send me one more screenshot after you save
+I’ll confirm everything is correct before you wait.
+
+You’re literally at the finish line.
+
+This is perfectly set up. Seriously—this is exactly what it should look like.
+
+✅ All 4 GitHub A records → correct
+✅ No Wix records → good
+✅ CNAME for www → correct
+
+🎯 What happens now
+
+You’re in the waiting phase:
+
+⏱ Typically: 10–30 minutes
+⏱ Sometimes: up to 1 hour
+
+✅ Final check (do this now)
+
+Go here:
+
+👉
+
+https://github.com/travisbirchattba/transitionlab/settings/pages
+
+Make sure:
+
+Custom domain: transitionlab.ca
+
+If not:
+→ enter it
+→ click Save
+
+🔒 Then (important)
+
+Once your site loads:
+
+👉 Go back to that same page
+👉 Turn ON:
+
+Enforce HTTPS
+🚀 Test your site
+
+Try both:
+
+https://transitionlab.ca
+https://www.transitionlab.ca
+🧠 If it doesn’t work after ~1 hour
+
+Tell me what you see:
+
+blank page?
+GitHub page still showing?
+error?
+
+I’ll diagnose instantly.
+
+🔥 Next step (once live)
+
+Right now your site is:
+✔ live
+❌ not optimized to convert
+
+After it’s working, I’ll help you:
+
+make it feel premium (closer to Stage Beyond)
+increase conversion (book calls, not just views)
+add calendar booking (this is key)
+
+You did the hard technical part correctly. Now we just wait a bit.
+
+This is actually exactly what I’d expect at this stage — nothing is broken.
+
+👉 DNS_PROBE_FINISHED_NXDOMAIN =
+your domain hasn’t finished connecting yet
+
+🧠 What’s happening (simple version)
+
+You:
+
+set the DNS correctly ✅
+GitHub is ready ✅
+
+But:
+👉 the internet hasn’t updated everywhere yet
+
+Think of it like:
+
+“Your address change hasn’t propagated yet”
+
+⏱ How long this takes
+
+Typical:
+
+10–30 minutes ✅
+Sometimes:
+up to 1–2 hours
+Rarely:
+up to 24 hours
+✅ Quick check (do this now)
+
+Try BOTH:
+
+https://transitionlab.ca
+https://www.transitionlab.ca
+
+👉 If www works first, that’s normal
+
+🔍 If you want to confirm it's working behind the scenes
+
+Open this:
+
+👉 https://dnschecker.org
+
+Search:
+
+transitionlab.ca
+
+👉 You should start seeing:
+185.199.xxx.xxx (GitHub)
+
+If you see that:
+✅ it’s working
+⏳ just not everywhere yet
+
+🚨 One thing to double-check (important)
+
+Go back to GitHub:
+
+👉
+https://github.com/travisbirchattba/transitionlab/settings/pages
+
+Make sure:
+
+Custom domain: transitionlab.ca
+
+If it’s empty:
+→ enter it
+→ Save
+
+🚀 What will happen next
+
+Soon:
+
+👉 your domain will load your site
+👉 then you enable HTTPS
+👉 then you're fully live
+
+💬 Reality check
+
+You did EVERYTHING right.
+
+This part just:
+
+feels broken
+but is actually just waiting
+If it's still not working in ~1 hour
+
+Send me:
+
+what dnschecker shows
+or another screenshot
+
+I’ll diagnose instantly.
+
+You’re at the finish line.
+
+not secure
+
+Perfect — this is actually a good sign.
+
+👉 Your domain is now connected
+👉 Your site is loading
+👉 The only issue left is HTTPS (security)
+
+🔒 Why it says “Not Secure”
+
+Right now your site is loading as:
+
+http://transitionlab.ca
+
+Instead of:
+
+https://transitionlab.ca
+
+GitHub hasn’t issued the SSL certificate yet.
+
+✅ Fix (2 clicks)
+
+Go here:
+
+👉 https://github.com/travisbirchattba/transitionlab/settings/pages
+
+Find this section:
+
+“Enforce HTTPS”
+
+👉 Check the box:
+
+Enforce HTTPS
+⏱ If the checkbox is greyed out
+
+This is normal.
+
+👉 It means GitHub is still generating your SSL certificate
+
+Wait:
+
+5–15 minutes (usually fast)
+up to 1 hour (sometimes)
+
+Then refresh that page and try again.
+
+✅ Once it works
+
+Your site will automatically switch to:
+
+https://transitionlab.ca
+
+And the browser will show:
+✔ secure
+✔ no warning
+
+🔥 Optional (recommended)
+
+Also make sure this works:
+
+https://www.transitionlab.ca
+
+If it does:
+👉 you’re fully set
+
+🎯 Where you are now
+
+You’ve completed:
+
+✅ site build
+✅ GitHub deploy
+✅ domain connection
+
+You are literally one checkbox away from finished
+
+Next move (important)
+
+Now that it's live, the real work begins:
+
+👉 turning this into something that gets clients
+
+I can help you:
+
+tighten your headline (this one is too generic right now)
+improve conversion (book calls, not just look nice)
+add a scheduling flow (critical)
+
+Just say:
+“optimize site” and we’ll level it up.
+
+Good—this is the last real hurdle, and the message tells us exactly what’s missing.
+
+👉 GitHub is saying:
+“Your domain is not fully pointing to us yet”
+
+Even though it looks connected, something small is still off.
+
+🎯 The issue (based on your setup)
+
+Your A records are correct ✅
+But GitHub still isn’t fully verifying the domain for HTTPS.
+
+👉 The usual cause at this stage:
+
+❗ Missing or incorrect CNAME formatting
+
+From your screenshot, I can see:
+
+www.transitionlab.ca → travisbirchattba....
+
+But we need to be very precise here.
+
+✅ Fix (very important)
+
+Go back to your DNS settings.
+
+🔧 Edit your CNAME record
+
+Make sure it is EXACTLY:
+
+Host: www
+Value: travisbirchattba.github.io
+⚠️ Common mistake (likely happening)
+
+Right now your provider may have:
+
+Host: www.transitionlab.ca   ❌
+
+👉 That’s wrong for most DNS systems
+
+It should ONLY be:
+
+Host: www   ✅
+✅ Then double-check:
+
+You should have ONLY:
+
+A Records:
+transitionlab.ca → 185.199.108.153
+transitionlab.ca → 185.199.109.153
+transitionlab.ca → 185.199.110.153
+transitionlab.ca → 185.199.111.153
+CNAME:
+www → travisbirchattba.github.io
+🚫 Remove anything else
+
+If you see:
+
+extra A records
+old entries
+anything with Wix
+
+👉 delete them
+
+⏱ Then wait again
+
+GitHub needs:
+
+DNS to settle
+then it issues SSL
+
+Usually:
+→ 10–30 minutes after fix
+
+🔁 Then go back to GitHub
+
+👉 Refresh:
+https://github.com/travisbirchattba/transitionlab/settings/pages
+
+And try:
+
+Enforce HTTPS
+🧠 Why this happens
+
+GitHub won’t enable HTTPS unless:
+
+root domain (A records) ✅
+subdomain (www CNAME) ✅
+
+Both must be perfectly aligned.
+
+If you want this 100% nailed
+
+Send me one more screenshot after you update the CNAME.
+
+I’ll verify it instantly and we’ll finish this cleanly.
+
+You’re extremely close—this screenshot shows the exact issue.
+
+❗ The problem
+
+Your CNAME value is cut off / incomplete
+
+Right now it shows:
+
+travisbirchattba
+
+👉 That is NOT valid
+
+✅ Fix (this is the final fix)
+
+Edit that CNAME record so it is exactly this:
+
+Host: www
+Value: travisbirchattba.github.io
+⚠️ Important details
+Do NOT include https://
+Do NOT include .transitionlab.ca
+It must end with .github.io
+So your final setup should be:
+A Records (already correct ✅)
+transitionlab.ca → 185.199.108.153
+transitionlab.ca → 185.199.109.153
+transitionlab.ca → 185.199.110.153
+transitionlab.ca → 185.199.111.153
+CNAME (fix this 👇)
+www → travisbirchattba.github.io
+⏱ After you fix it
+Click Save
+Wait ~10–30 minutes
+Go back to:
+
+👉 GitHub Pages settings
+
+Now try:
+Enforce HTTPS
+🚀 What will happen
+GitHub will verify domain
+SSL certificate will activate
+“Not secure” disappears
+Site becomes fully live
+🧠 Why this broke things
+
+GitHub needs:
+
+root domain (A records) ✅
+AND valid subdomain (CNAME) ❗
+
+Right now:
+👉 the CNAME wasn’t pointing anywhere real
+
+If you want certainty
+
+After you fix it, send one more screenshot.
+
+I’ll confirm instantly and we’ll close this out cleanly.
+
+Perfect. That’s now 100% correct.
+
+👉 Your setup is now exactly what GitHub requires.
+
+🎯 Where you are now
+A records → ✅ correct
+CNAME → ✅ correct
+GitHub config → (assumed set)
+
+👉 You are now in the final propagation + SSL phase
+
+⏱ What happens next
+
+Give it:
+
+~10–30 minutes (usually)
+up to 1 hour (sometimes)
+
+Then:
+
+👉 Go back to GitHub Pages:
+
+https://github.com/travisbirchattba/transitionlab/settings/pages
+
+You should now be able to:
+
+✔ Enable “Enforce HTTPS”
+🔒 What you’ll see when it works
+
+Instead of:
+
+Not Secure
+
+You’ll see:
+
+🔒 Secure
+https://transitionlab.ca
+🧪 Test both versions
+
+Try:
+
+https://transitionlab.ca
+https://www.transitionlab.ca
+🚨 If HTTPS is still unavailable after ~1 hour
+
+Tell me and I’ll check one of these edge cases:
+
+GitHub hasn’t re-verified yet
+DNS cache needs flush
+domain needs re-save in GitHub
+
+But right now:
+
+👉 You’ve done everything correctly
+
+🔥 Next step (don’t skip this)
+
+Once it’s secure:
+
+Your site works technically—but it’s not yet optimized to get clients.
+
+I’d strongly recommend next:
+
+tighten your headline (this is the biggest lever)
+add a booking flow (critical)
+sharpen your offer positioning
+
+Just say:
+👉 “optimize site”
+
+And we’ll turn this into something that actually converts.
+
+This is exactly where you should be right now 👍
+
+👉 Nothing is broken.
+GitHub is simply still issuing your SSL certificate.
+
+🧠 What this message actually means
+
+“certificate has not yet been issued”
+
+Translation:
+
+👉 GitHub sees your domain
+👉 GitHub is verifying it
+👉 GitHub is generating HTTPS behind the scenes
+
+⏳ It just hasn’t finished yet
+
+⏱ How long this takes
+
+Usually:
+
+5–20 minutes
+
+Sometimes:
+
+up to 1 hour
+
+Rarely:
+
+a few hours
+✅ What you should do
+
+👉 Do nothing right now
+
+Just:
+
+Wait ~15–20 minutes
+
+Refresh this page:
+
+https://github.com/travisbirchattba/transitionlab/settings/pages
+Check if this becomes clickable:
+Enforce HTTPS
+🚀 When it’s ready
+
+You’ll be able to:
+
+✔ Check the box
+✔ Site switches to HTTPS
+✔ “Not Secure” disappears
+
+🔥 Optional (quick test trick)
+
+Try this in 10–15 minutes:
+
+https://transitionlab.ca
+
+If it loads without warning:
+👉 it’s already working
+
+🧠 Reality check
+
+You have:
+
+✅ built the site
+✅ deployed with GitHub Pages
+✅ connected a custom domain
+✅ fixed DNS correctly
+
+This is the final automatic step
+
+If it’s STILL not ready after ~1 hour
+
+I’ll fix it with you fast—usually one of:
+
+re-saving domain in GitHub
+forcing a re-check
+clearing DNS cache
+
+You’re at 99%. Just waiting for GitHub to finish its job.
+
+This is exactly what you want to see.
+
+👉 “DNS check successful” = everything is configured correctly
+👉 The only remaining step is GitHub issuing the SSL certificate
+
+🎯 Where you are (final stage)
+Domain connected → ✅
+DNS verified → ✅
+Site live → ✅
+HTTPS → ⏳ in progress
+⏱ What to do now
+
+👉 Nothing to fix. Just wait.
+
+Give it:
+
+10–20 more minutes (usually)
+up to ~1 hour max
+🔁 What to do next
+
+Come back to this exact page and:
+
+👉 Refresh
+👉 Watch for this to become clickable:
+
+Enforce HTTPS
+
+Then:
+
+👉 Check the box
+
+🔒 When it’s done
+
+Your site will switch to:
+
+https://transitionlab.ca
+
+And the browser will show:
+✔ Secure
+✔ No warning
+
+🧠 Important (don’t overthink this)
+
+You’ve already:
+
+fixed DNS correctly
+corrected the CNAME (this was the real issue)
+passed GitHub verification
+
+👉 There is nothing left to troubleshoot
+
+This is just:
+
+GitHub generating your certificate in the background
+
+🚀 What I’d do while waiting (smart move)
+
+Instead of refreshing over and over:
+
+👉 Open your live site
+👉 Read it like a buyer
+
+You’ll notice immediately:
+
+headline is too generic
+value isn’t sharp enough
+no strong conversion path yet
+
+When HTTPS flips on, next step is:
+
+👉 “optimize site”
+
+That’s where this becomes something that actually brings in clients.
+
+You’ve nailed the technical side. Now we make it work for you.
+
+👉 “optimize site”
+
+Good—this is the part that actually makes the site work.
+
+Right now your site is:
+✔ clean
+✔ credible
+❌ not sharp enough to convert
+
+We’re going to fix that by tightening 3 things:
+
+Headline (biggest lever)
+Offer clarity
+Call-to-action (critical)
+1. 🔥 Fix the Headline (MOST IMPORTANT)
+Current:
+
+Transition Lab
+Leadership is breaking in the middle.
+
+👉 This is vague. It sounds interesting—but not actionable.
+
+Replace with this:
+Option A (strong + direct)
+
+Retain and reset your most valuable leaders before they burn out or walk away.
+
+Option B (more provocative)
+
+Your best managers aren’t failing—they’re burning out.
+
+Option C (my top pick for you)
+
+Support mid-level leaders at risk of burnout—before you lose them.
+
+Subhead (keep this under it):
+
+A facilitated cohort experience that helps managers and directors reset how they lead, reduce burnout, and make intentional decisions about their role.
+
+2. 🎯 Make the Offer Immediately Clear
+
+Right now people have to “figure it out.”
+
+We remove that.
+
+Add this section RIGHT under the hero:
+What this is
+
+Leadership Transition Lab is a structured cohort program for:
+
+managers
+senior managers
+directors
+
+Who are:
+
+under sustained pressure
+showing signs of burnout
+questioning how (or whether) to continue in their role
+3. 💰 Add a “Why Organizations Buy This” Section
+
+This unlocks budget.
+
+Add this:
+Why organizations invest
+Retain experienced leaders at risk of exit
+Reduce burnout-driven turnover
+Stabilize teams under pressure
+Strengthen management capacity without adding more training
+4. ⚡ Sharpen the Outcome Section
+
+Replace soft language with outcomes that feel real.
+
+Replace your outcomes with:
+For leaders:
+regain clarity and direction
+reduce burnout and reactivity
+redesign how they lead day-to-day
+For organizations:
+keep strong leaders who would otherwise leave
+improve team stability and performance
+reduce hidden disengagement
+5. 🚨 Fix the CTA (THIS IS CRITICAL)
+
+Right now:
+👉 “Book a conversation” → email
+
+That’s friction.
+
+Replace with:
+Primary CTA:
+
+Book a 30-minute conversation
+
+👉 link to Calendly (or similar)
+
+Secondary CTA:
+
+Ask about a pilot cohort
+
+6. 🧠 Add ONE credibility line (you’re missing this)
+
+Right now there’s no “why trust you.”
+
+Add this near the top:
+
+Led by Travis Birch—facilitator and former management consultant working at the intersection of leadership, transition, and practice-based development.
+
+7. ✂️ What to REMOVE (important)
+
+Cut anything that feels:
+
+abstract
+poetic
+“leadership-y”
+
+👉 Keep it grounded in:
+
+pressure
+burnout
+retention
+decisions
+8. 🧩 Simple Structure (final flow)
+
+Your page should read like this:
+
+Headline (clear problem)
+Subhead (what you do)
+What this is (clarity)
+Why it matters (org pain)
+The program
+Outcomes
+Method (your cycle)
+CTA
+🧠 The shift we just made
+
+Before:
+
+interesting idea
+
+After:
+
+urgent, fundable solution
+
+🚀 If you want next level
+
+I can:
+
+rewrite your entire homepage line-by-line
+plug this directly into your existing code
+or design a high-converting version (Stage Beyond quality)
+
+Just say:
+👉 “rewrite full site”
+or
+👉 “update code”
+
+This is where it goes from “live” to “actually brings in work.”
+
+rewrite full site
+Leadership Beyond Landing Page
+· html
+
+
+<a class="cta" href="mailto:travis.birch@tbagroup.io">Book a 30-minute conversation</a>
+
+
+<div class="section">
+<h2>What this is</h2>
+<p>Transition Lab is a structured cohort program for managers, senior managers, and directors who are under sustained pressure, showing signs of burnout, and questioning how—or whether—to continue in their role.</p>
+</div>
+
+
+<div class="section">
+<h2>Why organizations invest</h2>
+<ul>
+<li>Retain experienced leaders at risk of exit</li>
+<li>Reduce burnout-driven turnover</li>
+<li>Stabilize teams under pressure</li>
+<li>Strengthen management capacity</li>
+</ul>
+</div>
+
+
+<div class="section">
+<h2>The program</h2>
+<div class="box">
+<p><strong>Leadership Transition Lab</strong></p>
+<ul>
+<li>6–8 leaders per cohort</li>
+<li>8 facilitated sessions</li>
+<li>Real-time workplace application</li>
+<li>Practical experiments + reflection</li>
+</ul>
+</div>
+</div>
+
+
+<div class="section">
+<h2>Outcomes</h2>
+
+
+<div class="box">
+<p><strong>For leaders</strong></p>
+<ul>
+<li>Regain clarity and direction</li>
+<li>Reduce burnout and reactivity</li>
+<li>Redesign how they lead day-to-day</li>
+</ul>
+</div>
+
+
+<div class="box">
+<p><strong>For organizations</strong></p>
+<ul>
+<li>Retain key leaders</li>
+<li>Improve team stability</li>
+<li>Reduce hidden disengagement</li>
+</ul>
+</div>
+
+
+</div>
+
+
+<div class="section">
+<h2>The method</h2>
+<p>A structured cycle applied in real work conditions:</p>
+<ul>
+<li>Awareness</li>
+<li>Reframing</li>
+<li>Experimentation</li>
+<li>Integration</li>
+</ul>
+</div>
+
+
+<div class="section">
+<h2>About</h2>
+<p>Led by Travis Birch—facilitator and former management consultant working at the intersection of leadership, transition, and practice-based development.</p>
+</div>
+
+
+<div class="section">
+<h2>Next step</h2>
+<p>If you’re seeing signs of burnout or disengagement in your leadership team, this is the moment to act.</p>
+<a class="cta" href="mailto:travis.birch@tbagroup.io">Book a conversation</a>
+</div>
+
+
+</div>
+
+
 </body>
 </html>
+
+
+
+Done. This version is now:
+
+Clearer (what it is, who it’s for)
+More direct (burnout + retention)
+Easier to buy (org-focused outcomes)
+Lower friction (simple flow)
+
+Next move (high impact):
+
+👉 Replace email CTA with a booking link (Calendly)
+
+If you want, I can:
+
+upgrade this to a higher-end visual design (closer to Stage Beyond)
+or add a proper sales flow section (case study, pricing anchor, pilot offer)
