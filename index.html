@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Transition Lab | Leadership Burnout & Retention</title>
-  <meta name="description" content="Transition Lab helps organizations support mid-level leaders at risk of burnout before they disengage, exit, or become unable to lead sustainably." />
+  <title>Transition Lab | Leadership Burnout & Organizational Redesign</title>
+  <meta name="description" content="Transition Lab helps organizations address system-level drivers of burnout by redesigning management systems, expectations, and work patterns with mid-level leaders." />
+  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     :root {
       --bg: #f4f1ea;
@@ -103,26 +104,26 @@
     h1, h2, h3 {
       font-family: Georgia, 'Times New Roman', serif;
       font-weight: 500;
-      letter-spacing: -0.047em;
+      letter-spacing: -0.035em;
       color: var(--ink);
     }
 
     h1 {
-      font-size: clamp(3.2rem, 7.4vw, 7.2rem);
-      line-height: 0.93;
-      max-width: 930px;
+      font-size: clamp(3rem, 6.5vw, 6.2rem);
+      line-height: 1.04;
+      max-width: 880px;
       margin-bottom: 30px;
     }
 
     h2 {
-      font-size: clamp(2.2rem, 4.6vw, 4.75rem);
-      line-height: 1.02;
+      font-size: clamp(2.15rem, 4.4vw, 4.35rem);
+      line-height: 1.05;
       margin-bottom: 20px;
     }
 
     h3 { font-size: 1.45rem; line-height: 1.15; margin-bottom: 10px; }
     p { color: var(--muted); font-size: 1.05rem; max-width: 730px; }
-    .hero p { font-size: 1.23rem; max-width: 700px; margin-bottom: 32px; }
+    .hero p { font-size: 1.22rem; max-width: 700px; margin-bottom: 32px; }
 
     .hero-actions { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; margin-bottom: 30px; }
 
@@ -134,10 +135,7 @@
       max-width: 660px;
     }
 
-    .hero-visual {
-      position: relative;
-      min-height: 590px;
-    }
+    .hero-visual { position: relative; min-height: 590px; }
 
     .photo-card {
       position: absolute;
@@ -151,8 +149,8 @@
     .photo-main {
       inset: 24px 12px 74px 74px;
       background:
-        linear-gradient(145deg, rgba(16, 27, 34, 0.18), rgba(16, 27, 34, 0.68)),
-        url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80') center/cover;
+        linear-gradient(145deg, rgba(16, 27, 34, 0.15), rgba(16, 27, 34, 0.62)),
+        url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80') center/cover;
     }
 
     .photo-small {
@@ -234,7 +232,30 @@
       background: rgba(143, 169, 155, 0.16);
     }
 
-    .card ul, .dark-card ul { padding-left: 19px; margin-top: 12px; }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .icon-wrap {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(143,169,155,0.16);
+      color: var(--accent-dark);
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+
+    .icon-wrap i { width: 20px; height: 20px; stroke-width: 1.8; }
+
+    .card p, .card ul, .card h3 { position: relative; z-index: 1; }
+    .card ul, .dark-card ul, .outcomes-block ul { padding-left: 19px; margin-top: 12px; }
     li { color: var(--muted); margin-bottom: 9px; font-size: 1rem; }
 
     .dark-band {
@@ -268,6 +289,7 @@
     .dark-band h2, .dark-band h3 { color: #fff; }
     .dark-band .eyebrow { color: var(--clay); }
     .dark-band p, .dark-band li { color: rgba(255,255,255,0.76); }
+    .dark-band p + p { margin-top: 18px; }
 
     .dark-card {
       border: 1px solid rgba(255,255,255,0.16);
@@ -282,15 +304,15 @@
       border-radius: 30px;
       border: 1px solid var(--line);
       background:
-        linear-gradient(145deg, rgba(16,27,34,0.08), rgba(16,27,34,0.58)),
-        url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80') center/cover;
+        linear-gradient(145deg, rgba(16,27,34,0.15), rgba(16,27,34,0.62)),
+        url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80') center/cover;
       box-shadow: 0 24px 60px rgba(16, 27, 34, 0.12);
       position: relative;
       overflow: hidden;
     }
 
     .program-visual::after {
-      content: 'calm structure under pressure';
+      content: 'structured support in real conditions';
       position: absolute;
       left: 24px;
       bottom: 24px;
@@ -300,24 +322,89 @@
       font-size: 2.25rem;
       line-height: 1.02;
       letter-spacing: -0.05em;
-      max-width: 380px;
+      max-width: 430px;
     }
 
-    .method { display: grid; gap: 14px; }
-
-    .method-step {
-      display: grid;
-      grid-template-columns: 54px 1fr;
-      gap: 18px;
-      align-items: start;
-      background: rgba(255,253,248,0.78);
+    .cycle-wrap {
+      background: rgba(255,253,248,0.72);
       border: 1px solid var(--line);
-      border-radius: 26px;
-      padding: 24px;
+      border-radius: 36px;
+      padding: 34px;
+      box-shadow: 0 24px 70px rgba(16, 27, 34, 0.09);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cycle-wrap::before {
+      content: 'repeat as conditions change';
+      position: absolute;
+      right: 28px;
+      top: 26px;
+      color: var(--accent-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.7rem;
+      font-weight: 800;
+      opacity: 0.72;
+    }
+
+    .cycle-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 58px 68px;
+      position: relative;
+      padding-top: 40px;
+    }
+
+    .cycle-grid::before {
+      content: '→';
+      position: absolute;
+      top: 112px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--accent);
+      font-size: 2.2rem;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    .cycle-grid::after {
+      content: '←';
+      position: absolute;
+      bottom: 108px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--accent);
+      font-size: 2.2rem;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    .vertical-arrow-down,
+    .vertical-arrow-up {
+      position: absolute;
+      right: 50%;
+      margin-right: -28px;
+      color: var(--accent);
+      font-size: 2.2rem;
+      font-family: Georgia, 'Times New Roman', serif;
+      z-index: 2;
+    }
+
+    .vertical-arrow-down { top: 48%; right: 28px; transform: translateY(-50%); }
+    .vertical-arrow-up { top: 48%; left: 28px; transform: translateY(-50%); }
+
+    .cycle-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 26px;
+      min-height: 220px;
+      position: relative;
       box-shadow: 0 16px 42px rgba(16, 27, 34, 0.06);
     }
 
-    .number {
+    .cycle-card h3 { margin-top: 16px; }
+
+    .cycle-icon {
       width: 46px;
       height: 46px;
       border-radius: 50%;
@@ -325,8 +412,9 @@
       color: #fff;
       display: grid;
       place-items: center;
-      font-weight: 800;
     }
+
+    .cycle-icon i { width: 20px; height: 20px; stroke-width: 1.8; }
 
     .pricing {
       background:
@@ -335,9 +423,9 @@
       border-radius: 38px;
       padding: 46px;
       display: grid;
-      grid-template-columns: 1fr 0.8fr;
-      gap: 38px;
-      align-items: center;
+      grid-template-columns: 0.98fr 1.02fr;
+      gap: 42px;
+      align-items: start;
       box-shadow: 0 28px 80px rgba(16, 27, 34, 0.12);
       position: relative;
       overflow: hidden;
@@ -355,6 +443,8 @@
       box-shadow: inset 0 0 0 38px rgba(143,169,155,0.10);
     }
 
+    .pricing > div { position: relative; z-index: 1; }
+
     .price {
       font-family: Georgia, 'Times New Roman', serif;
       font-size: clamp(2.4rem, 5vw, 4.7rem);
@@ -363,6 +453,14 @@
       color: var(--ink);
       margin-bottom: 12px;
     }
+
+    .outcomes-block {
+      margin: 28px 0 28px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .outcomes-block h3 { margin-bottom: 10px; }
 
     .about { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 42px; align-items: start; }
 
@@ -384,14 +482,36 @@
       box-shadow: 0 26px 70px rgba(16,27,34,0.14);
     }
 
+    .about p + p { margin-top: 18px; }
+
     .final-cta {
       text-align: center;
-      max-width: 940px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 106px 24px 120px;
     }
 
     .final-cta p { margin: 0 auto 28px; font-size: 1.16rem; }
+
+    .burnout-signals {
+      margin: 30px auto 36px;
+      max-width: 760px;
+      background: rgba(255,253,248,0.68);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 28px 32px;
+      text-align: left;
+      box-shadow: 0 18px 48px rgba(16,27,34,0.07);
+    }
+
+    .burnout-signals p {
+      margin-bottom: 10px;
+      font-size: 1rem;
+      color: var(--ink);
+    }
+
+    .burnout-signals ul { padding-left: 19px; }
+    .burnout-signals li { font-size: 0.98rem; margin-bottom: 8px; }
 
     footer {
       border-top: 1px solid var(--line);
@@ -418,7 +538,10 @@
       .photo-small { width: 54%; }
       .visual-card { width: 62%; }
       .section { padding: 72px 24px; }
-      .card, .pricing { border-radius: 26px; padding: 27px; }
+      .card, .pricing, .cycle-wrap { border-radius: 26px; padding: 27px; }
+      .cycle-grid { grid-template-columns: 1fr; gap: 18px; padding-top: 36px; }
+      .cycle-grid::before, .cycle-grid::after, .vertical-arrow-down, .vertical-arrow-up { display: none; }
+      .cycle-wrap::before { position: static; display: block; margin-bottom: 18px; }
     }
 
     @media (max-width: 560px) {
@@ -427,7 +550,7 @@
       .photo-small { display: none; }
       .visual-card { width: auto; left: 18px; right: 18px; bottom: 0; }
       .orbit { display: none; }
-      h1 { font-size: 3.15rem; }
+      h1 { font-size: 3.05rem; }
     }
   </style>
 </head>
@@ -446,14 +569,14 @@
     <main>
       <section class="hero">
         <div>
-          <div class="eyebrow">Leadership transition + burnout prevention</div>
-          <h1>Support mid-level leaders at risk of burnout before you lose them.</h1>
-          <p>A facilitated cohort experience that helps managers and directors reset how they lead, reduce burnout, and make intentional decisions about their role.</p>
+          <div class="eyebrow">Leadership transition + organizational redesign</div>
+          <h1>Support mid-level leaders<br>at risk of burnout<br>before you lose them.</h1>
+          <p>A facilitated cohort experience that helps managers and directors surface system-level drivers of burnout, redesign how work happens, and create healthier conditions for performance.</p>
           <div class="hero-actions">
             <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Book a 30-minute conversation</a>
             <a class="button secondary" href="#program">Explore the pilot cohort →</a>
           </div>
-          <div class="trust-line">Led by Travis Birch — facilitator and former management consultant working at the intersection of leadership, transition, and practice-based development.</div>
+          <div class="trust-line">This is not about making leaders more resilient to a broken system. It is about helping them see and reshape the system they are operating within.</div>
         </div>
 
         <aside class="hero-visual" aria-label="Leaders in structured conversation">
@@ -462,7 +585,7 @@
           <div class="photo-card photo-small"></div>
           <div class="visual-card">
             <strong>Calm, structured support when leadership pressure gets real.</strong>
-            <span>For organizations that want to retain strong leaders before burnout becomes resignation.</span>
+            <span>For organizations that want to retain strong leaders by addressing root causes, not just symptoms.</span>
           </div>
         </aside>
       </section>
@@ -471,20 +594,29 @@
         <div class="section-header">
           <div class="eyebrow">What this is</div>
           <h2>A structured reset for the squeezed middle of organizations.</h2>
-          <p>Transition Lab is for organizations that rely on experienced managers, senior managers, and directors who are under sustained pressure, showing signs of burnout, or questioning how — or whether — to continue in their role.</p>
+          <p>Transition Lab is a structured cohort process for managers, senior managers, and directors working under sustained pressure. Rather than focusing only on individual coping strategies, the program surfaces and redesigns the management systems, expectations, and patterns that are producing burnout in the first place.</p>
         </div>
 
         <div class="grid-3">
           <div class="card">
-            <h3>Managers</h3>
+            <div class="card-header">
+              <span class="icon-wrap"><i data-lucide="users"></i></span>
+              <h3>Managers</h3>
+            </div>
             <p>People leaders trying to keep teams healthy and productive while carrying day-to-day pressure.</p>
           </div>
           <div class="card">
-            <h3>Directors</h3>
+            <div class="card-header">
+              <span class="icon-wrap"><i data-lucide="git-branch"></i></span>
+              <h3>Directors</h3>
+            </div>
             <p>Senior leaders translating strategy into reality while managing fatigue, ambiguity, and competing demands.</p>
           </div>
           <div class="card">
-            <h3>HR + Executives</h3>
+            <div class="card-header">
+              <span class="icon-wrap"><i data-lucide="shield-check"></i></span>
+              <h3>HR + Executives</h3>
+            </div>
             <p>Organizational sponsors looking to retain strong leaders before burnout becomes resignation.</p>
           </div>
         </div>
@@ -494,16 +626,17 @@
         <div class="dark-inner">
           <div>
             <div class="eyebrow">Why organizations invest</div>
-            <h2>This is not just a wellness problem. It is a leadership continuity problem.</h2>
-            <p>When mid-level leaders burn out, organizations lose more than capacity. They lose context, trust, team stability, and the people who translate strategy into daily practice.</p>
+            <h2>Burnout is not a resilience problem.<br>It is a system design problem.</h2>
+            <p>When mid-level leaders burn out, it is rarely an individual failure. It is a signal that the way work is structured, distributed, and managed is no longer sustainable.</p>
+            <p>Transition Lab works at this level — helping leaders surface and reshape the systems they are operating within, not just cope with them.</p>
           </div>
           <div class="dark-card">
             <h3>Transition Lab helps organizations:</h3>
             <ul>
-              <li>Retain experienced leaders at risk of exit</li>
-              <li>Reduce burnout-driven turnover</li>
-              <li>Stabilize teams under pressure</li>
-              <li>Strengthen management capacity without adding another generic training program</li>
+              <li>Surface system-level drivers of burnout across teams and roles</li>
+              <li>Redesign management expectations, decision flows, and workload distribution</li>
+              <li>Support leaders to test new ways of working in real conditions</li>
+              <li>Stabilize teams by addressing root causes — not just symptoms</li>
             </ul>
           </div>
         </div>
@@ -524,7 +657,7 @@
               <li>6–8 leaders per cohort</li>
               <li>8 facilitated sessions</li>
               <li>Real-time workplace application</li>
-              <li>Practical experiments between sessions</li>
+              <li>Practical redesign experiments between sessions</li>
               <li>Reflection, peer support, and integration</li>
             </ul>
           </div>
@@ -539,7 +672,10 @@
 
         <div class="grid-2">
           <div class="card">
-            <h3>For leaders</h3>
+            <div class="card-header">
+              <span class="icon-wrap"><i data-lucide="user-check"></i></span>
+              <h3>For leaders</h3>
+            </div>
             <ul>
               <li>Regain clarity and direction</li>
               <li>Reduce burnout and reactivity</li>
@@ -548,7 +684,10 @@
             </ul>
           </div>
           <div class="card">
-            <h3>For organizations</h3>
+            <div class="card-header">
+              <span class="icon-wrap"><i data-lucide="building-2"></i></span>
+              <h3>For organizations</h3>
+            </div>
             <ul>
               <li>Retain key leaders</li>
               <li>Improve team stability</li>
@@ -562,35 +701,31 @@
       <section class="section" id="method">
         <div class="section-header">
           <div class="eyebrow">The method</div>
-          <h2>A practice-based cycle applied in real work conditions.</h2>
-          <p>Leaders do not change through insight alone. Transition Lab moves through a structured rhythm of awareness, reframing, experimentation, and integration.</p>
+          <h2>A learning cycle for redesigning work in real conditions.</h2>
+          <p>The process repeats through each cohort: leaders study what is happening, reframe the system around them, test changes in practice, and integrate what they learn back into the organization.</p>
         </div>
 
-        <div class="method">
-          <div class="method-step">
-            <div class="number">1</div>
-            <div>
+        <div class="cycle-wrap">
+          <span class="vertical-arrow-down">↓</span>
+          <span class="vertical-arrow-up">↑</span>
+          <div class="cycle-grid">
+            <div class="cycle-card">
+              <div class="cycle-icon"><i data-lucide="scan-search"></i></div>
               <h3>Awareness</h3>
               <p>Map burnout signals, role pressures, leadership patterns, and the real cost of continuing unchanged.</p>
             </div>
-          </div>
-          <div class="method-step">
-            <div class="number">2</div>
-            <div>
+            <div class="cycle-card">
+              <div class="cycle-icon"><i data-lucide="refresh-cw"></i></div>
               <h3>Reframing</h3>
               <p>Clarify what is misaligned, what can be redesigned, and where the leader still has agency.</p>
             </div>
-          </div>
-          <div class="method-step">
-            <div class="number">3</div>
-            <div>
+            <div class="cycle-card">
+              <div class="cycle-icon"><i data-lucide="flask-conical"></i></div>
               <h3>Experimentation</h3>
               <p>Test practical changes in communication, boundaries, delegation, decision-making, and team rhythms.</p>
             </div>
-          </div>
-          <div class="method-step">
-            <div class="number">4</div>
-            <div>
+            <div class="cycle-card">
+              <div class="cycle-icon"><i data-lucide="layers"></i></div>
               <h3>Integration</h3>
               <p>Turn learning into a sustainable leadership plan: stay and evolve, redesign the role, or prepare for transition.</p>
             </div>
@@ -608,6 +743,16 @@
           <div>
             <div class="price">$6k–$10k</div>
             <p>Pilot cohort pricing, depending on scope and organization size.</p>
+            <div class="outcomes-block">
+              <h3>What to expect</h3>
+              <ul>
+                <li>Clear visibility into system-level drivers of burnout across participating teams</li>
+                <li>Practical redesign of management expectations, workflows, and decision patterns</li>
+                <li>Leaders actively testing and implementing changes in real work conditions</li>
+                <li>Improved clarity, stability, and reduced pressure within the cohort</li>
+                <li>A grounded view of whether to scale, adapt, or refine the approach across the organization</li>
+              </ul>
+            </div>
             <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Ask about a pilot cohort</a>
           </div>
         </div>
@@ -627,7 +772,8 @@
           <div>
             <div class="eyebrow">About the facilitator</div>
             <h2>Led by Travis Birch.</h2>
-            <p>Travis Birch is a facilitator and former management consultant working at the intersection of leadership, transition, and practice-based development. His work focuses on helping people read their current reality, act with intention, and build capacity through structured cycles of reflection and practice.</p>
+            <p>Travis Birch is a leadership and management facilitator with over 18 years of experience helping organizations address the conditions that drive burnout and disengagement. His work focuses on creating healthier work environments that translate into stronger employee engagement, customer satisfaction, productivity, and performance.</p>
+            <p>He works at the level of how work is structured and managed — supporting leaders to see and reshape the systems they are operating within.</p>
           </div>
         </div>
       </section>
@@ -636,6 +782,19 @@
         <div class="eyebrow">Next step</div>
         <h2>Support key leaders before burnout becomes resignation.</h2>
         <p>If you are seeing signs of burnout, disengagement, or role fatigue in your leadership team, this is the moment to act.</p>
+
+        <div class="burnout-signals">
+          <p><strong>You may be seeing signs like:</strong></p>
+          <ul>
+            <li>Declining employee engagement or satisfaction scores</li>
+            <li>Increased concerns about workload or work–life balance</li>
+            <li>Rising absenteeism or unplanned time off</li>
+            <li>Leaders showing signs of fatigue, withdrawal, or reduced clarity</li>
+            <li>Slower decision-making or bottlenecks at key points in the organization</li>
+            <li>High performers becoming disengaged or considering exit</li>
+          </ul>
+        </div>
+
         <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Book a 30-minute conversation</a>
       </section>
     </main>
@@ -643,9 +802,13 @@
     <footer>
       <div class="footer-inner">
         <div>© 2026 Transition Lab</div>
-        <div>Leadership transition • Burnout prevention • Leader retention</div>
+        <div>Leadership transition • Organizational redesign • Burnout prevention</div>
       </div>
     </footer>
   </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
