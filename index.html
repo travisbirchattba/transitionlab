@@ -7,45 +7,39 @@
   <meta name="description" content="Transition Lab helps organizations support mid-level leaders at risk of burnout before they disengage, exit, or become unable to lead sustainably." />
   <style>
     :root {
-      --bg: #f6f0e7;
-      --ink: #1f2933;
-      --muted: #68727d;
-      --card: #fffaf3;
-      --line: #dfd2c0;
-      --accent: #8a5a44;
-      --accent-dark: #5f3d2e;
-      --deep: #17202a;
-      --soft: #eadfce;
+      --bg: #f4f1ea;
+      --ink: #162127;
+      --muted: #607077;
+      --card: #fffdf8;
+      --line: #d9d2c7;
+      --accent: #b46f43;
+      --accent-dark: #79452c;
+      --deep: #101b22;
+      --deep-2: #1d2e35;
+      --sage: #8fa99b;
+      --clay: #c79a73;
+      --cream: #f8efe1;
+      --shadow: rgba(16, 27, 34, 0.16);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(143, 169, 155, 0.20), transparent 28%),
+        radial-gradient(circle at 88% 4%, rgba(180, 111, 67, 0.14), transparent 30%),
+        var(--bg);
       color: var(--ink);
       font-family: Arial, sans-serif;
       line-height: 1.65;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .site {
-      overflow: hidden;
-    }
+    a { color: inherit; text-decoration: none; }
+    .site { overflow: hidden; }
 
     .nav {
-      max-width: 1180px;
+      max-width: 1220px;
       margin: 0 auto;
       padding: 28px 24px;
       display: flex;
@@ -56,8 +50,8 @@
 
     .brand {
       font-family: Georgia, 'Times New Roman', serif;
-      font-size: 1.35rem;
-      letter-spacing: -0.02em;
+      font-size: 1.45rem;
+      letter-spacing: -0.03em;
       font-weight: 600;
     }
 
@@ -77,39 +71,31 @@
       color: #fff;
       padding: 13px 20px;
       border-radius: 999px;
-      font-weight: 700;
+      font-weight: 750;
       line-height: 1;
       transition: 0.2s ease;
-      box-shadow: 0 14px 34px rgba(95, 61, 46, 0.18);
+      box-shadow: 0 16px 35px rgba(121, 69, 44, 0.20);
     }
 
-    .button:hover {
-      background: var(--accent-dark);
-      transform: translateY(-1px);
-    }
-
-    .button.secondary {
-      background: transparent;
-      color: var(--accent-dark);
-      box-shadow: none;
-      padding-left: 0;
-    }
+    .button:hover { background: var(--accent-dark); transform: translateY(-1px); }
+    .button.secondary { background: transparent; color: var(--accent-dark); box-shadow: none; padding-left: 0; }
 
     .hero {
-      max-width: 1180px;
+      max-width: 1220px;
       margin: 0 auto;
-      padding: 86px 24px 104px;
+      padding: 72px 24px 110px;
       display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
+      grid-template-columns: 1.03fr 0.97fr;
       gap: 56px;
       align-items: center;
+      position: relative;
     }
 
     .eyebrow {
       color: var(--accent-dark);
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.76rem;
+      letter-spacing: 0.17em;
+      font-size: 0.75rem;
       font-weight: 800;
       margin-bottom: 18px;
     }
@@ -117,211 +103,256 @@
     h1, h2, h3 {
       font-family: Georgia, 'Times New Roman', serif;
       font-weight: 500;
-      letter-spacing: -0.045em;
+      letter-spacing: -0.047em;
       color: var(--ink);
     }
 
     h1 {
-      font-size: clamp(3.1rem, 7.6vw, 7rem);
-      line-height: 0.94;
-      max-width: 900px;
-      margin-bottom: 28px;
+      font-size: clamp(3.2rem, 7.4vw, 7.2rem);
+      line-height: 0.93;
+      max-width: 930px;
+      margin-bottom: 30px;
     }
 
     h2 {
-      font-size: clamp(2.2rem, 4.6vw, 4.7rem);
+      font-size: clamp(2.2rem, 4.6vw, 4.75rem);
       line-height: 1.02;
       margin-bottom: 20px;
     }
 
-    h3 {
-      font-size: 1.45rem;
-      line-height: 1.15;
-      margin-bottom: 10px;
-    }
+    h3 { font-size: 1.45rem; line-height: 1.15; margin-bottom: 10px; }
+    p { color: var(--muted); font-size: 1.05rem; max-width: 730px; }
+    .hero p { font-size: 1.23rem; max-width: 700px; margin-bottom: 32px; }
 
-    p {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 720px;
-    }
-
-    .hero p {
-      font-size: 1.22rem;
-      max-width: 700px;
-      margin-bottom: 32px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-bottom: 28px;
-    }
+    .hero-actions { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; margin-bottom: 30px; }
 
     .trust-line {
       border-left: 3px solid var(--accent);
       padding-left: 16px;
       color: var(--muted);
       font-size: 0.98rem;
-      max-width: 640px;
+      max-width: 660px;
     }
 
-    .hero-panel {
-      background: var(--card);
-      border: 1px solid var(--line);
+    .hero-visual {
+      position: relative;
+      min-height: 590px;
+    }
+
+    .photo-card {
+      position: absolute;
       border-radius: 34px;
-      padding: 34px;
-      box-shadow: 0 30px 80px rgba(71, 50, 36, 0.12);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.55);
+      box-shadow: 0 34px 90px var(--shadow);
+      background: var(--deep);
     }
 
-    .panel-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--accent-dark);
-      font-weight: 800;
-      margin-bottom: 20px;
+    .photo-main {
+      inset: 24px 12px 74px 74px;
+      background:
+        linear-gradient(145deg, rgba(16, 27, 34, 0.18), rgba(16, 27, 34, 0.68)),
+        url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80') center/cover;
     }
 
-    .signal-list {
+    .photo-small {
+      left: 0;
+      bottom: 0;
+      width: 46%;
+      height: 270px;
+      background:
+        linear-gradient(145deg, rgba(16, 27, 34, 0.08), rgba(16, 27, 34, 0.58)),
+        url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80') center/cover;
+    }
+
+    .visual-card {
+      position: absolute;
+      right: 0;
+      bottom: 28px;
+      width: 54%;
+      background: rgba(255,253,248,0.92);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(217, 210, 199, 0.8);
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow: 0 24px 70px rgba(16, 27, 34, 0.14);
+    }
+
+    .visual-card strong { display: block; font-family: Georgia, 'Times New Roman', serif; font-size: 1.45rem; line-height: 1.12; letter-spacing: -0.04em; margin-bottom: 10px; }
+    .visual-card span { color: var(--muted); font-size: 0.95rem; }
+
+    .orbit {
+      position: absolute;
+      top: 0;
+      right: 28px;
+      width: 170px;
+      height: 170px;
+      border: 1px solid rgba(16, 27, 34, 0.16);
+      border-radius: 50%;
+      background: rgba(248, 239, 225, 0.72);
       display: grid;
-      gap: 14px;
+      place-items: center;
+      box-shadow: inset 0 0 0 28px rgba(143,169,155,0.12);
     }
 
-    .signal {
-      border: 1px solid var(--line);
-      background: #fff;
-      border-radius: 18px;
-      padding: 18px;
+    .orbit::before, .orbit::after {
+      content: '';
+      position: absolute;
+      border-radius: 999px;
+      background: var(--accent);
     }
 
-    .signal strong {
-      display: block;
-      color: var(--ink);
-      margin-bottom: 4px;
-    }
+    .orbit::before { width: 84px; height: 2px; transform: rotate(36deg); }
+    .orbit::after { width: 2px; height: 84px; transform: rotate(36deg); }
 
-    .signal span {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
+    .section { max-width: 1220px; margin: 0 auto; padding: 94px 24px; }
+    .section-header { max-width: 875px; margin-bottom: 46px; }
 
-    .section {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 92px 24px;
-    }
-
-    .section-header {
-      max-width: 860px;
-      margin-bottom: 44px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
 
     .card {
-      background: var(--card);
+      background: rgba(255,253,248,0.78);
+      backdrop-filter: blur(10px);
       border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 30px;
+      border-radius: 30px;
+      padding: 31px;
       min-height: 230px;
-      box-shadow: 0 18px 45px rgba(71, 50, 36, 0.06);
+      box-shadow: 0 20px 50px rgba(16, 27, 34, 0.07);
+      position: relative;
+      overflow: hidden;
     }
 
-    .card ul, .dark-card ul {
-      padding-left: 19px;
-      margin-top: 12px;
+    .card::after {
+      content: '';
+      position: absolute;
+      right: -42px;
+      top: -42px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: rgba(143, 169, 155, 0.16);
     }
 
-    li {
-      color: var(--muted);
-      margin-bottom: 9px;
-      font-size: 1rem;
-    }
+    .card ul, .dark-card ul { padding-left: 19px; margin-top: 12px; }
+    li { color: var(--muted); margin-bottom: 9px; font-size: 1rem; }
 
     .dark-band {
-      background: var(--deep);
+      background:
+        linear-gradient(135deg, rgba(16,27,34,0.96), rgba(29,46,53,0.96)),
+        url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80') center/cover;
       color: #fff;
       margin: 54px 0;
+      position: relative;
+    }
+
+    .dark-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 78% 22%, rgba(199,154,115,0.22), transparent 32%);
     }
 
     .dark-inner {
-      max-width: 1180px;
+      max-width: 1220px;
       margin: 0 auto;
-      padding: 92px 24px;
+      padding: 98px 24px;
       display: grid;
       grid-template-columns: 0.9fr 1.1fr;
       gap: 48px;
       align-items: start;
+      position: relative;
+      z-index: 1;
     }
 
-    .dark-band h2,
-    .dark-band h3 {
-      color: #fff;
-    }
-
-    .dark-band p,
-    .dark-band li {
-      color: rgba(255,255,255,0.74);
-    }
+    .dark-band h2, .dark-band h3 { color: #fff; }
+    .dark-band .eyebrow { color: var(--clay); }
+    .dark-band p, .dark-band li { color: rgba(255,255,255,0.76); }
 
     .dark-card {
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.06);
-      border-radius: 28px;
-      padding: 32px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      border-radius: 30px;
+      padding: 34px;
+      backdrop-filter: blur(12px);
     }
 
-    .method {
-      display: grid;
-      gap: 14px;
-      counter-reset: step;
+    .program-visual {
+      min-height: 340px;
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(145deg, rgba(16,27,34,0.08), rgba(16,27,34,0.58)),
+        url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80') center/cover;
+      box-shadow: 0 24px 60px rgba(16, 27, 34, 0.12);
+      position: relative;
+      overflow: hidden;
     }
+
+    .program-visual::after {
+      content: 'calm structure under pressure';
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      right: 24px;
+      color: #fff;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 2.25rem;
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      max-width: 380px;
+    }
+
+    .method { display: grid; gap: 14px; }
 
     .method-step {
       display: grid;
       grid-template-columns: 54px 1fr;
       gap: 18px;
       align-items: start;
-      background: var(--card);
+      background: rgba(255,253,248,0.78);
       border: 1px solid var(--line);
-      border-radius: 24px;
+      border-radius: 26px;
       padding: 24px;
+      box-shadow: 0 16px 42px rgba(16, 27, 34, 0.06);
     }
 
     .number {
       width: 46px;
       height: 46px;
       border-radius: 50%;
-      background: var(--soft);
-      color: var(--accent-dark);
+      background: var(--deep-2);
+      color: #fff;
       display: grid;
       place-items: center;
       font-weight: 800;
     }
 
     .pricing {
-      background: var(--card);
+      background:
+        linear-gradient(135deg, rgba(255,253,248,0.94), rgba(248,239,225,0.9));
       border: 1px solid var(--line);
-      border-radius: 36px;
-      padding: 44px;
+      border-radius: 38px;
+      padding: 46px;
       display: grid;
       grid-template-columns: 1fr 0.8fr;
-      gap: 36px;
+      gap: 38px;
       align-items: center;
-      box-shadow: 0 24px 70px rgba(71, 50, 36, 0.1);
+      box-shadow: 0 28px 80px rgba(16, 27, 34, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing::before {
+      content: '';
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -92px;
+      top: -100px;
+      border-radius: 50%;
+      border: 1px solid rgba(180,111,67,0.26);
+      box-shadow: inset 0 0 0 38px rgba(143,169,155,0.10);
     }
 
     .price {
@@ -333,39 +364,34 @@
       margin-bottom: 12px;
     }
 
-    .about {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 42px;
-      align-items: start;
-    }
+    .about { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 42px; align-items: start; }
 
     .portrait-placeholder {
-      background: linear-gradient(135deg, var(--soft), #fff7ed);
+      background:
+        linear-gradient(145deg, rgba(16,27,34,0.08), rgba(16,27,34,0.52)),
+        url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1000&q=80') center/cover;
       border: 1px solid var(--line);
-      border-radius: 34px;
-      min-height: 360px;
-      display: grid;
-      place-items: center;
-      color: var(--accent-dark);
-      text-align: center;
-      padding: 32px;
+      border-radius: 36px;
+      min-height: 400px;
+      display: flex;
+      align-items: flex-end;
+      color: #fff;
+      padding: 34px;
       font-family: Georgia, 'Times New Roman', serif;
-      font-size: 1.35rem;
-      letter-spacing: -0.02em;
+      font-size: 1.6rem;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      box-shadow: 0 26px 70px rgba(16,27,34,0.14);
     }
 
     .final-cta {
       text-align: center;
-      max-width: 900px;
+      max-width: 940px;
       margin: 0 auto;
-      padding: 104px 24px 116px;
+      padding: 106px 24px 120px;
     }
 
-    .final-cta p {
-      margin: 0 auto 28px;
-      font-size: 1.16rem;
-    }
+    .final-cta p { margin: 0 auto 28px; font-size: 1.16rem; }
 
     footer {
       border-top: 1px solid var(--line);
@@ -375,7 +401,7 @@
     }
 
     .footer-inner {
-      max-width: 1180px;
+      max-width: 1220px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -383,34 +409,25 @@
       flex-wrap: wrap;
     }
 
-    @media (max-width: 880px) {
-      .nav-links {
-        display: none;
-      }
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hero, .dark-inner, .pricing, .about, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .hero { padding-top: 48px; }
+      .hero-visual { min-height: 520px; }
+      .photo-main { inset: 0 0 100px 34px; }
+      .photo-small { width: 54%; }
+      .visual-card { width: 62%; }
+      .section { padding: 72px 24px; }
+      .card, .pricing { border-radius: 26px; padding: 27px; }
+    }
 
-      .hero,
-      .dark-inner,
-      .pricing,
-      .about,
-      .grid-2,
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 52px;
-      }
-
-      .section {
-        padding: 72px 24px;
-      }
-
-      .card,
-      .hero-panel,
-      .pricing {
-        border-radius: 24px;
-        padding: 26px;
-      }
+    @media (max-width: 560px) {
+      .hero-visual { min-height: 460px; }
+      .photo-main { inset: 0 0 120px 0; }
+      .photo-small { display: none; }
+      .visual-card { width: auto; left: 18px; right: 18px; bottom: 0; }
+      .orbit { display: none; }
+      h1 { font-size: 3.15rem; }
     }
   </style>
 </head>
@@ -439,21 +456,13 @@
           <div class="trust-line">Led by Travis Birch — facilitator and former management consultant working at the intersection of leadership, transition, and practice-based development.</div>
         </div>
 
-        <aside class="hero-panel" aria-label="Common warning signs">
-          <div class="panel-label">When to act</div>
-          <div class="signal-list">
-            <div class="signal">
-              <strong>Strong leaders are becoming reactive.</strong>
-              <span>Decisions, communication, and team dynamics are starting to feel strained.</span>
-            </div>
-            <div class="signal">
-              <strong>Managers are carrying too much alone.</strong>
-              <span>They are absorbing pressure from above and below without enough support.</span>
-            </div>
-            <div class="signal">
-              <strong>Quiet disengagement is setting in.</strong>
-              <span>Leaders may still be present, but they are privately questioning whether they can continue.</span>
-            </div>
+        <aside class="hero-visual" aria-label="Leaders in structured conversation">
+          <div class="orbit"></div>
+          <div class="photo-card photo-main"></div>
+          <div class="photo-card photo-small"></div>
+          <div class="visual-card">
+            <strong>Calm, structured support when leadership pressure gets real.</strong>
+            <span>For organizations that want to retain strong leaders before burnout becomes resignation.</span>
           </div>
         </aside>
       </section>
@@ -508,6 +517,7 @@
         </div>
 
         <div class="grid-2">
+          <div class="program-visual"></div>
           <div class="card">
             <h3>Program structure</h3>
             <ul>
@@ -517,10 +527,6 @@
               <li>Practical experiments between sessions</li>
               <li>Reflection, peer support, and integration</li>
             </ul>
-          </div>
-          <div class="card">
-            <h3>Not another workshop</h3>
-            <p>This is not a one-off training session. Leaders work with real pressures from their actual roles, then translate insight into small changes they can test in practice.</p>
           </div>
         </div>
       </section>
