@@ -90,6 +90,12 @@
       gap: 56px;
       align-items: center;
       position: relative;
+      isolation: isolate;
+    }
+
+    .hero > div {
+      position: relative;
+      z-index: 2;
     }
 
     .eyebrow {
@@ -135,7 +141,11 @@
       max-width: 660px;
     }
 
-    .hero-visual { position: relative; min-height: 590px; }
+    .hero-visual {
+      position: relative;
+      min-height: 590px;
+      z-index: 1;
+    }
 
     .photo-card {
       position: absolute;
@@ -148,30 +158,32 @@
 
     .photo-main {
       top: 0;
-      left: 40px;
+      left: 70px;
       right: 0;
-      bottom: 60px;
+      height: 430px;
       z-index: 1;
       background:
-linear-gradient(145deg, rgba(16,27,34,0.08), rgba(16,27,34,0.45)),url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1400&q=80')    }
+        linear-gradient(145deg, rgba(16, 27, 34, 0.08), rgba(16, 27, 34, 0.42)),
+        url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80') center 42%/cover;
+    }
 
     .photo-small {
       left: 0;
       bottom: 0;
       width: 44%;
       height: 240px;
-      z-index: 2;
+      z-index: 3;
       background:
-        linear-gradient(145deg, rgba(16, 27, 34, 0.08), rgba(16, 27, 34, 0.58)),
+        linear-gradient(145deg, rgba(16, 27, 34, 0.08), rgba(16, 27, 34, 0.46)),
         url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80') center/cover;
-    }background-position: center 35%;
+    }
 
     .visual-card {
       position: absolute;
       right: 0;
-      bottom: 20px;
+      bottom: 0;
       width: 52%;
-      z-index: 3;
+      z-index: 4;
       background: rgba(255,253,248,0.92);
       backdrop-filter: blur(14px);
       border: 1px solid rgba(217, 210, 199, 0.8);
@@ -307,9 +319,9 @@ linear-gradient(145deg, rgba(16,27,34,0.08), rgba(16,27,34,0.45)),url('https://i
       min-height: 340px;
       border-radius: 30px;
       border: 1px solid var(--line);
-     background:
-  linear-gradient(145deg, rgba(16,27,34,0.12), rgba(16,27,34,0.55)),
-  url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1400&q=80') center/cover;
+      background:
+        linear-gradient(145deg, rgba(16,27,34,0.15), rgba(16,27,34,0.62)),
+        url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80') center/cover;
       box-shadow: 0 24px 60px rgba(16, 27, 34, 0.12);
       position: relative;
       overflow: hidden;
@@ -382,28 +394,38 @@ linear-gradient(145deg, rgba(16,27,34,0.08), rgba(16,27,34,0.45)),url('https://i
       font-family: Georgia, 'Times New Roman', serif;
     }
 
-.vertical-arrow-down,
-.vertical-arrow-up {
-  position: absolute;
-  font-size: 2.2rem;
-  color: var(--accent);
-  z-index: 3;
-  transform: translateY(-50%);
-}
+    .vertical-arrow-down,
+    .vertical-arrow-up {
+      position: absolute;
+      font-size: 2.2rem;
+      color: var(--accent);
+      z-index: 3;
+    }
 
-/* RIGHT SIDE (Reframing + Integration center) */
-.vertical-arrow-down {
-  top: 50%;
-  right: 50%;
-  transform: translate(50%, -50%);
-}
+    /* RIGHT SIDE (between Reframing & Integration) */
+    .vertical-arrow-down {
+      top: 50%;
+      left: 50%;
+      transform: translate(60%, -50%);
+    }
 
-/* LEFT SIDE (Awareness + Experimentation center) */
-.vertical-arrow-up {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+    /* LEFT SIDE (between Awareness & Experimentation) */
+    .vertical-arrow-up {
+      top: 50%;
+      left: 50%;
+      transform: translate(-160%, -50%);
+    }sform: translate(60%, -50%);
+    }
+
+    /* LEFT SIDE (between Awareness & Experimentation) */
+    .vertical-arrow-up {
+      top: 50%;
+      left: 50%;
+      transform: translate(-160%, -50%);
+    }
+
+    .vertical-arrow-down { right: calc(50% - 34px); }
+    .vertical-arrow-up { left: calc(50% - 34px); }
 
     .cycle-card {
       background: var(--card);
@@ -559,7 +581,7 @@ linear-gradient(145deg, rgba(16,27,34,0.08), rgba(16,27,34,0.45)),url('https://i
 
     @media (max-width: 560px) {
       .hero-visual { min-height: 460px; }
-      .photo-main { inset: 0 0 120px 0; }
+      .photo-main { left: 0; right: 0; height: 340px; }
       .photo-small { display: none; }
       .visual-card { width: auto; left: 18px; right: 18px; bottom: 0; }
       .orbit { display: none; }
