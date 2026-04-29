@@ -4,123 +4,642 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Transition Lab | Leadership Burnout & Retention</title>
+  <meta name="description" content="Transition Lab helps organizations support mid-level leaders at risk of burnout before they disengage, exit, or become unable to lead sustainably." />
   <style>
-    body { font-family: Arial, sans-serif; margin:0; background:#f7f3ec; color:#1f2933; }
-    .container { max-width:1100px; margin:auto; padding:40px 20px; }
-    h1 { font-size:48px; line-height:1.1; margin-bottom:20px; }
-    h2 { font-size:32px; margin-top:60px; }
-    p { font-size:18px; color:#555; }
-    .cta { display:inline-block; margin-top:20px; padding:14px 22px; background:#8a5a44; color:#fff; border-radius:999px; text-decoration:none; }
-    .section { margin-top:60px; }
-    ul { margin-top:10px; }
-    li { margin-bottom:8px; }
-    .box { background:#fff; padding:25px; border-radius:12px; margin-top:20px; }
-    .highlight { background:#1f2933; color:#fff; padding:40px; border-radius:16px; margin-top:40px; }
+    :root {
+      --bg: #f6f0e7;
+      --ink: #1f2933;
+      --muted: #68727d;
+      --card: #fffaf3;
+      --line: #dfd2c0;
+      --accent: #8a5a44;
+      --accent-dark: #5f3d2e;
+      --deep: #17202a;
+      --soft: #eadfce;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site {
+      overflow: hidden;
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent);
+      color: #fff;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      line-height: 1;
+      transition: 0.2s ease;
+      box-shadow: 0 14px 34px rgba(95, 61, 46, 0.18);
+    }
+
+    .button:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--accent-dark);
+      box-shadow: none;
+      padding-left: 0;
+    }
+
+    .hero {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 86px 24px 104px;
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.76rem;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: 500;
+      letter-spacing: -0.045em;
+      color: var(--ink);
+    }
+
+    h1 {
+      font-size: clamp(3.1rem, 7.6vw, 7rem);
+      line-height: 0.94;
+      max-width: 900px;
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 4.6vw, 4.7rem);
+      line-height: 1.02;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 1.45rem;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 720px;
+    }
+
+    .hero p {
+      font-size: 1.22rem;
+      max-width: 700px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+
+    .trust-line {
+      border-left: 3px solid var(--accent);
+      padding-left: 16px;
+      color: var(--muted);
+      font-size: 0.98rem;
+      max-width: 640px;
+    }
+
+    .hero-panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      padding: 34px;
+      box-shadow: 0 30px 80px rgba(71, 50, 36, 0.12);
+    }
+
+    .panel-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-dark);
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .signal-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .signal {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .signal strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .signal span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 92px 24px;
+    }
+
+    .section-header {
+      max-width: 860px;
+      margin-bottom: 44px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 30px;
+      min-height: 230px;
+      box-shadow: 0 18px 45px rgba(71, 50, 36, 0.06);
+    }
+
+    .card ul, .dark-card ul {
+      padding-left: 19px;
+      margin-top: 12px;
+    }
+
+    li {
+      color: var(--muted);
+      margin-bottom: 9px;
+      font-size: 1rem;
+    }
+
+    .dark-band {
+      background: var(--deep);
+      color: #fff;
+      margin: 54px 0;
+    }
+
+    .dark-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 92px 24px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .dark-band h2,
+    .dark-band h3 {
+      color: #fff;
+    }
+
+    .dark-band p,
+    .dark-band li {
+      color: rgba(255,255,255,0.74);
+    }
+
+    .dark-card {
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      border-radius: 28px;
+      padding: 32px;
+    }
+
+    .method {
+      display: grid;
+      gap: 14px;
+      counter-reset: step;
+    }
+
+    .method-step {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 18px;
+      align-items: start;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .number {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--soft);
+      color: var(--accent-dark);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+    }
+
+    .pricing {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 36px;
+      padding: 44px;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 36px;
+      align-items: center;
+      box-shadow: 0 24px 70px rgba(71, 50, 36, 0.1);
+    }
+
+    .price {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(2.4rem, 5vw, 4.7rem);
+      letter-spacing: -0.06em;
+      line-height: 1;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 42px;
+      align-items: start;
+    }
+
+    .portrait-placeholder {
+      background: linear-gradient(135deg, var(--soft), #fff7ed);
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+      color: var(--accent-dark);
+      text-align: center;
+      padding: 32px;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    .final-cta {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 104px 24px 116px;
+    }
+
+    .final-cta p {
+      margin: 0 auto 28px;
+      font-size: 1.16rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 32px 24px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 880px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero,
+      .dark-inner,
+      .pricing,
+      .about,
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 52px;
+      }
+
+      .section {
+        padding: 72px 24px;
+      }
+
+      .card,
+      .hero-panel,
+      .pricing {
+        border-radius: 24px;
+        padding: 26px;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="site">
+    <header class="nav">
+      <a class="brand" href="#">Transition Lab</a>
+      <nav class="nav-links">
+        <a href="#fit">Who it’s for</a>
+        <a href="#program">Program</a>
+        <a href="#method">Method</a>
+        <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Book a conversation</a>
+      </nav>
+    </header>
 
-<div class="container">
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Leadership transition + burnout prevention</div>
+          <h1>Support mid-level leaders at risk of burnout before you lose them.</h1>
+          <p>A facilitated cohort experience that helps managers and directors reset how they lead, reduce burnout, and make intentional decisions about their role.</p>
+          <div class="hero-actions">
+            <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Book a 30-minute conversation</a>
+            <a class="button secondary" href="#program">Explore the pilot cohort →</a>
+          </div>
+          <div class="trust-line">Led by Travis Birch — facilitator and former management consultant working at the intersection of leadership, transition, and practice-based development.</div>
+        </div>
 
-<h1>Support mid-level leaders at risk of burnout—before you lose them.</h1>
+        <aside class="hero-panel" aria-label="Common warning signs">
+          <div class="panel-label">When to act</div>
+          <div class="signal-list">
+            <div class="signal">
+              <strong>Strong leaders are becoming reactive.</strong>
+              <span>Decisions, communication, and team dynamics are starting to feel strained.</span>
+            </div>
+            <div class="signal">
+              <strong>Managers are carrying too much alone.</strong>
+              <span>They are absorbing pressure from above and below without enough support.</span>
+            </div>
+            <div class="signal">
+              <strong>Quiet disengagement is setting in.</strong>
+              <span>Leaders may still be present, but they are privately questioning whether they can continue.</span>
+            </div>
+          </div>
+        </aside>
+      </section>
 
-<p>A facilitated cohort experience that helps managers and directors reset how they lead, reduce burnout, and make intentional decisions about their role.</p>
+      <section class="section" id="fit">
+        <div class="section-header">
+          <div class="eyebrow">What this is</div>
+          <h2>A structured reset for the squeezed middle of organizations.</h2>
+          <p>Transition Lab is for organizations that rely on experienced managers, senior managers, and directors who are under sustained pressure, showing signs of burnout, or questioning how — or whether — to continue in their role.</p>
+        </div>
 
-<a class="cta" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Book a 30-minute conversation</a>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Managers</h3>
+            <p>People leaders trying to keep teams healthy and productive while carrying day-to-day pressure.</p>
+          </div>
+          <div class="card">
+            <h3>Directors</h3>
+            <p>Senior leaders translating strategy into reality while managing fatigue, ambiguity, and competing demands.</p>
+          </div>
+          <div class="card">
+            <h3>HR + Executives</h3>
+            <p>Organizational sponsors looking to retain strong leaders before burnout becomes resignation.</p>
+          </div>
+        </div>
+      </section>
 
-<div class="section">
-<h2>What this is</h2>
-<p>Transition Lab is a structured cohort program for managers, senior managers, and directors who are under sustained pressure, showing signs of burnout, and questioning how—or whether—to continue in their role.</p>
-</div>
+      <section class="dark-band">
+        <div class="dark-inner">
+          <div>
+            <div class="eyebrow">Why organizations invest</div>
+            <h2>This is not just a wellness problem. It is a leadership continuity problem.</h2>
+            <p>When mid-level leaders burn out, organizations lose more than capacity. They lose context, trust, team stability, and the people who translate strategy into daily practice.</p>
+          </div>
+          <div class="dark-card">
+            <h3>Transition Lab helps organizations:</h3>
+            <ul>
+              <li>Retain experienced leaders at risk of exit</li>
+              <li>Reduce burnout-driven turnover</li>
+              <li>Stabilize teams under pressure</li>
+              <li>Strengthen management capacity without adding another generic training program</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-<div class="section">
-<h2>Why organizations invest</h2>
-<ul>
-<li>Retain experienced leaders at risk of exit</li>
-<li>Reduce burnout-driven turnover</li>
-<li>Stabilize teams under pressure</li>
-<li>Strengthen management capacity</li>
-</ul>
-</div>
+      <section class="section" id="program">
+        <div class="section-header">
+          <div class="eyebrow">The program</div>
+          <h2>Leadership Transition Lab</h2>
+          <p>A facilitated cohort process that helps leaders step back from pressure, read their current reality, test new ways of working, and make clearer decisions about what comes next.</p>
+        </div>
 
-<div class="section">
-<h2>The program</h2>
-<div class="box">
-<p><strong>Leadership Transition Lab</strong></p>
-<ul>
-<li>6–8 leaders per cohort</li>
-<li>8 facilitated sessions</li>
-<li>Real-time workplace application</li>
-<li>Practical experiments + reflection</li>
-</ul>
-</div>
-</div>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Program structure</h3>
+            <ul>
+              <li>6–8 leaders per cohort</li>
+              <li>8 facilitated sessions</li>
+              <li>Real-time workplace application</li>
+              <li>Practical experiments between sessions</li>
+              <li>Reflection, peer support, and integration</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Not another workshop</h3>
+            <p>This is not a one-off training session. Leaders work with real pressures from their actual roles, then translate insight into small changes they can test in practice.</p>
+          </div>
+        </div>
+      </section>
 
-<div class="section">
-<h2>Outcomes</h2>
+      <section class="section">
+        <div class="section-header">
+          <div class="eyebrow">Outcomes</div>
+          <h2>Designed for leader sustainability and organizational retention.</h2>
+        </div>
 
-<div class="box">
-<p><strong>For leaders</strong></p>
-<ul>
-<li>Regain clarity and direction</li>
-<li>Reduce burnout and reactivity</li>
-<li>Redesign how they lead day-to-day</li>
-</ul>
-</div>
+        <div class="grid-2">
+          <div class="card">
+            <h3>For leaders</h3>
+            <ul>
+              <li>Regain clarity and direction</li>
+              <li>Reduce burnout and reactivity</li>
+              <li>Redesign how they lead day-to-day</li>
+              <li>Make intentional decisions about their role</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>For organizations</h3>
+            <ul>
+              <li>Retain key leaders</li>
+              <li>Improve team stability</li>
+              <li>Reduce hidden disengagement</li>
+              <li>Address leadership pressure before it becomes a departure</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-<div class="box">
-<p><strong>For organizations</strong></p>
-<ul>
-<li>Retain key leaders</li>
-<li>Improve team stability</li>
-<li>Reduce hidden disengagement</li>
-</ul>
-</div>
+      <section class="section" id="method">
+        <div class="section-header">
+          <div class="eyebrow">The method</div>
+          <h2>A practice-based cycle applied in real work conditions.</h2>
+          <p>Leaders do not change through insight alone. Transition Lab moves through a structured rhythm of awareness, reframing, experimentation, and integration.</p>
+        </div>
 
-</div>
+        <div class="method">
+          <div class="method-step">
+            <div class="number">1</div>
+            <div>
+              <h3>Awareness</h3>
+              <p>Map burnout signals, role pressures, leadership patterns, and the real cost of continuing unchanged.</p>
+            </div>
+          </div>
+          <div class="method-step">
+            <div class="number">2</div>
+            <div>
+              <h3>Reframing</h3>
+              <p>Clarify what is misaligned, what can be redesigned, and where the leader still has agency.</p>
+            </div>
+          </div>
+          <div class="method-step">
+            <div class="number">3</div>
+            <div>
+              <h3>Experimentation</h3>
+              <p>Test practical changes in communication, boundaries, delegation, decision-making, and team rhythms.</p>
+            </div>
+          </div>
+          <div class="method-step">
+            <div class="number">4</div>
+            <div>
+              <h3>Integration</h3>
+              <p>Turn learning into a sustainable leadership plan: stay and evolve, redesign the role, or prepare for transition.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<div class="section">
-<h2>The method</h2>
-<p>A structured cycle applied in real work conditions:</p>
-<ul>
-<li>Awareness</li>
-<li>Reframing</li>
-<li>Experimentation</li>
-<li>Integration</li>
-</ul>
-</div>
+      <section class="section">
+        <div class="pricing">
+          <div>
+            <div class="eyebrow">Pilot opportunity</div>
+            <h2>Early partners help shape the methodology.</h2>
+            <p>Transition Lab is currently being piloted with a small number of organizations. Early partners receive high-touch facilitation and direct involvement in refining the process.</p>
+          </div>
+          <div>
+            <div class="price">$6k–$10k</div>
+            <p>Pilot cohort pricing, depending on scope and organization size.</p>
+            <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Ask about a pilot cohort</a>
+          </div>
+        </div>
+      </section>
 
-<div class="section">
-<h2>Proof (Pilot opportunity)</h2>
-<div class="highlight">
-<p>This program is currently being piloted with a small number of organizations.</p>
-<p>Early partners receive:
-<ul>
-<li>Reduced pilot pricing</li>
-<li>Direct involvement in shaping the methodology</li>
-<li>High-touch facilitation</li>
-</ul>
-</p>
-</div>
-</div>
+      <section class="section">
+        <div class="section-header">
+          <div class="eyebrow">Who this is not for</div>
+          <h2>This is not general leadership training.</h2>
+          <p>Transition Lab is designed for organizations where pressure is already affecting leader sustainability, retention, and team stability. It is best suited for leaders facing real tension — not simply looking for another professional development session.</p>
+        </div>
+      </section>
 
-<div class="section">
-<h2>Investment</h2>
-<p>Pilot cohort pricing typically ranges from $6,000–$10,000 depending on scope and organization size.</p>
-</div>
+      <section class="section">
+        <div class="about">
+          <div class="portrait-placeholder">Transition work for leaders carrying real responsibility.</div>
+          <div>
+            <div class="eyebrow">About the facilitator</div>
+            <h2>Led by Travis Birch.</h2>
+            <p>Travis Birch is a facilitator and former management consultant working at the intersection of leadership, transition, and practice-based development. His work focuses on helping people read their current reality, act with intention, and build capacity through structured cycles of reflection and practice.</p>
+          </div>
+        </div>
+      </section>
 
-<div class="section">
-<h2>About</h2>
-<p>Led by Travis Birch—facilitator and former management consultant working at the intersection of leadership, transition, and practice-based development.</p>
-</div>
+      <section class="final-cta">
+        <div class="eyebrow">Next step</div>
+        <h2>Support key leaders before burnout becomes resignation.</h2>
+        <p>If you are seeing signs of burnout, disengagement, or role fatigue in your leadership team, this is the moment to act.</p>
+        <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Book a 30-minute conversation</a>
+      </section>
+    </main>
 
-<div class="section">
-<h2>Next step</h2>
-<p>If you’re seeing signs of burnout or disengagement in your leadership team, this is the moment to act.</p>
-<a class="cta" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Book a conversation</a>
-</div>
-
-</div>
-
+    <footer>
+      <div class="footer-inner">
+        <div>© 2026 Transition Lab</div>
+        <div>Leadership transition • Burnout prevention • Leader retention</div>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
