@@ -84,7 +84,7 @@
     .hero {
       max-width: 1220px;
       margin: 0 auto;
-      padding: 72px 24px 110px;
+      padding: 78px 24px 112px;
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(420px, 0.9fr);
       gap: 64px;
@@ -94,8 +94,8 @@
     .eyebrow {
       color: var(--accent-dark);
       text-transform: uppercase;
-      letter-spacing: 0.17em;
-      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      font-size: 0.74rem;
       font-weight: 800;
       margin-bottom: 18px;
     }
@@ -103,26 +103,26 @@
     h1, h2, h3 {
       font-family: Georgia, 'Times New Roman', serif;
       font-weight: 500;
-      letter-spacing: -0.035em;
+      letter-spacing: -0.036em;
       color: var(--ink);
     }
 
     h1 {
-      font-size: clamp(3.1rem, 6.2vw, 6.1rem);
-      line-height: 1.03;
-      max-width: 850px;
+      font-size: clamp(3.35rem, 6.4vw, 6.4rem);
+      line-height: 1.01;
+      max-width: 900px;
       margin-bottom: 30px;
     }
 
     h2 {
-      font-size: clamp(2.15rem, 4.4vw, 4.35rem);
+      font-size: clamp(2.25rem, 4.35vw, 4.3rem);
       line-height: 1.05;
       margin-bottom: 20px;
     }
 
     h3 { font-size: 1.45rem; line-height: 1.15; margin-bottom: 10px; }
     p { color: var(--muted); font-size: 1.05rem; max-width: 730px; }
-    .hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 32px; }
+    .hero p { font-size: 1.2rem; max-width: 710px; margin-bottom: 32px; }
 
     .hero-actions { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; margin-bottom: 30px; }
 
@@ -170,8 +170,10 @@
 
     .visual-card span { color: var(--muted); font-size: 1rem; line-height: 1.55; }
 
-    .section { max-width: 1220px; margin: 0 auto; padding: 94px 24px; }
+    .section { max-width: 1220px; margin: 0 auto; padding: 98px 24px; }
     .section-header { max-width: 875px; margin-bottom: 46px; }
+    .section-header.center { margin-left: auto; margin-right: auto; text-align: center; }
+    .section-header.center p { margin-left: auto; margin-right: auto; }
 
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
     .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
@@ -209,6 +211,22 @@
     .card p, .card ul, .card h3 { position: relative; z-index: 1; }
     .card ul, .dark-card ul, .outcomes-block ul { padding-left: 19px; margin-top: 12px; }
     li { color: var(--muted); margin-bottom: 9px; font-size: 1rem; }
+
+    .problem-list {
+      max-width: 850px;
+      margin-top: 30px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .problem-item {
+      background: rgba(255,253,248,0.72);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 18px 22px;
+      color: var(--muted);
+      box-shadow: 0 12px 34px rgba(16,27,34,0.05);
+    }
 
     .dark-band {
       background:
@@ -340,6 +358,39 @@
     .arrow-bottom { top: 75%; left: 50%; transform: translate(-50%, -50%); }
     .arrow-left { top: 48%; left: 25%; transform: translate(-50%, -50%); }
 
+    .case-card {
+      background: linear-gradient(135deg, rgba(255,253,248,0.96), rgba(248,239,225,0.92));
+      border: 1px solid var(--line);
+      border-radius: 38px;
+      padding: 46px;
+      box-shadow: 0 28px 80px rgba(16, 27, 34, 0.1);
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 42px;
+      align-items: start;
+    }
+
+    .case-label {
+      display: inline-flex;
+      margin-bottom: 18px;
+      color: var(--accent-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .case-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .case-list div {
+      border-left: 3px solid var(--accent);
+      padding-left: 16px;
+      color: var(--muted);
+    }
+
     .pricing {
       background: linear-gradient(135deg, rgba(255,253,248,0.94), rgba(248,239,225,0.9));
       border: 1px solid var(--line);
@@ -420,11 +471,11 @@
 
     @media (max-width: 900px) {
       .nav-links { display: none; }
-      .hero, .dark-inner, .pricing, .about, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .hero, .dark-inner, .pricing, .about, .grid-2, .grid-3, .case-card { grid-template-columns: 1fr; }
       .hero { padding-top: 48px; }
       .hero-visual { min-height: 460px; }
       .section { padding: 72px 24px; }
-      .card, .pricing, .cycle-wrap { border-radius: 26px; padding: 27px; }
+      .card, .pricing, .cycle-wrap, .case-card { border-radius: 26px; padding: 27px; }
       .cycle-wrap::before { position: static; display: block; margin-bottom: 18px; }
       .cycle-grid { grid-template-columns: 1fr; gap: 18px; }
       .cycle-arrow { display: none; }
@@ -446,36 +497,51 @@
         <a href="#fit">Who it’s for</a>
         <a href="#program">Program</a>
         <a href="#method">Method</a>
-        <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Book a conversation</a>
+        <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Start a conversation</a>
       </nav>
     </header>
 
     <main>
       <section class="hero">
         <div>
-          <div class="eyebrow">Leadership continuity + organizational redesign</div>
-          <h1>Support mid-level leaders<br>before burnout becomes resignation.</h1>
-          <p>A facilitated cohort that helps leaders identify and redesign the conditions driving burnout — so organizations maintain leadership continuity, stabilize teams, and sustain performance.</p>
+          <div class="eyebrow">Leadership Continuity Lab</div>
+          <h1>Protect leadership continuity before pressure turns into resignation.</h1>
+          <p>An 8-week systemic intervention that helps leaders redesign the conditions driving burnout — not just cope with them.</p>
           <div class="hero-actions">
-            <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Book a 30-minute conversation</a>
-            <a class="button secondary" href="#program">Explore the pilot cohort →</a>
+            <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Start a conversation</a>
+            <a class="button secondary" href="#founding">Explore the founding cohort →</a>
           </div>
-          <div class="trust-line">This is not about making leaders more resilient. It is about changing how work actually happens.</div>
+          <div class="trust-line">When mid-level leaders start to strain, it is rarely a personal issue. It is a signal that the system around them is no longer holding.</div>
         </div>
 
         <aside class="hero-visual" aria-label="Leaders in structured conversation">
           <div class="visual-card">
-            <strong>Calm, structured support when leadership pressure gets real.</strong>
-            <span>For organizations that want to protect continuity by addressing root causes, not just symptoms.</span>
+            <strong>This is not about helping leaders handle more pressure.</strong>
+            <span>It is about changing the conditions that are creating it.</span>
           </div>
         </aside>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <div class="eyebrow">The pattern</div>
+          <h2>Burnout is not random. It is structural.</h2>
+          <p>Organizations rarely lose strong leaders without warning. You can usually see the pattern forming long before someone resigns.</p>
+          <div class="problem-list">
+            <div class="problem-item">Decision pressure consolidating upward.</div>
+            <div class="problem-item">Strong operators becoming bottlenecks instead of leaders.</div>
+            <div class="problem-item">Increasing fatigue, hesitation, and second-guessing.</div>
+            <div class="problem-item">Work quietly redistributing across already stretched teams.</div>
+          </div>
+          <p style="margin-top:26px;">By the time resignation happens, the system has already been under strain for months. What looks like burnout is often a design problem.</p>
+        </div>
       </section>
 
       <section class="section" id="fit">
         <div class="section-header">
           <div class="eyebrow">What this is</div>
-          <h2>A structured reset for the squeezed middle of organizations.</h2>
-          <p>Leadership Continuity Lab is a structured cohort process for managers, senior managers, and directors working under sustained pressure. Rather than focusing only on individual coping strategies, the lab surfaces and redesigns the management systems, expectations, and patterns that are putting leadership continuity at risk.</p>
+          <h2>A structured reset for your leadership core.</h2>
+          <p>The Leadership Continuity Lab is not a training program. It is a facilitated intervention that helps leaders and organizations examine and redesign how work is actually happening. The focus is not on individual coping strategies, but on the underlying conditions shaping decision-making, workload, and accountability.</p>
         </div>
 
         <div class="grid-3">
@@ -484,7 +550,7 @@
               <span class="icon-wrap"><i data-lucide="users"></i></span>
               <h3>Managers</h3>
             </div>
-            <p>People leaders trying to keep teams healthy and productive while carrying day-to-day pressure.</p>
+            <p>Managers holding teams together while absorbing day-to-day pressure without enough structural support.</p>
           </div>
 
           <div class="card">
@@ -492,7 +558,7 @@
               <span class="icon-wrap"><i data-lucide="git-branch"></i></span>
               <h3>Directors</h3>
             </div>
-            <p>Senior leaders translating strategy into reality while managing fatigue, ambiguity, and competing demands.</p>
+            <p>Directors carrying the weight of translating strategy into execution while navigating fatigue, ambiguity, and competing demands.</p>
           </div>
 
           <div class="card">
@@ -500,7 +566,7 @@
               <span class="icon-wrap"><i data-lucide="shield-check"></i></span>
               <h3>HR + Executives</h3>
             </div>
-            <p>Organizational sponsors looking to retain strong leaders before burnout becomes resignation.</p>
+            <p>Leaders responsible for retaining key people and maintaining performance — aware that current approaches are not enough.</p>
           </div>
         </div>
       </section>
@@ -515,12 +581,13 @@
           </div>
 
           <div class="dark-card">
-            <h3>Leadership Continuity Lab helps organizations:</h3>
+            <h3>What organizations gain:</h3>
             <ul>
-              <li>Surface system-level drivers of burnout across teams and roles</li>
-              <li>Redesign management expectations, decision flows, and workload distribution</li>
-              <li>Support leaders to test new ways of working in real conditions</li>
-              <li>Stabilize teams by addressing root causes — not just symptoms</li>
+              <li>Retain experienced leaders at the point they are most at risk of exit</li>
+              <li>Reduce decision bottlenecks and hidden operational drag</li>
+              <li>Stabilize teams operating under sustained pressure</li>
+              <li>Improve clarity in roles, expectations, and decision flow</li>
+              <li>Build a more sustainable leadership operating model</li>
             </ul>
           </div>
         </div>
@@ -538,46 +605,11 @@
           <div class="card">
             <h3>Program structure</h3>
             <ul>
+              <li>8-week facilitated intervention</li>
               <li>6–8 leaders per cohort</li>
-              <li>8 facilitated sessions</li>
               <li>Real-time workplace application</li>
               <li>Practical redesign experiments between sessions</li>
               <li>Reflection, peer support, and integration</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-header">
-          <div class="eyebrow">Outcomes</div>
-          <h2>Designed for leadership continuity, healthier management systems, and stronger organizational performance.</h2>
-        </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <div class="card-header">
-              <span class="icon-wrap"><i data-lucide="user-check"></i></span>
-              <h3>For leaders</h3>
-            </div>
-            <ul>
-              <li>See the system pressures shaping their leadership behaviour</li>
-              <li>Reduce burnout, reactivity, and decision fatigue</li>
-              <li>Test healthier ways of managing work, communication, and expectations</li>
-              <li>Clarify what needs to change in their role, team, or operating environment</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <span class="icon-wrap"><i data-lucide="building-2"></i></span>
-              <h3>For organizations</h3>
-            </div>
-            <ul>
-              <li>Protect continuity in key leadership roles</li>
-              <li>Identify where management systems are creating preventable strain</li>
-              <li>Improve stability, engagement, and follow-through across teams</li>
-              <li>Address leadership pressure before it becomes disengagement or exit</li>
             </ul>
           </div>
         </div>
@@ -587,7 +619,7 @@
         <div class="section-header">
           <div class="eyebrow">The method</div>
           <h2>A learning cycle for redesigning work in real conditions.</h2>
-          <p>The process repeats through each cohort: leaders study what is happening, reframe the system around them, test changes in practice, and integrate what they learn back into the organization.</p>
+          <p>Work changes as conditions change. This process is designed to evolve with it.</p>
         </div>
 
         <div class="cycle-wrap">
@@ -601,7 +633,7 @@
             <div class="cycle-card">
               <div class="cycle-icon"><i data-lucide="refresh-cw"></i></div>
               <h3>Reframing</h3>
-              <p>Clarify what is misaligned, what can be redesigned, and where the leader still has agency.</p>
+              <p>Clarify what is misaligned, what can be redesigned, and where leadership still has agency.</p>
             </div>
 
             <div class="cycle-card">
@@ -613,7 +645,7 @@
             <div class="cycle-card">
               <div class="cycle-icon"><i data-lucide="layers"></i></div>
               <h3>Integration</h3>
-              <p>Turn learning into changes that can be embedded in team rhythms, role expectations, decision flows, and leadership practice.</p>
+              <p>Embed what works into team practices, role expectations, and leadership operations.</p>
             </div>
 
             <div class="cycle-arrow arrow-top">→</div>
@@ -625,29 +657,45 @@
       </section>
 
       <section class="section">
+        <div class="case-card">
+          <div>
+            <span class="case-label">Example use case</span>
+            <h2>When a leadership layer starts carrying too much.</h2>
+            <p>A director group is still delivering, but decisions are slowing, managers are absorbing more pressure, and engagement scores are beginning to soften. No single person is failing. The operating system is overloaded.</p>
+          </div>
+          <div class="case-list">
+            <div><strong>Before:</strong> unclear decision rights, repeated escalation, quiet fatigue, and work moving through the same few people.</div>
+            <div><strong>During:</strong> leaders map the sources of strain, identify system patterns, and test changes in how work is distributed and decided.</div>
+            <div><strong>After:</strong> the organization has clearer insight into what needs to change, what can be scaled, and how to protect continuity before exit becomes likely.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="founding">
         <div class="pricing">
           <div>
-            <div class="eyebrow">Pilot opportunity</div>
-            <h2>Early partners help shape the methodology.</h2>
-            <p>Leadership Continuity Lab is currently being piloted with a small number of organizations. Early partners receive a focused intervention, high-touch facilitation, and direct involvement in refining the method for their leadership context.</p>
+            <div class="eyebrow">Founding cohort</div>
+            <h2>Early partners help shape the model.</h2>
+            <p>We are working with a small number of organizations to refine and scale this approach. Founding partners receive direct facilitation, tailored application to their leadership context, and influence over how the model evolves.</p>
+            <p style="margin-top:18px;">This is not a trial. It is a working partnership.</p>
           </div>
 
           <div>
             <div class="price">$6k–$10k</div>
-            <p>Pilot cohort pricing, depending on scope and organization size.</p>
+            <p>Depending on scope and organizational context.</p>
 
             <div class="outcomes-block">
-              <h3>What to expect</h3>
+              <h3>You should expect:</h3>
               <ul>
-                <li>A clear diagnosis of system-level drivers of burnout across participating teams</li>
-                <li>Practical redesign options for management expectations, workflows, and decision patterns</li>
-                <li>Leaders testing concrete changes in live work conditions, not simulated training scenarios</li>
-                <li>Improved clarity, stability, and shared language among participating leaders</li>
-                <li>A grounded recommendation on whether to scale, adapt, or refine the approach across the organization</li>
+                <li>Clear visibility into the structural drivers of burnout</li>
+                <li>Immediate, practical shifts in how leadership work is carried</li>
+                <li>Reduced pressure on key individuals through better system design</li>
+                <li>Stronger alignment between expectations, roles, and decisions</li>
+                <li>A more stable leadership layer capable of sustaining performance</li>
               </ul>
             </div>
 
-            <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Ask about a pilot cohort</a>
+            <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Start a conversation</a>
           </div>
         </div>
       </section>
@@ -666,30 +714,30 @@
           <div>
             <div class="eyebrow">About the facilitator</div>
             <h2>Led by Travis Birch.</h2>
-            <p>Travis Birch is a leadership and management facilitator with over 18 years of experience helping organizations address the conditions that drive burnout and disengagement. His work focuses on creating healthier work environments that translate into stronger employee engagement, customer satisfaction, productivity, and performance.</p>
-            <p>He works at the level of how work is structured and managed — supporting leaders to see and reshape the systems they are operating within.</p>
+            <p>Travis Birch is a leadership and management facilitator, consultant, and advisor with over 18 years of experience working with organizations to create healthier, more sustainable work environments.</p>
+            <p>His work focuses on helping leaders and teams understand how work is actually happening — and redesigning the conditions that drive engagement, performance, and retention.</p>
           </div>
         </div>
       </section>
 
       <section class="final-cta">
         <div class="eyebrow">Next step</div>
-        <h2>Support key leaders before burnout becomes resignation.</h2>
-        <p>If you are seeing signs of burnout, disengagement, or role fatigue in your leadership team, this is the moment to act.</p>
+        <h2>Act before pressure becomes loss.</h2>
+        <p>If you are seeing signs of strain in your leadership team, this is the moment to intervene. Not with more support for individuals — but with a shift in how the system operates.</p>
 
         <div class="burnout-signals">
-          <p><strong>You may be seeing signs like:</strong></p>
+          <p><strong>You may already be noticing:</strong></p>
           <ul>
             <li>Declining employee engagement or satisfaction scores</li>
-            <li>Increased concerns about workload or work–life balance</li>
-            <li>Rising absenteeism or unplanned time off</li>
-            <li>Leaders showing signs of fatigue, withdrawal, or reduced clarity</li>
-            <li>Slower decision-making or bottlenecks at key points in the organization</li>
-            <li>High performers becoming disengaged or considering exit</li>
+            <li>Increased absenteeism or reduced discretionary effort</li>
+            <li>Concerns about workload or work-life sustainability</li>
+            <li>Slower decision-making and growing bottlenecks</li>
+            <li>High performers beginning to disengage</li>
           </ul>
+          <p style="margin-top:16px;"><strong>These are early signals — not isolated issues.</strong></p>
         </div>
 
-        <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Book a 30-minute conversation</a>
+        <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Start a conversation</a>
       </section>
     </main>
 
