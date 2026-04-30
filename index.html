@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Leadership Continuity Lab | Burnout Prevention & Organizational Redesign</title>
-  <meta name="description" content="Leadership Continuity Lab helps organizations protect leadership continuity by addressing system-level drivers of burnout and redesigning the conditions that shape how work gets done." />
+  <meta name="description" content="Leadership Continuity Lab helps organizations protect leadership continuity by helping leaders redesign the conditions that create burnout, pressure, and operational drag." />
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
@@ -84,7 +84,7 @@
     .hero {
       max-width: 1220px;
       margin: 0 auto;
-      padding: 78px 24px 112px;
+      padding: 78px 24px 116px;
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(420px, 0.9fr);
       gap: 64px;
@@ -228,6 +228,45 @@
       box-shadow: 0 12px 34px rgba(16,27,34,0.05);
     }
 
+    .quote-band {
+      max-width: 1120px;
+      margin: 18px auto 0;
+      padding: 0 24px;
+    }
+
+    .quote-inner {
+      background: var(--deep);
+      border-radius: 36px;
+      padding: 58px;
+      color: #fff;
+      box-shadow: 0 28px 80px rgba(16,27,34,0.18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-inner::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      right: -120px;
+      top: -120px;
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: inset 0 0 0 46px rgba(180,111,67,0.14);
+    }
+
+    .quote-inner p {
+      font-family: Georgia, 'Times New Roman', serif;
+      color: #fff;
+      font-size: clamp(2rem, 4.5vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+      max-width: 900px;
+      position: relative;
+      z-index: 1;
+    }
+
     .dark-band {
       background:
         linear-gradient(135deg, rgba(16,27,34,0.96), rgba(29,46,53,0.96)),
@@ -330,7 +369,7 @@
       border: 1px solid var(--line);
       border-radius: 28px;
       padding: 26px;
-      min-height: 220px;
+      min-height: 240px;
       position: relative;
       box-shadow: 0 16px 42px rgba(16, 27, 34, 0.06);
     }
@@ -342,6 +381,7 @@
       display: grid; place-items: center;
     }
     .cycle-icon i { width: 20px; height: 20px; stroke-width: 1.8; }
+    .shift { margin-top: 14px; color: var(--accent-dark); font-weight: 700; font-size: 0.96rem; }
 
     .cycle-arrow {
       position: absolute;
@@ -380,16 +420,8 @@
       font-weight: 800;
     }
 
-    .case-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .case-list div {
-      border-left: 3px solid var(--accent);
-      padding-left: 16px;
-      color: var(--muted);
-    }
+    .case-list { display: grid; gap: 14px; }
+    .case-list div { border-left: 3px solid var(--accent); padding-left: 16px; color: var(--muted); }
 
     .pricing {
       background: linear-gradient(135deg, rgba(255,253,248,0.94), rgba(248,239,225,0.9));
@@ -479,6 +511,7 @@
       .cycle-wrap::before { position: static; display: block; margin-bottom: 18px; }
       .cycle-grid { grid-template-columns: 1fr; gap: 18px; }
       .cycle-arrow { display: none; }
+      .quote-inner { padding: 38px; border-radius: 28px; }
     }
 
     @media (max-width: 560px) {
@@ -505,8 +538,8 @@
       <section class="hero">
         <div>
           <div class="eyebrow">Leadership Continuity Lab</div>
-          <h1>Protect leadership continuity before pressure turns into resignation.</h1>
-          <p>An 8-week systemic intervention that helps leaders redesign the conditions driving burnout — not just cope with them.</p>
+          <h1>Protect leadership continuity before pressure turns into loss.</h1>
+          <p>Most organizations respond to burnout by supporting individuals. The Leadership Continuity Lab works at the level where burnout is created — the structure of the work itself.</p>
           <div class="hero-actions">
             <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Start a conversation</a>
             <a class="button secondary" href="#founding">Explore the founding cohort →</a>
@@ -516,8 +549,8 @@
 
         <aside class="hero-visual" aria-label="Leaders in structured conversation">
           <div class="visual-card">
-            <strong>This is not about helping leaders handle more pressure.</strong>
-            <span>It is about changing the conditions that are creating it.</span>
+            <strong>This work does not focus on helping leaders carry more.</strong>
+            <span>It focuses on redesigning what they are being asked to carry.</span>
           </div>
         </aside>
       </section>
@@ -536,6 +569,12 @@
           <p style="margin-top:26px;">By the time resignation happens, the system has already been under strain for months. What looks like burnout is often a design problem.</p>
         </div>
       </section>
+
+      <div class="quote-band">
+        <div class="quote-inner">
+          <p>We do not teach leaders how to carry a heavier load. We facilitate the work of redesigning the load itself.</p>
+        </div>
+      </div>
 
       <section class="section" id="fit">
         <div class="section-header">
@@ -575,19 +614,19 @@
         <div class="dark-inner">
           <div>
             <div class="eyebrow">Why organizations invest</div>
-            <h2>Burnout is not a resilience problem.<br>It is a system design problem.</h2>
-            <p>When mid-level leaders burn out, it is rarely an individual failure. It is a signal that the way work is structured, distributed, and managed is no longer sustainable.</p>
-            <p>Leadership Continuity Lab works at this level — helping leaders surface and reshape the systems they are operating within, not just cope with them.</p>
+            <h2>Leadership stability is not a people problem. It is a system outcome.</h2>
+            <p>When a mid-level leader exits, the impact extends beyond a single role. Decision flow slows. Work redistributes. Pressure concentrates.</p>
+            <p>The Lab intervenes before that pattern becomes loss.</p>
           </div>
 
           <div class="dark-card">
             <h3>What organizations gain:</h3>
             <ul>
-              <li>Retain experienced leaders at the point they are most at risk of exit</li>
+              <li>Prevent cascading turnover across leadership layers</li>
               <li>Reduce decision bottlenecks and hidden operational drag</li>
-              <li>Stabilize teams operating under sustained pressure</li>
-              <li>Improve clarity in roles, expectations, and decision flow</li>
-              <li>Build a more sustainable leadership operating model</li>
+              <li>Retain institutional knowledge at the point of highest risk</li>
+              <li>Improve clarity across roles, expectations, and authority</li>
+              <li>Stabilize leadership performance under sustained pressure</li>
             </ul>
           </div>
         </div>
@@ -597,7 +636,7 @@
         <div class="section-header">
           <div class="eyebrow">The program</div>
           <h2>Leadership Continuity Lab</h2>
-          <p>A facilitated cohort process that helps leaders step back from pressure, diagnose the system around them, test new ways of working, and translate learning into healthier management practices.</p>
+          <p>A facilitated cohort process that supports leaders to step into the role of strategic architects of their own environment. The work is grounded in their actual operating conditions, not in generic leadership theory.</p>
         </div>
 
         <div class="grid-2">
@@ -619,7 +658,7 @@
         <div class="section-header">
           <div class="eyebrow">The method</div>
           <h2>A learning cycle for redesigning work in real conditions.</h2>
-          <p>Work changes as conditions change. This process is designed to evolve with it.</p>
+          <p>Leadership does not happen in a classroom. It happens in the friction of daily operations. This process uses the real-world conditions of your organization as the lab for systemic change.</p>
         </div>
 
         <div class="cycle-wrap">
@@ -627,25 +666,29 @@
             <div class="cycle-card">
               <div class="cycle-icon"><i data-lucide="scan-search"></i></div>
               <h3>Awareness</h3>
-              <p>Map burnout signals, role pressures, leadership patterns, and the real cost of continuing unchanged.</p>
+              <p>Move beyond surface-level symptoms to map the structural drivers of fatigue: decision bottlenecks, role overlaps, and invisible workarounds.</p>
+              <div class="shift">The shift: from noticing pressure to naming the cause.</div>
             </div>
 
             <div class="cycle-card">
               <div class="cycle-icon"><i data-lucide="refresh-cw"></i></div>
               <h3>Reframing</h3>
-              <p>Clarify what is misaligned, what can be redesigned, and where leadership still has agency.</p>
+              <p>Clarify what is within a leader’s control to change, separating fixed constraints from the variables that can be redesigned immediately.</p>
+              <div class="shift">The shift: from absorbing the hit to architectural agency.</div>
             </div>
 
             <div class="cycle-card">
               <div class="cycle-icon"><i data-lucide="flask-conical"></i></div>
               <h3>Experimentation</h3>
-              <p>Test practical changes in communication, boundaries, delegation, decision-making, and team rhythms.</p>
+              <p>Run practical tests in daily work: new protocols for decision-making, delegation, communication, meeting rhythms, and boundary-setting.</p>
+              <div class="shift">The shift: from theorizing change to testing change.</div>
             </div>
 
             <div class="cycle-card">
               <div class="cycle-icon"><i data-lucide="layers"></i></div>
               <h3>Integration</h3>
-              <p>Embed what works into team practices, role expectations, and leadership operations.</p>
+              <p>Codify what worked into team practices and role expectations so the reset becomes part of how the leadership layer operates.</p>
+              <div class="shift">The shift: from temporary relief to sustainable operating model.</div>
             </div>
 
             <div class="cycle-arrow arrow-top">→</div>
@@ -674,15 +717,15 @@
       <section class="section" id="founding">
         <div class="pricing">
           <div>
-            <div class="eyebrow">Founding cohort</div>
-            <h2>Early partners help shape the model.</h2>
-            <p>We are working with a small number of organizations to refine and scale this approach. Founding partners receive direct facilitation, tailored application to their leadership context, and influence over how the model evolves.</p>
-            <p style="margin-top:18px;">This is not a trial. It is a working partnership.</p>
+            <div class="eyebrow">Impact partnership</div>
+            <h2>Join as a founding partner.</h2>
+            <p>We are working with a small number of organizations ready to move beyond resilience training and co-author a more sustainable model for leadership continuity.</p>
+            <p style="margin-top:18px;">Founding partners receive direct facilitation, tailored application to their leadership context, and influence over how the model evolves.</p>
           </div>
 
           <div>
             <div class="price">$6k–$10k</div>
-            <p>Depending on scope and organizational context.</p>
+            <p>Foundational rate, depending on scope and organizational context.</p>
 
             <div class="outcomes-block">
               <h3>You should expect:</h3>
@@ -703,25 +746,26 @@
       <section class="section">
         <div class="section-header">
           <div class="eyebrow">Who this is not for</div>
-          <h2>This is not general leadership training.</h2>
-          <p>Leadership Continuity Lab is designed for organizations where pressure is already affecting leader sustainability, management effectiveness, retention, and team stability. It is best suited for leaders facing real operating tension — not simply looking for another professional development session.</p>
+          <h2>This is not a perk or a general development session.</h2>
+          <p>This is for organizations where pressure is already affecting retention, management effectiveness, and team stability — and where waiting it out is no longer a viable strategy.</p>
         </div>
       </section>
 
       <section class="section">
         <div class="about">
-          <div class="portrait-placeholder">Transition work for leaders carrying real responsibility.</div>
+          <div class="portrait-placeholder">Facilitating the architects of change.</div>
           <div>
             <div class="eyebrow">About the facilitator</div>
             <h2>Led by Travis Birch.</h2>
-            <p>Travis Birch is a leadership and management facilitator, consultant, and advisor with over 18 years of experience working with organizations to create healthier, more sustainable work environments.</p>
-            <p>His work focuses on helping leaders and teams understand how work is actually happening — and redesigning the conditions that drive engagement, performance, and retention.</p>
+            <p>Travis Birch does not come in with a pre-packaged blueprint for your organization. He facilitates the work of the people who know your system best: your leaders.</p>
+            <p>With over 18 years of experience in leadership and management facilitation, consulting, training, and coaching, Travis provides the framework, diagnostic tools, and neutral space required for directors and managers to step into the role of strategic architects of their own environment.</p>
+            <p>He supports leaders as they deconstruct unsustainable patterns and rebuild a leadership operating model that fits the reality they are actually working in.</p>
           </div>
         </div>
       </section>
 
       <section class="final-cta">
-        <div class="eyebrow">Next step</div>
+        <div class="eyebrow">Diagnostic invitation</div>
         <h2>Act before pressure becomes loss.</h2>
         <p>If you are seeing signs of strain in your leadership team, this is the moment to intervene. Not with more support for individuals — but with a shift in how the system operates.</p>
 
