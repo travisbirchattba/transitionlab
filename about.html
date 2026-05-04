@@ -166,40 +166,21 @@
       align-items: start;
     }
 
+    .portrait-wrap { position: sticky; top: 100px; }
     .portrait {
-      background:
-        linear-gradient(145deg, rgba(16,27,34,0.0), rgba(16,27,34,0.35)),
-        url('Facilitator.jpg') center top/cover;
-      border: 1px solid var(--line);
-      border-radius: 36px;
+      background: url('Facilitator.jpg') center top/cover;
+      border: 1px solid var(--line); border-radius: 36px 36px 0 0;
       min-height: 520px;
-      display: flex;
-      align-items: flex-end;
-      color: #fff;
-      padding: 34px;
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 1.5rem;
-      line-height: 1.12;
-      letter-spacing: -0.04em;
-      box-shadow: 0 26px 70px rgba(16,27,34,0.13);
-      position: sticky;
-      top: 100px;
     }
-
     .portrait-caption {
-      background: rgba(16,27,34,0.55);
-      backdrop-filter: blur(8px);
-      border-radius: 18px;
-      padding: 20px 24px;
-      width: 100%;
+      background: rgba(255,253,248,0.97); border: 1px solid var(--line);
+      border-top: none; border-radius: 0 0 36px 36px;
+      padding: 20px 28px; box-shadow: 0 26px 70px rgba(16,27,34,0.13);
     }
-
     .portrait-caption strong {
-      display: block;
-      font-size: 1.3rem;
-      margin-bottom: 4px;
+      display: block; font-family: Georgia, serif;
+      font-size: 1.2rem; margin-bottom: 4px; color: var(--ink);
     }
-
     .portrait-caption span {
       font-family: Arial, sans-serif;
       font-size: 0.88rem;
@@ -479,7 +460,7 @@
         <div class="nav">
           <a class="brand" href="index.html">Leadership Continuity Lab</a>
           <nav class="nav-links">
-            <a href="index.html#fit">Who it's for</a>
+            
             <a href="index.html#program">Program</a>
             <a href="index.html#method">Method</a>
             <a href="about.html" class="active">About</a>
@@ -491,7 +472,7 @@
         </div>
       </div>
       <div class="mobile-menu" id="mobileMenu">
-        <a href="index.html#fit">Who it's for</a>
+        
         <a href="index.html#program">Program</a>
         <a href="index.html#method">Method</a>
         <a href="about.html">About</a>
@@ -503,12 +484,13 @@
 
       <!-- ── HERO ── -->
       <div class="about-hero">
-        <div class="portrait fade-up">
-          <div class="portrait-caption">
-            <strong>Travis Birch</strong>
-            <span>Facilitator & Consultant · Stratford, Ontario</span>
-          </div>
+        <div class="portrait-wrap fade-up">
+        <div class="portrait"></div>
+        <div class="portrait-caption">
+          <strong>Travis Birch</strong>
+          <span>Facilitator & Consultant · Stratford, Ontario</span>
         </div>
+      </div>
 
         <div class="about-content">
 
@@ -675,7 +657,7 @@
         </div>
         <div class="footer-col">
           <h4>Navigate</h4>
-          <a href="index.html#fit">Who it's for</a>
+          
           <a href="index.html#program">The program</a>
           <a href="index.html#method">The method</a>
           <a href="index.html#founding">Founding cohort</a>
