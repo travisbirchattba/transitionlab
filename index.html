@@ -592,7 +592,13 @@
 
     /* ── ABOUT ── */
     .about { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 48px; align-items: start; }
-    .portrait-placeholder {
+    .portrait-real {
+      background: url('Facilitator.jpg') center top/cover;
+      border: 1px solid var(--line);
+      border-radius: 36px;
+      min-height: 480px;
+      box-shadow: 0 26px 70px rgba(16,27,34,0.13);
+    }
       background:
         linear-gradient(145deg, rgba(16,27,34,0.0), rgba(16,27,34,0.35)),
         url('Facilitator.jpg') center top/cover;
@@ -997,13 +1003,13 @@
       <!-- ── ABOUT ── -->
       <section class="section">
         <div class="about fade-up">
-          <div class="portrait-placeholder">Facilitating the architects of change.</div>
+          <div class="portrait-real"></div>
           <div>
             <div class="eyebrow">About the facilitator</div>
             <h2>Led by Travis Birch.</h2>
             <p>Travis Birch does not come in with a pre-packaged blueprint for your organization. He facilitates the work of the people who know your system best: your leaders.</p>
-            <p>With over 18 years of experience in leadership and management facilitation, consulting, training, and coaching, Travis provides the framework, diagnostic tools, and neutral space required for directors and managers to step into the role of strategic architects of their own environment.</p>
-            <p>He supports leaders as they deconstruct unsustainable patterns and rebuild a leadership operating model that fits the reality they are actually working in.</p>
+            <p>With over 17 years of experience across government, financial services, telecoms, nonprofits, and marketing agencies, Travis provides the framework, diagnostic tools, and neutral space required for leaders to step into the role of strategic architects of their own environment.</p>
+            <a class="button ghost" href="about.html" style="margin-top:28px;">Read Travis's full story →</a>
           </div>
         </div>
       </section>
