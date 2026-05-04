@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | Leadership Continuity Lab</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --bg: #f4f1ea; --ink: #162127; --muted: #607077; --card: #fffdf8;
+      --line: #d9d2c7; --accent: #b46f43; --accent-dark: #79452c;
+      --deep: #101b22; --sage: #8fa99b; --clay: #c79a73;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background:
+        radial-gradient(circle at 12% 8%, rgba(143,169,155,0.18), transparent 30%),
+        radial-gradient(circle at 88% 4%, rgba(180,111,67,0.12), transparent 32%),
+        var(--bg);
+      color: var(--ink); font-family: Arial, sans-serif; line-height: 1.65;
+      min-height: 100vh; display: flex; flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .parent-bar { background: var(--deep); color: rgba(255,255,255,0.6); font-size: 0.78rem; padding: 8px 24px; text-align: center; letter-spacing: 0.06em; }
+    .parent-bar a { color: var(--clay); transition: color 0.2s; }
+    .parent-bar a:hover { color: #fff; }
+
+    .nav { max-width: 1220px; margin: 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); }
+    .brand-wrap { display: flex; flex-direction: column; gap: 2px; }
+    .brand { font-family: Georgia, 'Times New Roman', serif; font-size: 1.3rem; letter-spacing: -0.03em; font-weight: 600; }
+    .brand-sub { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.04em; }
+    .button { display: inline-flex; align-items: center; justify-content: center; background: var(--accent); color: #fff; padding: 13px 22px; border-radius: 999px; font-weight: 700; font-size: 0.92rem; line-height: 1; transition: background 0.2s ease, transform 0.2s ease; box-shadow: 0 12px 28px rgba(121,69,44,0.22); }
+    .button:hover { background: var(--accent-dark); transform: translateY(-2px); }
+    .button.ghost { background: transparent; color: var(--accent-dark); border: 1.5px solid var(--accent); box-shadow: none; padding: 12px 22px; }
+    .button.ghost:hover { background: rgba(180,111,67,0.08); }
+
+    .main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 60px 24px; }
+    .inner { max-width: 640px; text-align: center; }
+
+    .four-oh-four {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(7rem, 18vw, 14rem);
+      letter-spacing: -0.08em; line-height: 1;
+      color: rgba(180,111,67,0.15);
+      margin-bottom: -20px;
+    }
+
+    h1 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 500; letter-spacing: -0.036em; color: var(--ink); margin-bottom: 16px; line-height: 1.1; }
+    p { color: var(--muted); font-size: 1.06rem; max-width: 480px; margin: 0 auto 36px; }
+
+    .nav-links-404 { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 48px; }
+    .nav-link-404 { padding: 10px 18px; background: rgba(255,253,248,0.82); border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: 0.9rem; transition: color 0.2s, border-color 0.2s; }
+    .nav-link-404:hover { color: var(--ink); border-color: var(--accent); }
+
+    .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    footer { border-top: 1px solid var(--line); padding: 24px; color: var(--muted); font-size: 0.84rem; text-align: center; }
+  </style>
+</head>
+<body>
+
+  <div class="parent-bar">
+    A <a href="https://www.tbagroup.io">Travis Birch & Associates</a> practice
+  </div>
+
+  <div class="nav">
+    <a class="brand-wrap" href="index.html">
+      <span class="brand">Leadership Continuity Lab</span>
+      <span class="brand-sub">A Travis Birch & Associates practice</span>
+    </a>
+    <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Start a conversation</a>
+  </div>
+
+  <div class="main">
+    <div class="inner">
+      <div class="four-oh-four">404</div>
+      <h1>This page doesn't exist.</h1>
+      <p>The page you're looking for may have moved or never existed. Here are some places to go instead.</p>
+
+      <div class="nav-links-404">
+        <a class="nav-link-404" href="index.html">Home</a>
+        <a class="nav-link-404" href="program.html">Program</a>
+        <a class="nav-link-404" href="method.html">Method</a>
+        <a class="nav-link-404" href="pricing.html">Pricing</a>
+        <a class="nav-link-404" href="about.html">About</a>
+      </div>
+
+      <div class="cta-buttons">
+        <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Start a conversation</a>
+        <a class="button ghost" href="index.html">Go home</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>© 2026 Travis Birch & Associates. Leadership Continuity Lab is a TBA practice.</footer>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>
