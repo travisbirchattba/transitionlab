@@ -702,7 +702,37 @@
       font-size: 0.84rem;
     }
 
-    /* ── FADE-IN ANIMATIONS ── */
+    /* ── TEASERS ── */
+    .teasers-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .teaser-card {
+      background: rgba(255,253,248,0.82); border: 1px solid var(--line);
+      border-radius: 28px; overflow: hidden;
+      box-shadow: 0 16px 42px rgba(16,27,34,0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex; flex-direction: column;
+    }
+    .teaser-card:hover { transform: translateY(-5px); box-shadow: 0 28px 60px rgba(16,27,34,0.12); }
+    .teaser-visual { min-height: 200px; }
+    .tv-program {
+      background:
+        linear-gradient(145deg, rgba(16,27,34,0.1), rgba(16,27,34,0.55)),
+        url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80') center/cover;
+    }
+    .tv-method {
+      background:
+        linear-gradient(145deg, rgba(16,27,34,0.1), rgba(16,27,34,0.55)),
+        url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80') center/cover;
+    }
+    .tv-pricing {
+      background:
+        linear-gradient(145deg, rgba(16,27,34,0.1), rgba(16,27,34,0.55)),
+        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80') center/cover;
+    }
+    .teaser-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+    .teaser-body h3 { font-size: 1.2rem; margin-bottom: 10px; margin-top: 6px; }
+    .teaser-body p { font-size: 0.97rem; max-width: none; flex: 1; }
+    .teaser-link { display: inline-block; margin-top: 20px; color: var(--accent-dark); font-weight: 700; font-size: 0.9rem; transition: transform 0.2s; }
+    .teaser-card:hover .teaser-link { transform: translateX(3px); }
     .fade-up {
       opacity: 0;
       transform: translateY(28px);
@@ -718,7 +748,7 @@
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .mobile-menu { display: flex; }
-      .hero, .dark-inner, .pricing, .about, .grid-2, .grid-3, .case-card { grid-template-columns: 1fr; }
+      .hero, .dark-inner, .pricing, .about, .grid-2, .grid-3, .case-card, .teasers-grid { grid-template-columns: 1fr; }
       .hero { padding-top: 56px; }
       .hero-visual { min-height: 460px; }
       .section { padding: 72px 24px; }
@@ -770,9 +800,9 @@
           </a>
           <nav class="nav-links">
             <a href="#fit">Who it's for</a>
-            <a href="#program">Program</a>
-            <a href="#method">Method</a>
-            <a href="#founding">Pricing</a>
+            <a href="program.html">Program</a>
+            <a href="method.html">Method</a>
+            <a href="pricing.html">Pricing</a>
             <a href="about.html">About</a>
             <a href="https://www.tbagroup.io">TBA ↗</a>
             <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Start a conversation</a>
@@ -784,9 +814,9 @@
       </div>
       <div class="mobile-menu" id="mobileMenu">
         <a href="#fit">Who it's for</a>
-        <a href="#program">Program</a>
-        <a href="#method">Method</a>
-        <a href="#founding">Pricing</a>
+        <a href="program.html">Program</a>
+        <a href="method.html">Method</a>
+        <a href="pricing.html">Pricing</a>
         <a href="about.html">About</a>
         <a href="https://www.tbagroup.io">Travis Birch & Associates ↗</a>
         <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Start a conversation</a>
@@ -915,127 +945,40 @@
         </div>
       </section>
 
-      <!-- ── PROGRAM ── -->
-      <section class="section" id="program">
-        <div class="section-header fade-up">
-          <div class="eyebrow">The program</div>
-          <h2>Leadership Continuity Lab</h2>
-          <p>A facilitated cohort process that supports leaders to step into the role of strategic architects of their own environment. The work is grounded in their actual operating conditions, not in generic leadership theory.</p>
-        </div>
+      <!-- ── TEASERS ── -->
+      <section class="section" style="padding-top:0;">
+        <div class="teasers-grid">
 
-        <div class="grid-2 fade-up">
-          <div class="program-visual"></div>
-          <div class="card">
-            <h3>Program structure</h3>
-            <ul>
-              <li>8-week facilitated intervention</li>
-              <li>6–8 leaders per cohort</li>
-              <li>Real-time workplace application</li>
-              <li>Practical redesign experiments between sessions</li>
-              <li>Reflection, peer support, and integration</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── METHOD ── -->
-      <section class="section" id="method">
-        <div class="section-header fade-up">
-          <div class="eyebrow">The method</div>
-          <h2>A learning cycle for redesigning work in real conditions.</h2>
-          <p>Leadership does not happen in a classroom. It happens in the friction of daily operations. This process uses the real-world conditions of your organization as the lab for systemic change.</p>
-        </div>
-
-        <div class="cycle-wrap fade-up">
-          <div class="cycle-grid">
-            <div class="cycle-card">
-              <div class="cycle-icon"><i data-lucide="scan-search"></i></div>
-              <h3>Awareness</h3>
-              <p>Move beyond surface-level symptoms to map the structural drivers of fatigue: decision bottlenecks, role overlaps, and invisible workarounds.</p>
-              <div class="shift">The shift: from noticing pressure to naming the cause.</div>
+          <a class="teaser-card fade-up" href="program.html">
+            <div class="teaser-visual tv-program"></div>
+            <div class="teaser-body">
+              <div class="eyebrow">The program</div>
+              <h3>Eight weeks. Real conditions. Lasting change.</h3>
+              <p>A facilitated cohort process grounded in your actual operating conditions — not generic leadership theory.</p>
+              <span class="teaser-link">Explore the program →</span>
             </div>
+          </a>
 
-            <div class="cycle-card">
-              <div class="cycle-icon"><i data-lucide="refresh-cw"></i></div>
-              <h3>Reframing</h3>
-              <p>Clarify what is within a leader's control to change, separating fixed constraints from the variables that can be redesigned immediately.</p>
-              <div class="shift">The shift: from absorbing the hit to architectural agency.</div>
+          <a class="teaser-card fade-up" href="method.html" style="transition-delay:0.1s;">
+            <div class="teaser-visual tv-method"></div>
+            <div class="teaser-body">
+              <div class="eyebrow">The method</div>
+              <h3>A learning cycle for redesigning work in real conditions.</h3>
+              <p>Awareness → Reframing → Experimentation → Integration. Each stage builds on the last.</p>
+              <span class="teaser-link">Explore the method →</span>
             </div>
+          </a>
 
-            <div class="cycle-card">
-              <div class="cycle-icon"><i data-lucide="flask-conical"></i></div>
-              <h3>Experimentation</h3>
-              <p>Run practical tests in daily work: new protocols for decision-making, delegation, communication, meeting rhythms, and boundary-setting.</p>
-              <div class="shift">The shift: from theorizing change to testing change.</div>
+          <a class="teaser-card fade-up" href="pricing.html" style="transition-delay:0.2s;">
+            <div class="teaser-visual tv-pricing"></div>
+            <div class="teaser-body">
+              <div class="eyebrow">Founding cohort</div>
+              <h3>Join as a founding partner.</h3>
+              <p>A small number of organizations co-authoring the model. Foundational rate: $6k–$10k depending on scope.</p>
+              <span class="teaser-link">View pricing →</span>
             </div>
+          </a>
 
-            <div class="cycle-card">
-              <div class="cycle-icon"><i data-lucide="layers"></i></div>
-              <h3>Integration</h3>
-              <p>Codify what worked into team practices and role expectations so the reset becomes part of how the leadership layer operates.</p>
-              <div class="shift">The shift: from temporary relief to sustainable operating model.</div>
-            </div>
-
-            <div class="cycle-arrow arrow-top">→</div>
-            <div class="cycle-arrow arrow-right">↓</div>
-            <div class="cycle-arrow arrow-bottom">←</div>
-            <div class="cycle-arrow arrow-left">↑</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── CASE STUDY ── -->
-      <section class="section">
-        <div class="case-card fade-up">
-          <div>
-            <span class="case-label">Example use case</span>
-            <h2>When a leadership layer starts carrying too much.</h2>
-            <p>A director group is still delivering, but decisions are slowing, managers are absorbing more pressure, and engagement scores are beginning to soften. No single person is failing. The operating system is overloaded.</p>
-          </div>
-          <div class="case-list">
-            <div><strong>Before:</strong> unclear decision rights, repeated escalation, quiet fatigue, and work moving through the same few people.</div>
-            <div><strong>During:</strong> leaders map the sources of strain, identify system patterns, and test changes in how work is distributed and decided.</div>
-            <div><strong>After:</strong> the organization has clearer insight into what needs to change, what can be scaled, and how to protect continuity before exit becomes likely.</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── PRICING ── -->
-      <section class="section" id="founding">
-        <div class="pricing fade-up">
-          <div>
-            <div class="eyebrow">Impact partnership</div>
-            <h2>Join as a founding partner.</h2>
-            <p>We are working with a small number of organizations ready to move beyond resilience training and co-author a more sustainable model for leadership continuity.</p>
-            <p style="margin-top:18px;">Founding partners receive direct facilitation, tailored application to their leadership context, and influence over how the model evolves.</p>
-          </div>
-
-          <div>
-            <div class="price">$6k–$10k</div>
-            <p>Foundational rate, depending on scope and organizational context.</p>
-
-            <div class="outcomes-block">
-              <h3>You should expect:</h3>
-              <ul>
-                <li>Clear visibility into the structural drivers of burnout</li>
-                <li>Immediate, practical shifts in how leadership work is carried</li>
-                <li>Reduced pressure on key individuals through better system design</li>
-                <li>Stronger alignment between expectations, roles, and decisions</li>
-                <li>A more stable leadership layer capable of sustaining performance</li>
-              </ul>
-            </div>
-
-            <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Start a conversation</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── NOT FOR ── -->
-      <section class="section">
-        <div class="section-header fade-up">
-          <div class="eyebrow">Who this is not for</div>
-          <h2>This is not a perk or a general development session.</h2>
-          <p>This is for organizations where pressure is already affecting retention, management effectiveness, and team stability — and where waiting it out is no longer a viable strategy.</p>
         </div>
       </section>
 
@@ -1073,7 +1016,7 @@
 
         <div class="cta-buttons">
           <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Start a conversation</a>
-          <a class="button ghost" href="#founding">View founding offer</a>
+          <a class="button ghost" href="pricing.html">View founding offer</a>
         </div>
       </section>
     </main>
@@ -1088,9 +1031,9 @@
         <div class="footer-col">
           <h4>Navigate</h4>
           <a href="#fit">Who it's for</a>
-          <a href="#program">The program</a>
-          <a href="#method">The method</a>
-          <a href="#founding">Founding cohort</a>
+          <a href="program.html">The program</a>
+          <a href="method.html">The method</a>
+          <a href="pricing.html">Pricing</a>
           <a href="about.html">About Travis</a>
         </div>
         <div class="footer-col">
