@@ -743,19 +743,38 @@
   </style>
 </head>
 
+<style>
+    .parent-bar { background: var(--deep); color: rgba(255,255,255,0.6); font-size: 0.78rem; padding: 8px 24px; text-align: center; letter-spacing: 0.06em; }
+    .parent-bar a { color: var(--clay); transition: color 0.2s; }
+    .parent-bar a:hover { color: #fff; }
+    .brand-wrap { display: flex; flex-direction: column; gap: 2px; }
+    .brand-sub { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.04em; }
+  </style>
+</head>
+
 <body>
   <div class="site">
+
+    <!-- ── PARENT BAR ── -->
+    <div class="parent-bar">
+      A <a href="https://www.tbagroup.io">Travis Birch & Associates</a> practice
+    </div>
 
     <!-- ── NAV ── -->
     <header>
       <div class="nav-outer" id="navOuter">
         <div class="nav">
-          <a class="brand" href="#">Leadership Continuity Lab</a>
+          <a class="brand-wrap" href="index.html">
+            <span class="brand">Leadership Continuity Lab</span>
+            <span class="brand-sub">A Travis Birch & Associates practice</span>
+          </a>
           <nav class="nav-links">
             <a href="#fit">Who it's for</a>
             <a href="#program">Program</a>
             <a href="#method">Method</a>
             <a href="#founding">Pricing</a>
+            <a href="about.html">About</a>
+            <a href="https://www.tbagroup.io">TBA ↗</a>
             <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Start a conversation</a>
           </nav>
           <button class="hamburger" id="hamburger" aria-label="Open menu">
@@ -768,6 +787,8 @@
         <a href="#program">Program</a>
         <a href="#method">Method</a>
         <a href="#founding">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="https://www.tbagroup.io">Travis Birch & Associates ↗</a>
         <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Start a conversation</a>
       </div>
     </header>
@@ -1070,6 +1091,7 @@
           <a href="#program">The program</a>
           <a href="#method">The method</a>
           <a href="#founding">Founding cohort</a>
+          <a href="about.html">About Travis</a>
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
@@ -1077,9 +1099,15 @@
           <a href="mailto:travis@leadershipcontinuitylab.com">travis@leadershipcontinuitylab.com</a>
           <p style="margin-top: 10px;">Stratford, Ontario, Canada</p>
         </div>
+        <div class="footer-col">
+          <h4>Parent company</h4>
+          <a href="https://www.tbagroup.io">Travis Birch & Associates ↗</a>
+          <a href="https://www.tbagroup.io/consulting">Consulting</a>
+          <a href="https://www.tbagroup.io/services">Training</a>
+        </div>
       </div>
       <div class="footer-bottom">
-        <div>© 2026 Leadership Continuity Lab. Led by Travis Birch.</div>
+        <div>© 2026 Travis Birch & Associates. Leadership Continuity Lab is a TBA practice.</div>
         <div>Leadership continuity · Organizational redesign · Burnout prevention</div>
       </div>
     </footer>
