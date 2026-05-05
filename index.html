@@ -596,15 +596,17 @@
     /* ── ABOUT ── */
     .about { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 48px; align-items: start; }
     .portrait-real {
-      background: url('Facilitator.jpg') center 20%/cover;
+      background: url('Facilitator.jpg') center center/contain no-repeat;
+      background-color: #f0ede6;
       border: 1px solid var(--line);
       border-radius: 36px;
-      min-height: 480px;
+      min-height: 380px;
       box-shadow: 0 26px 70px rgba(16,27,34,0.13);
     }
       background:
         linear-gradient(145deg, rgba(16,27,34,0.0), rgba(16,27,34,0.35)),
-        url('Facilitator.jpg') center 20%/cover;
+        url('Facilitator.jpg') center center/contain no-repeat;
+      background-color: #f0ede6;
       border: 1px solid var(--line);
       border-radius: 34px;
       min-height: 420px;
