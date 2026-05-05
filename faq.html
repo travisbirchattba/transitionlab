@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ | Leadership Continuity Lab</title>
+  <meta name="description" content="Common questions about the Leadership Continuity Lab — how it works, who it's for, what it costs, and how to get started." />
+  <meta property="og:site_name" content="Leadership Continuity Lab" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="FAQ | Leadership Continuity Lab" />
+  <meta property="og:description" content="Common questions about the Leadership Continuity Lab — how it works, who it's for, what it costs, and how to get started." />
+  <meta property="og:url" content="https://transitionlab.ca/faq" />
+  <meta property="og:image" content="https://transitionlab.ca/og-banner.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3PZHVKRMT6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3PZHVKRMT6');
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --bg: #f4f1ea; --ink: #162127; --muted: #607077; --card: #fffdf8;
+      --line: #d9d2c7; --accent: #b46f43; --accent-dark: #79452c;
+      --deep: #101b22; --deep-2: #1d2e35; --sage: #8fa99b; --clay: #c79a73;
+      --shadow: rgba(16,27,34,0.14);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background:
+        radial-gradient(circle at 12% 8%, rgba(143,169,155,0.18), transparent 30%),
+        radial-gradient(circle at 88% 4%, rgba(180,111,67,0.12), transparent 32%),
+        var(--bg);
+      color: var(--ink); font-family: Arial, sans-serif; line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .site { overflow: hidden; }
+
+    .parent-bar { background: var(--deep); color: rgba(255,255,255,0.6); font-size: 0.78rem; padding: 8px 24px; text-align: center; letter-spacing: 0.06em; }
+    .parent-bar a { color: var(--clay); transition: color 0.2s; }
+    .parent-bar a:hover { color: #fff; }
+
+    .nav-outer { position: sticky; top: 0; z-index: 100; background: rgba(244,241,234,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); transition: box-shadow 0.3s ease; }
+    .nav-outer.scrolled { box-shadow: 0 4px 24px rgba(16,27,34,0.08); }
+    .nav { max-width: 1220px; margin: 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .brand-wrap { display: flex; flex-direction: row; align-items: center; gap: 12px; }
+    .brand { font-family: Georgia, 'Times New Roman', serif; font-size: 1.3rem; letter-spacing: -0.03em; font-weight: 600; }
+    .nav-links { display: flex; align-items: center; gap: 26px; color: var(--muted); font-size: 0.92rem; }
+    .nav-links a:not(.button):hover { color: var(--ink); transition: color 0.2s; }
+    .nav-links a.active { color: var(--ink); font-weight: 600; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; border: none; background: none; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; transition: 0.3s ease; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; flex-direction: column; border-top: 1px solid var(--line); padding: 0 24px; background: rgba(244,241,234,0.97); backdrop-filter: blur(14px); max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
+    .mobile-menu.open { max-height: 380px; padding: 16px 24px 24px; }
+    .mobile-menu a { padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 1rem; }
+    .mobile-menu a:last-child { border-bottom: none; padding-top: 16px; }
+
+    .button { display: inline-flex; align-items: center; justify-content: center; background: var(--accent); color: #fff; padding: 13px 22px; border-radius: 999px; font-weight: 700; font-size: 0.92rem; line-height: 1; transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; box-shadow: 0 12px 28px rgba(121,69,44,0.22); letter-spacing: 0.01em; }
+    .button:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 18px 36px rgba(121,69,44,0.28); }
+    .button.ghost { background: transparent; color: var(--accent-dark); border: 1.5px solid var(--accent); box-shadow: none; padding: 12px 22px; }
+    .button.ghost:hover { background: rgba(180,111,67,0.08); transform: translateY(-1px); }
+
+    .eyebrow { color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.72rem; font-weight: 800; margin-bottom: 18px; }
+    h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; font-weight: 500; letter-spacing: -0.036em; color: var(--ink); }
+    h1 { font-size: clamp(2.8rem, 5.4vw, 5.2rem); line-height: 1.02; margin-bottom: 28px; }
+    h2 { font-size: clamp(1.9rem, 3.5vw, 3.4rem); line-height: 1.08; margin-bottom: 20px; }
+    h3 { font-size: 1.3rem; line-height: 1.2; margin-bottom: 10px; }
+    p { color: var(--muted); font-size: 1.04rem; max-width: 730px; }
+    p + p { margin-top: 18px; }
+
+    .section { max-width: 1220px; margin: 0 auto; padding: 100px 24px; }
+
+    .page-hero { max-width: 1220px; margin: 0 auto; padding: 88px 24px 72px; }
+    .page-hero h1 { max-width: 720px; }
+    .page-hero p { font-size: 1.18rem; max-width: 600px; }
+
+    /* FAQ */
+    .faq-wrap { max-width: 860px; margin: 0 auto; }
+
+    .faq-category { margin-bottom: 64px; }
+    .faq-category-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.1rem; font-weight: 500; color: var(--accent-dark);
+      text-transform: uppercase; letter-spacing: 0.14em;
+      font-size: 0.72rem; font-weight: 800;
+      margin-bottom: 24px; padding-bottom: 12px;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+    }
+
+    .faq-list { display: flex; flex-direction: column; }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-item:first-child { border-top: 1px solid var(--line); }
+    .faq-question {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 24px 0; gap: 24px;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.15rem; font-weight: 500; letter-spacing: -0.02em;
+      color: var(--ink); text-align: left;
+      transition: color 0.2s;
+    }
+    .faq-question:hover { color: var(--accent-dark); }
+    .faq-icon { flex: 0 0 auto; width: 20px; height: 20px; stroke-width: 2; color: var(--accent); transition: transform 0.3s ease; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+    .faq-item.open .faq-answer { max-height: 400px; padding-bottom: 28px; }
+    .faq-answer p { color: var(--muted); font-size: 1.02rem; max-width: none; line-height: 1.7; }
+    .faq-answer p + p { margin-top: 14px; }
+
+    /* CTA */
+    .faq-cta {
+      background: linear-gradient(135deg, rgba(255,253,248,0.94), rgba(248,239,225,0.9));
+      border: 1px solid var(--line); border-radius: 36px; padding: 56px;
+      text-align: center; box-shadow: 0 28px 80px rgba(16,27,34,0.09);
+      position: relative; overflow: hidden; max-width: 860px; margin: 0 auto;
+    }
+    .faq-cta::before { content: ''; position: absolute; width: 260px; height: 260px; border-radius: 50%; right: -80px; top: -90px; border: 1px solid rgba(180,111,67,0.2); box-shadow: inset 0 0 0 36px rgba(143,169,155,0.08); }
+    .faq-cta > * { position: relative; z-index: 1; }
+    .faq-cta h2 { margin-bottom: 16px; }
+    .faq-cta p { margin: 0 auto 32px; max-width: 520px; }
+    .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 0.88rem; background: rgba(244,241,234,0.6); }
+    .footer-inner { max-width: 1220px; margin: 0 auto; padding: 40px 24px 32px; display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; }
+    .footer-brand { font-family: Georgia, serif; font-size: 1.15rem; color: var(--ink); margin-bottom: 10px; }
+    .footer-tagline { font-size: 0.88rem; line-height: 1.6; max-width: 260px; }
+    .footer-col h4 { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.16em; color: var(--accent-dark); margin-bottom: 14px; }
+    .footer-col a { display: block; color: var(--muted); margin-bottom: 9px; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--ink); }
+    .footer-bottom { max-width: 1220px; margin: 0 auto; padding: 18px 24px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 0.84rem; }
+
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: flex; }
+      .section { padding: 72px 24px; }
+      .faq-cta { padding: 40px 28px; border-radius: 28px; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) { h1 { font-size: 2.6rem; } }
+  </style>
+</head>
+<body>
+<div class="site">
+
+  <div class="parent-bar">
+    A <a href="https://www.tbagroup.io">Travis Birch & Associates</a> practice
+  </div>
+
+  <header>
+    <div class="nav-outer" id="navOuter">
+      <div class="nav">
+        <a class="brand-wrap" href="index.html">
+          <span class="brand">Leadership Continuity Lab</span>
+        </a>
+        <nav class="nav-links">
+          <a href="program.html">Program</a>
+          <a href="method.html">Method</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="faq.html" class="active">FAQ</a>
+          <a href="about.html">About</a>
+          <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Start a conversation</a>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="program.html">Program</a>
+      <a href="method.html">Method</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="faq.html">FAQ</a>
+      <a href="about.html">About</a>
+      <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Start a conversation</a>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="page-hero fade-up">
+      <div class="eyebrow">FAQ</div>
+      <h1>Common questions.</h1>
+      <p>Everything you might want to know before starting a conversation.</p>
+    </div>
+
+    <section class="section" style="padding-top:0;">
+      <div class="faq-wrap">
+
+        <!-- THE PROGRAM -->
+        <div class="faq-category fade-up">
+          <div class="faq-category-title">The Program</div>
+          <div class="faq-list">
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                How long does the program take?
+                <i data-lucide="plus" class="faq-icon"></i>
+              </button>
+              <div class="faq-answer">
+                <p>The core program runs over 8 weeks. Sessions are spaced to allow time for real-world application between each one — the work happens in your organization, not just in the room. For most organizations, the time commitment is light: a facilitated session every 1–2 weeks, with practical experiments carried out as part of normal work.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Who should attend?
+                <i data-lucide="plus" class="faq-icon"></i>
+              </button>
+              <div class="faq-answer">
+                <p>The Lab is designed for cohorts of 6–8 leaders — typically a mix of managers and directors who share organizational context. HR leaders and executives sometimes participate or observe. The ideal cohort is a group of people who work in the same system and can test changes together in real time.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Do we need to prepare anything?
+                <i data-lucide="plus" class="faq-icon"></i>
+              </button>
+              <div class="faq-answer">
+                <p>Minimal preparation is needed from participants. Before the program begins, Travis conducts a light diagnostic to understand the organizational context — this typically involves a short conversation with one or two senior leaders. From there, the sessions are designed around what's actually happening in your organization. Participants don't need to read anything or prepare materials in advance.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                How is this different from a workshop or training program?
+                <i data-lucide="plus" class="faq-icon"></i>
+              </button>
+              <div class="faq-answer">
+                <p>A workshop teaches. A training program transfers knowledge. The Lab does neither of those things — it facilitates the work of redesigning how your leadership layer actually operates. The content comes from your leaders' real experience, not from a curriculum. Every session produces something immediately applicable, and the changes get codified into how your organization works — not forgotten after a day offsite.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What if we're not ready for an 8-week commitment?
+                <i data-lucide="plus" class="faq-icon"></i>
+              </button>
+              <div class="faq-answer">
+                <p>Start with a conversation. The first step is always understanding what's actually happening in your organization — there's no commitment required for that. If the Lab isn't the right fit right now, we'll say so. There may be a lighter-touch entry point that makes more sense for where you are.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- COST & COMMITMENT -->
+        <div class="faq-category fade-up">
+          <div class="faq-category-title">Cost & Commitment</div>
+          <div class="faq-list">
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What does it cost?
+                <i data-lucide="plus" class="faq-icon"></i>
+              </button>
+              <div class="faq-answer">
+                <p>The founding cohort rate is $6,000–$10,000 depending on organizational context and scope. This rate reflects the early-stage nature of the Lab and the co-creation role founding partners play. It will not be available after the founding cohort closes.</p>
+                <p>Every engagement starts with a conversation — if there's a fit, we'll discuss what makes sense for your organization.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What does "founding partner" mean?
+                <i data-lucide="plus" class="faq-icon"></i>
+              </button>
+              <div class="faq-answer">
+                <p>Founding partners are the first organizations to go through the Lab. In addition to receiving the full program, they play an active role in shaping how the model evolves — their experience, feedback, and insights directly influence what the Lab becomes for future cohorts. In exchange, they receive the foundational rate, which is significantly below what future cohorts will pay.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Is there a return on investment?
+                <i data-lucide="plus" class="faq-icon"></i>
+              </button>
+              <div class="faq-answer">
+                <p>The cost of a single leadership exit — in recruitment, onboarding, lost institutional knowledge, and team disruption — typically ranges from 50% to 200% of annual salary. The Lab is designed to intervene before that happens. Beyond retention, organizations see improvements in decision-making speed, role clarity, and leadership performance under sustained pressure. The investment is modest relative to the cost of inaction.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- FIT -->
+        <div class="faq-category fade-up">
+          <div class="faq-category-title">Is This Right For Us?</div>
+          <div class="faq-list">
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                How do we know if we're the right fit?
+                <i data-lucide="plus" class="faq-icon"></i>
+              </button>
+              <div class="faq-answer">
+                <p>The Lab is designed for organizations where leadership pressure is already affecting retention, decision-making, or team stability — and where waiting it out is no longer a viable strategy. If you're seeing early signals — slowing decisions, disengaging high performers, increasing workload concerns — that's the moment to act. The first conversation is free and there's no commitment required.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What sectors do you work with?
+                <i data-lucide="plus" class="faq-icon"></i>
+              </button>
+              <div class="faq-answer">
+                <p>Travis has worked across government agencies, financial institutions, telecommunications, not-for-profits, and marketing agencies. The patterns that create leadership burnout show up across sectors — the structural conditions differ, but the underlying dynamic is consistent. If you're not sure whether TBA has relevant experience in your sector, ask.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What size of organization is this designed for?
+                <i data-lucide="plus" class="faq-icon"></i>
+              </button>
+              <div class="faq-answer">
+                <p>The Lab works best in organizations large enough to have a distinct leadership layer — typically 50+ employees with at least one tier of management between senior leadership and front-line teams. It is not designed for solo operators or very early-stage startups. If you're unsure whether your organization fits, a conversation will tell us quickly.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0; padding-bottom:120px;">
+      <div class="faq-cta fade-up">
+        <div class="eyebrow">Still have questions?</div>
+        <h2>Start with a conversation.</h2>
+        <p>Every engagement begins with understanding what's actually happening in your organization. No pitch, no commitment — just a conversation.</p>
+        <div class="cta-buttons">
+          <a class="button" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Book a call</a>
+          <a class="button ghost" href="pricing.html">View pricing</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Leadership Continuity Lab</div>
+        <p class="footer-tagline">Redesigning the conditions that create burnout, pressure, and operational drag.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="program.html">The program</a>
+        <a href="method.html">The method</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="about.html">About Travis</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7">Book a conversation</a>
+        <a href="mailto:travis@leadershipcontinuitylab.com">travis@leadershipcontinuitylab.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Travis Birch & Associates. Leadership Continuity Lab is a TBA practice.</div>
+      <div>Leadership continuity · Organizational redesign · Burnout prevention</div>
+    </div>
+  </footer>
+
+</div>
+<script>
+  lucide.createIcons();
+  const navOuter = document.getElementById('navOuter');
+  window.addEventListener('scroll', () => { navOuter.classList.toggle('scrolled', window.scrollY > 20); });
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+      btn.setAttribute('aria-expanded', !isOpen);
+    });
+  });
+
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

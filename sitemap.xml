@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.tbagroup.io/</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.tbagroup.io/services</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.tbagroup.io/about</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.tbagroup.io/contact</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://transitionlab.ca/</loc><priority>1.0</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://transitionlab.ca/program</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://transitionlab.ca/method</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://transitionlab.ca/pricing</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://transitionlab.ca/about</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
 </urlset>
