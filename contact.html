@@ -44,7 +44,7 @@
     .nav { max-width: 1220px; margin: 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
     .brand-wrap { display: flex; flex-direction: row; align-items: center; gap: 12px; }
     .brand { font-family: Georgia, 'Times New Roman', serif; font-size: 1.25rem; letter-spacing: -0.03em; font-weight: 600; }
-    .brand-sub { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em; padding-left: 14px; border-left: 1px solid var(--line); }
+    .brand-sub { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em; } .brand-sep { width: 1px; height: 16px; background: var(--line); margin: 0 16px; flex: 0 0 auto; }
     .nav-links { display: flex; align-items: center; gap: 26px; color: var(--muted); font-size: 0.92rem; }
     .nav-links a:not(.button):hover { color: var(--ink); transition: color 0.2s; }
     .nav-links a.active { color: var(--ink); font-weight: 600; }
@@ -174,12 +174,20 @@
       .footer-inner { grid-template-columns: 1fr; }
     }
   </style>
+<!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3WSVS5QS21"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3WSVS5QS21');
+  </script>
 </head>
 <body>
 <div class="site">
 
   <div class="parent-bar">
-    Travis Birch & Associates · <a href="https://transitionlab.ca">Leadership Continuity Lab →</a>
+    <a href="https://transitionlab.ca">Leadership Continuity Lab →</a>
   </div>
 
   <header>
@@ -212,13 +220,12 @@
 <line x1="24" y1="24" x2="37.26" y2="15.05" stroke="#162127" stroke-width="0.7"/><circle cx="37.26" cy="15.05" r="2.6" fill="#162127"/>
 <line x1="24" y1="24" x2="33.40" y2="20.58" stroke="#162127" stroke-width="0.7"/><circle cx="33.40" cy="20.58" r="1.4" fill="#162127"/>
 <line x1="24" y1="24" x2="37.92" y2="22.54" stroke="#162127" stroke-width="0.7"/><circle cx="37.92" cy="22.54" r="2.2" fill="#162127"/>
-<circle cx="24" cy="24" r="2" fill="#162127"/></svg><span class="brand">Travis Birch & Associates</span><span class="brand-sub">Management Consulting</span>
+<circle cx="24" cy="24" r="2" fill="#162127"/></svg><span class="brand">Travis Birch & Associates</span><span class="brand-sep"></span><span class="brand-sub">Management Consulting</span>
         </span></a>
         <nav class="nav-links">
           <a href="index.html">Home</a>
           <a href="services.html">Services</a>
           <a href="about.html">About</a>
-          <a href="https://transitionlab.ca">Leadership Continuity Lab ↗</a>
           <a class="button active" href="contact.html">Get in touch</a>
         </nav>
         <button class="hamburger" id="hamburger" aria-label="Open menu">
@@ -258,7 +265,7 @@
           </div>
           <div class="expect-item">
             <i data-lucide="map-pin"></i>
-            <span>Based in Stratford, Ontario — working across Canada</span>
+            <span>Working across Canada</span>
           </div>
         </div>
       </div>
@@ -281,7 +288,7 @@
           </a>
           <div class="contact-detail">
             <i data-lucide="map-pin"></i>
-            <span>Stratford, Ontario, Canada</span>
+            <span></span>
           </div>
 
           <div class="portrait-small">
@@ -305,27 +312,28 @@
       </div>
       <div class="footer-col">
         <h4>Services</h4>
-        <a href="services.html">Consulting</a>
-        <a href="services.html">Assessment</a>
-        <a href="services.html">Engagement Design</a>
-        <a href="services.html">Training</a>
+        <a href="services.html#assessment">Assessment</a>
+        <a href="services.html#consulting">Consulting</a>
+        <a href="services.html#engagement">Engagement Design</a>
+        <a href="services.html#training">Training</a>
+        <a href="services.html#coaching">Coaching</a>
+        <a href="services.html#facilitation">Facilitation</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <a href="about.html">About Travis</a>
         <a href="contact.html">Contact</a>
-        <a href="https://transitionlab.ca">Leadership Continuity Lab ↗</a>
       </div>
       <div class="footer-col">
         <h4>Connect</h4>
         <a href="https://www.linkedin.com/in/travisbirch/">LinkedIn</a>
         <a href="mailto:travis@tbagroup.io">travis@tbagroup.io</a>
-        <p style="margin-top:10px;">Stratford, Ontario, Canada</p>
+        
       </div>
     </div>
     <div class="footer-bottom">
       <div>© 2026 Travis Birch & Associates. Leadership Continuity Lab is a TBA practice.</div>
-      <div>Management consulting · Organizational redesign · Stratford, Ontario</div>
+      <div>Management consulting · Organizational redesign</div>
     </div>
   </footer>
 
