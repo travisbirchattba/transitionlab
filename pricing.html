@@ -172,6 +172,66 @@
     .footer-col a:hover { color: var(--ink); }
     .footer-bottom { max-width: 1220px; margin: 0 auto; padding: 18px 24px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 0.84rem; }
 
+
+    /* TESTIMONIALS */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .testimonial-card {
+      background: rgba(255,253,248,0.82);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      box-shadow: 0 12px 34px rgba(16,27,34,0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .testimonial-card:hover { transform: translateY(-3px); box-shadow: 0 20px 48px rgba(16,27,34,0.09); }
+    .testimonial-quote {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      flex: 1;
+      position: relative;
+      padding-top: 28px;
+    }
+    .testimonial-quote::before {
+      content: "\201C";
+      position: absolute;
+      top: -8px;
+      left: -4px;
+      font-size: 3.5rem;
+      line-height: 1;
+      color: rgba(180,111,67,0.25);
+      font-family: Georgia, serif;
+    }
+    .testimonial-author {
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+    .testimonial-name {
+      font-weight: 700;
+      font-size: 0.94rem;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+    .testimonial-role {
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    @media (max-width: 900px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+    @media (min-width: 901px) and (max-width: 1100px) {
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    }
     .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
@@ -356,6 +416,75 @@
       </div>
     </section>
 
+
+    <!-- TESTIMONIALS -->
+    <section class="section" style="padding-top:0;">
+      <div class="section-header fade-up">
+        <div class="eyebrow">What clients say</div>
+        <h2>Trusted by leaders across industries.</h2>
+        <p>From training and coaching to large-scale organizational transformation — here's what people who have worked with Travis have to say.</p>
+      </div>
+
+      <div class="testimonials-grid fade-up">
+
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"His deep understanding of the topics, clear presentation and excellent support throughout the class made the learning experience enjoyable and has me confident I truly understand 100% of the content. I would recommend him highly as an instructor and as a consultant because of his knowledge, communication skills and his ability to reason things through to solutions that make sense."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-name">Jim Bennett</div>
+            <div class="testimonial-role">Client · Kanban Certification</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"Authenticity and passion is at the core of Travis as a person, qualities that transfer into making him a fantastic Agile Coach. Travis connects with people, understands them and sees their strengths, and is able to bring people to be their best. I could not have asked for a better partner."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-name">Martin Aziz</div>
+            <div class="testimonial-role">Client · Agile Organizational Transformation · Co-founder, SquirrelNorth</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"Travis is an excellent instructor who knows the material well and communicates it in a clear, engaging and entertaining way. It was definitely two days well spent, and I highly recommend taking a course with Travis if you get the chance."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-name">John Healy</div>
+            <div class="testimonial-role">Client · Scaled Agile Framework Training</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"His excellent coaching and facilitation skills and expertise in Scrum and agile program management were demonstrated through his role as the Agile Coach for a high-profile, multi-million program. I would not hesitate to recommend him to any organizations who are about to embark on their agile transformation journey."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-name">Bernice Chow</div>
+            <div class="testimonial-role">Colleague · LoyaltyOne · Product Management & Agile Delivery</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"Travis is professional, knowledgeable, down to earth and extremely compassionate. His servant leadership is one I admire tremendously. I would love the opportunity to work with Travis again in the near future."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-name">Susan Lin</div>
+            <div class="testimonial-role">Client · LoyaltyOne Agile Transformation</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"His insight into Agile Methodologies inspired the team and brought everyone towards a single purpose. A real pleasure to work with and to learn from."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-name">Alex Karasyov</div>
+            <div class="testimonial-role">Colleague · BrainStation Co-founder</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"His ability to draw people in and express his point in a clear and concise way was instrumental in him winning over the respect of those he coached. These characteristics combined with his exceptional strength as an external Agile coach made him a success. I would not hesitate to work with Travis again."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-name">Linton Sanoir</div>
+            <div class="testimonial-role">Colleague · Aimia PL Agile Transformation</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
     <section class="final-cta fade-up">
       <div class="eyebrow">Start here</div>
       <h2>Every engagement starts with a conversation.</h2>
