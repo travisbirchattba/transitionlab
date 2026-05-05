@@ -181,17 +181,18 @@
       align-items: start;
     }
 
-    .portrait-wrap { position: sticky; top: 100px; }
+    .portrait-wrap { float: left; width: 340px; margin: 0 48px 32px 0; background: #e8e6e1; border-radius: 36px; overflow: hidden; box-shadow: 0 26px 70px rgba(16,27,34,0.13); }
     .portrait {
       background: url('Facilitator.jpg') center center/contain no-repeat;
-      background-color: #f0ede6;
-      border: 1px solid var(--line); border-radius: 36px 36px 0 0;
+      background-color: #e8e6e1;
+      border: none; border-radius: 0;
       min-height: 420px;
     }
     .portrait-caption {
-      background: rgba(255,253,248,0.97); border: 1px solid var(--line);
-      border-top: none; border-radius: 0 0 36px 36px;
-      padding: 20px 28px; box-shadow: 0 26px 70px rgba(16,27,34,0.13);
+      background: #e8e6e1;
+      border: none; border-top: 1px solid rgba(0,0,0,0.08);
+      border-radius: 0;
+      padding: 20px 28px;
     }
     .portrait-caption strong {
       display: block; font-family: Georgia, serif;
@@ -450,8 +451,8 @@
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .mobile-menu { display: flex; }
-      .about-hero { grid-template-columns: 1fr; }
-      .portrait { position: static; min-height: 400px; }
+      .about-hero { padding-top: 56px; }
+      .portrait-wrap { float: none; width: 100%; margin: 0 0 32px 0; } .portrait { min-height: 360px; }
       .credentials-grid, .philosophy-grid { grid-template-columns: 1fr; }
       .section { padding: 72px 24px; }
       .dark-quote { padding: 40px; border-radius: 28px; }
