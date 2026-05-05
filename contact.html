@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Travis Birch & Associates</title>
+  <meta name="description" content="Start a conversation with Travis Birch. Every engagement begins with understanding what's actually happening in your organization." />
+  <meta property="og:site_name" content="Travis Birch &amp; Associates" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Contact | Travis Birch &amp; Associates" />
+  <meta property="og:description" content="Start a conversation with Travis Birch. Every engagement begins with understanding what's actually happening in your organization." />
+  <meta property="og:url" content="https://www.tbagroup.io/contact" />
+  <meta property="og:image" content="https://www.tbagroup.io/og-banner.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --bg: #f4f1ea; --ink: #162127; --muted: #607077; --card: #fffdf8;
+      --line: #d9d2c7; --accent: #b46f43; --accent-dark: #79452c;
+      --deep: #101b22; --deep-2: #1d2e35; --sage: #8fa99b; --clay: #c79a73;
+      --shadow: rgba(16,27,34,0.14);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background:
+        radial-gradient(circle at 12% 8%, rgba(143,169,155,0.18), transparent 30%),
+        radial-gradient(circle at 88% 4%, rgba(180,111,67,0.12), transparent 32%),
+        var(--bg);
+      color: var(--ink); font-family: Arial, sans-serif; line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .site { overflow: hidden; }
+
+    .parent-bar { background: var(--deep); color: rgba(255,255,255,0.6); font-size: 0.78rem; padding: 8px 24px; text-align: center; letter-spacing: 0.06em; }
+    .parent-bar a { color: var(--clay); transition: color 0.2s; }
+    .parent-bar a:hover { color: #fff; }
+
+    .nav-outer { position: sticky; top: 0; z-index: 100; background: rgba(244,241,234,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); transition: box-shadow 0.3s ease; }
+    .nav-outer.scrolled { box-shadow: 0 4px 24px rgba(16,27,34,0.08); }
+    .nav { max-width: 1220px; margin: 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .brand-wrap { display: flex; flex-direction: row; align-items: center; gap: 12px; }
+    .brand { font-family: Georgia, 'Times New Roman', serif; font-size: 1.25rem; letter-spacing: -0.03em; font-weight: 600; }
+    .brand-sub { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em; padding-left: 14px; border-left: 1px solid var(--line); }
+    .nav-links { display: flex; align-items: center; gap: 26px; color: var(--muted); font-size: 0.92rem; }
+    .nav-links a:not(.button):hover { color: var(--ink); transition: color 0.2s; }
+    .nav-links a.active { color: var(--ink); font-weight: 600; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; border: none; background: none; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; transition: 0.3s ease; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; flex-direction: column; border-top: 1px solid var(--line); padding: 0 24px; background: rgba(244,241,234,0.97); backdrop-filter: blur(14px); max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
+    .mobile-menu.open { max-height: 380px; padding: 16px 24px 24px; }
+    .mobile-menu a { padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 1rem; }
+    .mobile-menu a:last-child { border-bottom: none; padding-top: 16px; }
+
+    .button { display: inline-flex; align-items: center; justify-content: center; background: var(--accent); color: #fff; padding: 13px 22px; border-radius: 999px; font-weight: 700; font-size: 0.92rem; line-height: 1; transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; box-shadow: 0 12px 28px rgba(121,69,44,0.22); letter-spacing: 0.01em; }
+    .button:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 18px 36px rgba(121,69,44,0.28); }
+    .button.ghost { background: transparent; color: var(--accent-dark); border: 1.5px solid var(--accent); box-shadow: none; padding: 12px 22px; }
+    .button.ghost:hover { background: rgba(180,111,67,0.08); transform: translateY(-1px); }
+    .button.large { padding: 18px 34px; font-size: 1.05rem; }
+
+    .eyebrow { color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.72rem; font-weight: 800; margin-bottom: 18px; }
+    h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; font-weight: 500; letter-spacing: -0.036em; color: var(--ink); }
+    h1 { font-size: clamp(2.8rem, 5.4vw, 5.2rem); line-height: 1.02; margin-bottom: 28px; }
+    h2 { font-size: clamp(1.9rem, 3.5vw, 3.4rem); line-height: 1.08; margin-bottom: 20px; }
+    h3 { font-size: 1.3rem; line-height: 1.2; margin-bottom: 10px; }
+    p { color: var(--muted); font-size: 1.04rem; max-width: 730px; }
+    p + p { margin-top: 18px; }
+
+    /* CONTACT LAYOUT */
+    .contact-wrap {
+      max-width: 1220px; margin: 0 auto;
+      padding: 88px 24px 120px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-left {}
+    .contact-left h1 { max-width: 560px; }
+    .contact-left p { font-size: 1.14rem; max-width: 520px; }
+
+    .what-to-expect { margin-top: 40px; display: grid; gap: 14px; }
+    .expect-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 18px 20px;
+      background: rgba(255,253,248,0.82); border: 1px solid var(--line);
+      border-radius: 18px;
+    }
+    .expect-item i { color: var(--accent-dark); flex: 0 0 auto; width: 20px; height: 20px; stroke-width: 1.8; margin-top: 2px; }
+    .expect-item span { color: var(--muted); font-size: 0.97rem; line-height: 1.5; }
+
+    .contact-right {}
+
+    .booking-card {
+      background: var(--deep); border-radius: 36px; padding: 52px;
+      position: relative; overflow: hidden;
+      box-shadow: 0 34px 90px rgba(16,27,34,0.2);
+    }
+    .booking-card::before {
+      content: ''; position: absolute;
+      width: 280px; height: 280px; border-radius: 50%;
+      right: -80px; top: -80px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: inset 0 0 0 42px rgba(180,111,67,0.14);
+    }
+    .booking-card > * { position: relative; z-index: 1; }
+    .booking-card .eyebrow { color: var(--clay); }
+    .booking-card h2 { color: #fff; font-size: clamp(1.6rem,2.8vw,2.6rem); margin-bottom: 14px; }
+    .booking-card p { color: rgba(255,255,255,0.72); max-width: none; margin-bottom: 32px; }
+
+    .divider-or {
+      display: flex; align-items: center; gap: 16px;
+      margin: 32px 0; color: rgba(255,255,255,0.3); font-size: 0.85rem;
+    }
+    .divider-or::before, .divider-or::after {
+      content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.12);
+    }
+
+    .contact-detail {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px; margin-bottom: 12px;
+      transition: background 0.2s;
+    }
+    .contact-detail:hover { background: rgba(255,255,255,0.12); }
+    .contact-detail i { color: var(--clay); flex: 0 0 auto; width: 18px; height: 18px; stroke-width: 1.8; }
+    .contact-detail span { color: rgba(255,255,255,0.8); font-size: 0.97rem; }
+    .contact-detail a { color: rgba(255,255,255,0.8); }
+    .contact-detail a:hover { color: #fff; }
+
+    .portrait-small {
+      margin-top: 36px; display: flex; align-items: center; gap: 18px;
+      padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .portrait-thumb {
+      width: 64px; height: 64px; border-radius: 50%; flex: 0 0 auto;
+      background: url('Facilitator.jpg') center top/cover;
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+    .portrait-info strong { display: block; color: #fff; font-size: 1rem; margin-bottom: 2px; }
+    .portrait-info span { color: rgba(255,255,255,0.56); font-size: 0.86rem; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 0.88rem; background: rgba(244,241,234,0.6); }
+    .footer-inner { max-width: 1220px; margin: 0 auto; padding: 40px 24px 32px; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; }
+    .footer-brand { font-family: Georgia, serif; font-size: 1.15rem; color: var(--ink); margin-bottom: 10px; }
+    .footer-tagline { font-size: 0.88rem; line-height: 1.6; max-width: 240px; }
+    .footer-col h4 { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.16em; color: var(--accent-dark); margin-bottom: 14px; }
+    .footer-col a { display: block; color: var(--muted); margin-bottom: 9px; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--ink); }
+    .footer-bottom { max-width: 1220px; margin: 0 auto; padding: 18px 24px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 0.84rem; }
+
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .mobile-menu { display: flex; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 48px; padding-top: 56px; }
+      .booking-card { padding: 36px 28px; border-radius: 28px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      h1 { font-size: 2.6rem; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="site">
+
+  <div class="parent-bar">
+    Travis Birch & Associates · <a href="https://transitionlab.ca">Leadership Continuity Lab →</a>
+  </div>
+
+  <header>
+    <div class="nav-outer" id="navOuter">
+      <div class="nav">
+        <a class="brand-wrap" href="index.html" ><svg width="40" height="40" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex:0 0 auto;"><line x1="24" y1="24" x2="38.00" y2="24.00" stroke="#162127" stroke-width="0.7"/><circle cx="38.00" cy="24.00" r="2.2" fill="#162127"/>
+<line x1="24" y1="24" x2="33.78" y2="26.08" stroke="#162127" stroke-width="0.7"/><circle cx="33.78" cy="26.08" r="1.4" fill="#162127"/>
+<line x1="24" y1="24" x2="38.62" y2="30.51" stroke="#162127" stroke-width="0.7"/><circle cx="38.62" cy="30.51" r="2.6" fill="#162127"/>
+<line x1="24" y1="24" x2="32.90" y2="30.47" stroke="#162127" stroke-width="0.7"/><circle cx="32.90" cy="30.47" r="1.6" fill="#162127"/>
+<line x1="24" y1="24" x2="33.00" y2="34.72" stroke="#162127" stroke-width="0.7"/><circle cx="33.00" cy="34.72" r="2.0" fill="#162127"/>
+<line x1="24" y1="24" x2="28.38" y2="32.99" stroke="#162127" stroke-width="0.7"/><circle cx="28.38" cy="32.99" r="1.4" fill="#162127"/>
+<line x1="24" y1="24" x2="27.12" y2="38.67" stroke="#162127" stroke-width="0.7"/><circle cx="27.12" cy="38.67" r="2.4" fill="#162127"/>
+<line x1="24" y1="24" x2="24.00" y2="36.00" stroke="#162127" stroke-width="0.7"/><circle cx="24.00" cy="36.00" r="1.8" fill="#162127"/>
+<line x1="24" y1="24" x2="20.13" y2="39.52" stroke="#162127" stroke-width="0.7"/><circle cx="20.13" cy="39.52" r="2.6" fill="#162127"/>
+<line x1="24" y1="24" x2="19.31" y2="32.83" stroke="#162127" stroke-width="0.7"/><circle cx="19.31" cy="32.83" r="1.4" fill="#162127"/>
+<line x1="24" y1="24" x2="15.00" y2="34.72" stroke="#162127" stroke-width="0.7"/><circle cx="15.00" cy="34.72" r="2.2" fill="#162127"/>
+<line x1="24" y1="24" x2="15.10" y2="30.47" stroke="#162127" stroke-width="0.7"/><circle cx="15.10" cy="30.47" r="1.6" fill="#162127"/>
+<line x1="24" y1="24" x2="10.09" y2="29.62" stroke="#162127" stroke-width="0.7"/><circle cx="10.09" cy="29.62" r="2.4" fill="#162127"/>
+<line x1="24" y1="24" x2="14.10" y2="25.39" stroke="#162127" stroke-width="0.7"/><circle cx="14.10" cy="25.39" r="1.4" fill="#162127"/>
+<line x1="24" y1="24" x2="8.09" y2="22.33" stroke="#162127" stroke-width="0.7"/><circle cx="8.09" cy="22.33" r="2.6" fill="#162127"/>
+<line x1="24" y1="24" x2="12.72" y2="19.90" stroke="#162127" stroke-width="0.7"/><circle cx="12.72" cy="19.90" r="1.8" fill="#162127"/>
+<line x1="24" y1="24" x2="12.39" y2="16.17" stroke="#162127" stroke-width="0.7"/><circle cx="12.39" cy="16.17" r="2.2" fill="#162127"/>
+<line x1="24" y1="24" x2="17.31" y2="16.57" stroke="#162127" stroke-width="0.7"/><circle cx="17.31" cy="16.57" r="1.4" fill="#162127"/>
+<line x1="24" y1="24" x2="16.49" y2="9.87" stroke="#162127" stroke-width="0.7"/><circle cx="16.49" cy="9.87" r="2.6" fill="#162127"/>
+<line x1="24" y1="24" x2="21.34" y2="13.33" stroke="#162127" stroke-width="0.7"/><circle cx="21.34" cy="13.33" r="1.6" fill="#162127"/>
+<line x1="24" y1="24" x2="24.00" y2="9.00" stroke="#162127" stroke-width="0.7"/><circle cx="24.00" cy="9.00" r="2.4" fill="#162127"/>
+<line x1="24" y1="24" x2="26.42" y2="14.30" stroke="#162127" stroke-width="0.7"/><circle cx="26.42" cy="14.30" r="1.4" fill="#162127"/>
+<line x1="24" y1="24" x2="30.57" y2="11.64" stroke="#162127" stroke-width="0.7"/><circle cx="30.57" cy="11.64" r="2.2" fill="#162127"/>
+<line x1="24" y1="24" x2="32.03" y2="15.08" stroke="#162127" stroke-width="0.7"/><circle cx="32.03" cy="15.08" r="1.8" fill="#162127"/>
+<line x1="24" y1="24" x2="37.26" y2="15.05" stroke="#162127" stroke-width="0.7"/><circle cx="37.26" cy="15.05" r="2.6" fill="#162127"/>
+<line x1="24" y1="24" x2="33.40" y2="20.58" stroke="#162127" stroke-width="0.7"/><circle cx="33.40" cy="20.58" r="1.4" fill="#162127"/>
+<line x1="24" y1="24" x2="37.92" y2="22.54" stroke="#162127" stroke-width="0.7"/><circle cx="37.92" cy="22.54" r="2.2" fill="#162127"/>
+<circle cx="24" cy="24" r="2" fill="#162127"/></svg><span class="brand">Travis Birch & Associates</span><span class="brand-sub">Management Consulting</span>
+        </span></a>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="about.html">About</a>
+          <a href="https://transitionlab.ca">Leadership Continuity Lab ↗</a>
+          <a class="button active" href="contact.html">Get in touch</a>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="https://transitionlab.ca">Leadership Continuity Lab ↗</a>
+      <a class="button" href="contact.html">Get in touch</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="contact-wrap">
+
+      <div class="contact-left fade-up">
+        <div class="eyebrow">Get in touch</div>
+        <h1>Every engagement starts with a conversation.</h1>
+        <p>No pitch. No commitment. A conversation about what's actually happening in your organization — and whether TBA is the right fit to help.</p>
+
+        <div class="what-to-expect">
+          <div class="expect-item">
+            <i data-lucide="message-circle"></i>
+            <span>We'll talk about what's actually happening — not what you think you need</span>
+          </div>
+          <div class="expect-item">
+            <i data-lucide="clock"></i>
+            <span>30 minutes is usually enough to know if there's a fit</span>
+          </div>
+          <div class="expect-item">
+            <i data-lucide="shield"></i>
+            <span>No obligation — if TBA isn't the right fit, we'll say so</span>
+          </div>
+          <div class="expect-item">
+            <i data-lucide="map-pin"></i>
+            <span>Based in Stratford, Ontario — working across Canada</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-right fade-up" style="transition-delay:0.15s;">
+        <div class="booking-card">
+          <div class="eyebrow">Book a call</div>
+          <h2>Pick a time that works for you.</h2>
+          <p>Book directly into Travis's calendar. No back-and-forth required.</p>
+          <a class="button large" href="https://calendar.app.google/msZ3LNy6amMZ7Ljw7" style="background:#fff; color:var(--ink); box-shadow: 0 12px 28px rgba(16,27,34,0.2);">Book a conversation</a>
+
+          <div class="divider-or">or reach out directly</div>
+
+          <a class="contact-detail" href="mailto:travis@tbagroup.io">
+            <i data-lucide="mail"></i>
+            <span>travis@tbagroup.io</span></a>
+          <a class="contact-detail" href="https://www.linkedin.com/in/travisbirch/">
+            <i data-lucide="linkedin"></i>
+            <span>linkedin.com/in/travisbirch</span>
+          </a>
+          <div class="contact-detail">
+            <i data-lucide="map-pin"></i>
+            <span>Stratford, Ontario, Canada</span>
+          </div>
+
+          <div class="portrait-small">
+            <div class="portrait-thumb"></div>
+            <div class="portrait-info">
+              <strong>Travis Birch</strong>
+              <span>Founder & Principal · Travis Birch & Associates</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Travis Birch & Associates</div>
+        <p class="footer-tagline">Helping organizations fix the structural conditions behind delivery drag, leadership pressure, and burnout.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="services.html">Consulting</a>
+        <a href="services.html">Assessment</a>
+        <a href="services.html">Engagement Design</a>
+        <a href="services.html">Training</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About Travis</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://transitionlab.ca">Leadership Continuity Lab ↗</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="https://www.linkedin.com/in/travisbirch/">LinkedIn</a>
+        <a href="mailto:travis@tbagroup.io">travis@tbagroup.io</a>
+        <p style="margin-top:10px;">Stratford, Ontario, Canada</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Travis Birch & Associates. Leadership Continuity Lab is a TBA practice.</div>
+      <div>Management consulting · Organizational redesign · Stratford, Ontario</div>
+    </div>
+  </footer>
+
+</div>
+<script>
+  lucide.createIcons();
+  const navOuter = document.getElementById('navOuter');
+  window.addEventListener('scroll', () => { navOuter.classList.toggle('scrolled', window.scrollY > 20); });
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }));
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }); }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
