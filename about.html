@@ -451,8 +451,8 @@
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .mobile-menu { display: flex; }
-      .about-hero { padding-top: 56px; }
-      .portrait-wrap { float: none; width: 100%; margin: 0 0 32px 0; } .portrait { min-height: 360px; }
+      .about-hero { padding-top: 56px; } .portrait-float { float: none; width: 100%; margin: 0 0 32px 0; }
+      
       .credentials-grid, .philosophy-grid { grid-template-columns: 1fr; }
       .section { padding: 72px 24px; }
       .dark-quote { padding: 40px; border-radius: 28px; }
@@ -501,8 +501,12 @@
 
       <!-- ── HERO ── -->
       <div class="about-hero">
-        <div class="about-content" style="overflow:hidden;">
-      <img src="Facilitator.jpg" alt="Travis Birch" style="float:left; width:320px; border-radius:28px; margin:0 48px 32px 0; display:block; box-shadow: 0 26px 70px rgba(16,27,34,0.13);" />
+        <div class="portrait-col">
+        <div class="portrait-wrap">
+          <img src="Facilitator.jpg" alt="Travis Birch" style="width:100%; display:block; border-radius:36px; box-shadow: 0 26px 70px rgba(16,27,34,0.13);" />
+        </div>
+      </div>
+      <div class="about-content">
 
           <!-- INTRO -->
           <div class="content-block fade-up">
