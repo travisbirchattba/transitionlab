@@ -49,7 +49,8 @@
     .nav { max-width: 1220px; margin: 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
     .brand-wrap { display: flex; flex-direction: column; gap: 2px; }
     .brand { font-family: Georgia, 'Times New Roman', serif; font-size: 1.3rem; letter-spacing: -0.03em; font-weight: 600; }
-    .brand-sub { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.04em; }
+    .brand-sub { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.04em; margin-left: 20px; position: relative; }
+    .brand-sub::before { content: ""; position: absolute; left: -12px; top: 50%; transform: translateY(-50%); height: 12px; width: 1px; background: var(--line); }
     .nav-links { display: flex; align-items: center; gap: 26px; color: var(--muted); font-size: 0.92rem; }
     .nav-links a:not(.button):hover { color: var(--ink); transition: color 0.2s; }
     .nav-links a.active { color: var(--ink); font-weight: 600; }

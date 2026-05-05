@@ -799,7 +799,8 @@
     .parent-bar a { color: var(--clay); transition: color 0.2s; }
     .parent-bar a:hover { color: #fff; }
     .brand-wrap { display: flex; flex-direction: column; gap: 2px; }
-    .brand-sub { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.04em; }
+    .brand-sub { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.04em; margin-left: 20px; position: relative; }
+    .brand-sub::before { content: ""; position: absolute; left: -12px; top: 50%; transform: translateY(-50%); height: 12px; width: 1px; background: var(--line); }
   </style>
 </head>
 
@@ -844,7 +845,7 @@
 <line x1="24" y1="24" x2="37.92" y2="22.54" stroke="#162127" stroke-width="0.7"/><circle cx="37.92" cy="22.54" r="2.2" fill="#162127"/>
 <circle cx="24" cy="24" r="2" fill="#162127"/></svg><span>
             <span class="brand">Leadership Continuity Lab</span>
-            <span class="brand-sub">A Travis Birch & Associates practice</span>
+            <span class="brand-sub">A Travis Birch & Associates practice</span></span>
           </a>
           <nav class="nav-links">
             

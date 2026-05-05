@@ -32,7 +32,8 @@
     .nav { max-width: 1220px; margin: 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); }
     .brand-wrap { display: flex; flex-direction: column; gap: 2px; }
     .brand { font-family: Georgia, 'Times New Roman', serif; font-size: 1.3rem; letter-spacing: -0.03em; font-weight: 600; }
-    .brand-sub { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.04em; }
+    .brand-sub { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.04em; margin-left: 20px; position: relative; }
+    .brand-sub::before { content: ""; position: absolute; left: -12px; top: 50%; transform: translateY(-50%); height: 12px; width: 1px; background: var(--line); }
     .button { display: inline-flex; align-items: center; justify-content: center; background: var(--accent); color: #fff; padding: 13px 22px; border-radius: 999px; font-weight: 700; font-size: 0.92rem; line-height: 1; transition: background 0.2s ease, transform 0.2s ease; box-shadow: 0 12px 28px rgba(121,69,44,0.22); }
     .button:hover { background: var(--accent-dark); transform: translateY(-2px); }
     .button.ghost { background: transparent; color: var(--accent-dark); border: 1.5px solid var(--accent); box-shadow: none; padding: 12px 22px; }
