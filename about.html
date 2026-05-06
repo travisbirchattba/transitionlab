@@ -204,6 +204,11 @@
 
     /* ── CONTENT BLOCKS ── */
     .about-content { gap: 64px; }
+.content-block:first-child::after {
+  content: '';
+  display: table;
+  clear: both;
+}
     .content-block {}
     .content-block .lead {
       font-size: 1.22rem;
