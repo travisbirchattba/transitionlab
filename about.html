@@ -203,8 +203,7 @@
     }
 
     /* ── CONTENT BLOCKS ── */
-    .about-content { gap: 64px; }
-.content-block:first-child::after {
+.about-content { display: flex; flex-direction: column; gap: 64px; }.content-block:first-child::after {
   content: '';
   display: table;
   clear: both;
@@ -526,11 +525,11 @@
 
       <!-- ── HERO ── -->
       <div class="about-hero">
-      <div class="about-content">
-        <img src="Facilitator.jpg" alt="Travis Birch" class="portrait-float" style="border-radius:36px; box-shadow: 0 26px 70px rgba(16,27,34,0.13);" />
+     <div class="about-content">
 
           <!-- INTRO -->
-          <div class="content-block fade-up">
+          <div class="content-block fade-up" style="overflow: hidden;">
+            <img src="Facilitator.jpg" alt="Travis Birch" class="portrait-float" style="border-radius:36px; box-shadow: 0 26px 70px rgba(16,27,34,0.13);" />
             <div class="eyebrow">About Travis</div>
             <h1>The system is the problem. The people are the solution.</h1>
             <p class="lead">Most organizations don't have a people problem. They have a flow problem — and that flow problem, left unaddressed, becomes a leadership problem.</p>
